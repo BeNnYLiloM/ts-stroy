@@ -1,0 +1,51 @@
+@import "variables"
+
+*::-webkit-input-placeholder
+    color: #666
+    opacity: 1
+
+*:-moz-placeholder
+    color: #666
+    opacity: 1
+
+*::-moz-placeholder
+    color: #666
+    opacity: 1
+
+*:-ms-input-placeholder
+    color: #666
+    opacity: 1
+
+*
+    box-sizing: border-box
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+    color: #666
+body input:required:valid,
+body textarea:required:valid
+    color: #666
+
+html, body
+    height: 100%
+
+body
+    font-size: 16px
+    min-width: 320px
+    position: relative
+    line-height: 1.75
+    font-family: $baseFont
+    font-weight: 400
+    overflow-x: hidden
+
+img
+    max-width: 100%
+    height: auto
+
+.main-wrapper
+    position: relative
+    min-height: 100%
+
+.container
+    width: $screenLG
+    margin: 0 auto

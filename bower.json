@@ -1,0 +1,25 @@
+{
+  "name": "start-pug-sass-svg-sprite",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Ismailov Roman"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dev/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "slick-carousel": "^1.7.1",
+    "normalize-css": "^7.0.0",
+    "svg4everybody": "^2.1.9",
+    "magnific-popup": "^1.1.0"
+  }
+}
