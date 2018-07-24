@@ -1,0 +1,180 @@
+.menu
+    transform: translateX(390px)
+    position: absolute
+    top: 0
+    right: 0
+    transition: .2s ease-out
+    z-index: 51
+
+    &._open
+        transform: translateX(0)
+
+        .menu
+            &__btn
+                span
+                    &:nth-child(1),
+                    &:nth-child(3)
+                        &::before,
+                        &::after
+                            opacity: 0
+
+            &__cross
+                width: calc(100% + 9px)
+
+                &--left
+                    transition-delay: .3s
+
+                &--right
+                    transition-delay: .4s
+
+
+    &__content
+        min-height: 100vh
+        background: $cRed
+        width: 390px
+        padding: 90px 80px 60px
+        overflow-y: auto
+
+    &__btn
+        width: 23px
+        height: 23px
+        cursor: pointer
+        margin: 93px 80px 0 0
+        position: relative
+
+        &:hover
+            span
+                &:nth-child(2)
+                    background: lighten($cRed, 5%)
+
+                    &::before,
+                    &::after
+                        background: $cRedDark
+
+                &:nth-child(1),
+                &:nth-child(3)
+                    background: $cRedDark
+
+                    &::before,
+                    &::after
+                        background: lighten($cRed, 5%)
+
+        span
+            display: block
+            width: 3px
+            height: 3px
+            background: $cRed
+            position: relative
+            margin: 0 auto 7px
+            transition: .2s ease-out
+
+            &::before,
+            &::after
+                content: ""
+                background: $cRed
+                width: 100%
+                height: 100%
+                position: absolute
+                top: 0
+                transition: .2s ease-out
+
+            &::before
+                left: -10px
+
+            &::after
+                right: -10px
+
+            &:last-child
+                margin-bottom: 0
+
+    &__cross
+        position: absolute
+        top: -1px
+        transition: width .2s ease-out
+        background: $cRed
+        height: 3px
+        width: 0
+
+        &--left
+            left: 1px
+            transform: rotate(45deg)
+            transform-origin: top left
+            transition-delay: 0s
+
+        &--right
+            right: 1px
+            transform: rotate(-45deg)
+            transform-origin: top right
+            transition-delay: 0s
+
+    &__contacts
+        margin-top: 90px
+
+        &__item
+            color: $cWhite
+            margin-bottom: 24px
+            font-weight: 500
+            font-size: 14px
+            line-height: 1.75
+
+        &__icon
+            width: 15px
+            margin-right: 9px
+            text-align: center
+
+        a
+            color: $cWhite
+            text-decoration: none
+
+            &:hover
+                text-decoration: underline
+
+    &__bottom
+        margin-top: 50px
+
+        &__item
+            color: $cWhite
+            font-size: 14px
+            line-height: 1.25
+            letter-spacing: .56px
+
+    &__copyright
+        font-size: 14px
+        color: $cWhite
+        opacity: .5
+        line-height: 1.25
+        letter-spacing: .56px
+        margin-top: 45px
+        margin-bottom: 50px
+
+    &__social-links
+        &__item
+            position: relative
+            margin-right: 31px
+
+            &:last-child
+                margin-right: 0
+
+                &::after
+                    display: none
+
+            &::after
+                content: ""
+                background: $cWhite
+                opacity: .4
+                position: absolute
+                top: 9px
+                right: -15px
+                height: 11px
+                width: 1px
+
+            a
+                color: $cWhite
+                opacity: .4
+                transition: .2s ease-out
+
+                &:hover
+                    opacity: 1
+
+    .callback-btn
+        margin-bottom: 70px

@@ -1,0 +1,31 @@
+.nav
+    display: flex
+    flex-direction: column
+    font-family: $fPN
+    font-weight: 700
+
+    &__item
+        margin-bottom: 25px
+        color: $cWhite
+        text-transform: uppercase
+        letter-spacing: 1.28px
+
+    a
+        color: $cWhite
+        text-decoration: none
+        position: relative
+
+        &:hover
+            &::before
+                width: calc(100% + 11px)
+
+        &::before
+            content: ""
+            background: $cWhite
+            width: 0
+            height: 1px
+            position: absolute
+            top: 50%
+            margin-top: -1px
+            left: -5px
+            transition: .4s ease-out
