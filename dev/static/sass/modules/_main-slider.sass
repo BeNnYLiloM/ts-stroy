@@ -1,0 +1,120 @@
+.main-slider
+    display: flex
+    min-height: 1080px
+    width: 100%
+    position: relative
+
+    &__item
+        position: relative
+        min-height: 1080px
+        display: flex
+        transition: .2s ease-out
+        width: 177px
+        cursor: pointer
+
+        &._active
+            align-items: center
+            width: 100%
+            cursor: initial
+
+            .main-slider__item
+                &__number
+                    opacity: 1
+
+                    &::after
+                        opacity: .2
+
+                &__title
+                    transform: rotate(0)
+                    font-size: 80px
+                    line-height: 70px
+                    letter-spacing: 6.4px
+
+                &__sub-title
+                    visibility: visible
+                    opacity: 1
+                    transform: translateY(0)
+
+                &__text
+                    visibility: visible
+                    opacity: 1
+                    transform: translateY(0)
+
+        &__video-bg
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+
+        &__bg
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            opacity: .3
+
+        &__content
+            position: relative
+            z-index: 5
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            max-width: 980px
+            width: 100%
+            margin: 0 auto
+            padding: 0 30px
+
+        &__number
+            font-family: $fPN
+            font-size: 45px
+            opacity: .2
+            font-weight: 300
+            position: relative
+            color: $cWhite
+            transition: .2s ease-out
+
+            &::after
+                content: ""
+                background: $cWhite
+                //opacity: .2
+                position: absolute
+                width: 43px
+                height: 3px
+                bottom: 4px
+                left: 50%
+                margin-left: -22px
+
+        &__title
+            font-family: $fPN
+            font-weight: 700
+            text-transform: uppercase
+            transform-origin: top left
+            transform: rotate(90deg)
+            transition: .2s ease-out
+            letter-spacing: 1.28px
+
+        &__sub-title
+            font-family: $fPN
+            font-size: 30px
+            text-transform: uppercase
+            letter-spacing: 2.4px
+            color: $cWhite
+            transform: translateY(20px)
+            transition: .2s ease-out
+            opacity: 0
+            visibility: hidden
+
+        &__text
+            color: $cWhite
+            transform: translateY(20px)
+            opacity: 0
+            visibility: hidden
+            transition: .2s ease-out
+            max-width: 666px
+
+            big
+                font-size: 20px
+
+        &__btn

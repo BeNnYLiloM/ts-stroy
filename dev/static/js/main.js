@@ -8,18 +8,27 @@ $(document).ready(function () {
         if ($menu.hasClass('_open')) {
             $menu.removeClass('_open');
             $body.removeClass('_open-menu');
-            $overlay.removeClass('_show');
         } else {
             $menu.addClass('_open');
             $body.addClass('_open-menu');
-            $overlay.addClass('_show');
         }
+    });
+
+    $('.main-header__overlay').click(function () {
+        $menu.removeClass('_open');
+        $body.removeClass('_open-menu');
     });
 
     $overlay.click(function () {
         $overlay.removeClass('_show');
-        $menu.removeClass('_open');
-        $body.removeClass('_open-menu');
+    });
+
+    $('.main-slider__item__title').each(function () {
+        var numbColor = $(this).attr('data-color');
+
+        $(this).css({
+            'color': numbColor
+        });
     });
 
 });
