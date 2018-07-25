@@ -1,0 +1,111 @@
+.about
+    &__wrap
+
+    &__column
+        width: 48%
+
+        &:nth-child(2)
+            width: 50.85%
+            padding-top: 10px
+
+        p
+            font-size: 20px
+            color: $cWhite
+            letter-spacing: .8px
+            line-height: 1.5
+            margin: 30px 0
+
+    &__btn-wrap
+        margin-top: 60px
+
+    &__item
+        display: flex
+        border-radius: 6px
+        overflow: hidden
+        background: $cRed
+        margin-bottom: 20px
+        height: 208px
+
+        &:last-child
+            margin-bottom: 0
+
+        &__numbers
+            position: relative
+            width: 300px
+            height: 100%
+            background: $cDark
+            overflow: hidden
+
+            &-wrap
+                display: flex
+                justify-content: center
+                align-items: center
+                height: 100%
+                width: 100%
+                position: relative
+                z-index: 3
+
+            &-left,
+            &-right
+                font-family: $fPN
+                font-size: 45px
+                font-weight: 300
+                color: $cWhite
+                opacity: .2
+                letter-spacing: 3.6px
+                position: relative
+
+            &-left
+
+            &-right
+                display: flex
+                justify-content: flex-end
+
+            &-big
+                font-family: $fPN
+                font-weight: 900
+                color: $cWhite
+                font-size: 80px
+                letter-spacing: 6.4px
+                line-height: 70px
+                width: 180px
+                flex-basis: 180px
+                text-align: center
+                margin: 0 30px
+                position: relative
+
+                &::before,
+                &::after
+                    content: ""
+                    background: $cWhite
+                    opacity: .15
+                    position: absolute
+                    width: 1px
+                    height: 94px
+                    top: -12px
+
+                &::before
+                    left: -19px
+
+                &::after
+                    right: -15px
+
+        &__bg
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            opacity: .15
+
+        &__text
+            display: flex
+            height: 100%
+            width: calc(100% - 300px)
+            align-items: center
+            font-family: $fPN
+            font-weight: 700
+            line-height: 1.3
+            text-transform: uppercase
+            color: $cWhite
+            padding: 0 75px 0 79px

@@ -3,13 +3,16 @@
 .main-slider
     .main-slider__item._active
         .main-slider__item__video-bg
-            .main-slider__item__bg(style="background: url('static/img/content/main-slider-img-1.jpg') no-repeat center top / cover")
+            .main-slider__item__bg(style="background: url('static/img/content/main-slider-img-1.jpg') no-repeat center top")
             .main-slider__item__video
 
         .main-slider__item__content
-            .main-slider__item__number 01
+            .main-slider__item__number
+                span 01
 
             .main-slider__item__title(data-color='#f25b41') Ремонт
+
+            .main-slider__item__title-big(data-color='#f25b41') Ремонт
 
             .main-slider__item__sub-title
                 | в Москве и Московской области
@@ -20,20 +23,30 @@
                     br
                     | предпроектная документация, дизайн-проект, разводка инженерных коммуникаций, звукоизоляция, черновые работы и финишная отделка.
 
-            button.main-slider__btn.main-slider__btn.default-btn.default-btn--orange
-                .main-slider__btn__text Консультация специалиста
-                .main-slider__btn__icon
-                    +icon('btn-arrow')
+            .main-slider__item__btn
+                button.default-btn.default-btn--orange
+                    .default-btn__icon.default-btn__icon--left
+                        +icon('btn-arrow')
+                    .default-btn__text Консультация специалиста
+                    .default-btn__icon.default-btn__icon--right
+                        +icon('btn-arrow')
 
             .main-slider__item__see
                 span Просмотреть
                 i(class="fa fa-eye" aria-hidden="true")
 
     .main-slider__item
+        .main-slider__item__video-bg
+            .main-slider__item__bg(style="background: url('static/img/content/main-slider-img-2.jpg') no-repeat center top")
+            .main-slider__item__video
+
         .main-slider__item__content
-            .main-slider__item__number 02
+            .main-slider__item__number
+                span 02
 
             .main-slider__item__title(data-color='#0fbd5d') Проектирование
+
+            .main-slider__item__title-big(data-color='#0fbd5d') Проектирование
 
             .main-slider__item__sub-title
                 | в Москве и Московской области
@@ -44,20 +57,30 @@
                     br
                     | Accusantium corporis deserunt doloribus dolorum maiores nam necessitatibus quas, rem sed tenetur!
 
-            button.main-slider__btn.main-slider__btn.default-btn.default-btn--orange
-                .main-slider__btn__text Консультация специалиста
-                .main-slider__btn__icon
-                    +icon('btn-arrow')
+            .main-slider__item__btn
+                button.default-btn.default-btn--orange
+                    .default-btn__icon.default-btn__icon--left
+                        +icon('btn-arrow')
+                    .default-btn__text Консультация специалиста
+                    .default-btn__icon.default-btn__icon--right
+                        +icon('btn-arrow')
 
             .main-slider__item__see
                 span Просмотреть
                 i(class="fa fa-eye" aria-hidden="true")
 
     .main-slider__item
+        .main-slider__item__video-bg
+            .main-slider__item__bg(style="background: url('static/img/content/main-slider-img-3.jpg') no-repeat center top")
+            .main-slider__item__video
+
         .main-slider__item__content
-            .main-slider__item__number 03
+            .main-slider__item__number
+                span 03
 
             .main-slider__item__title(data-color='#298ae5') Строительство
+
+            .main-slider__item__title-big(data-color='#298ae5') Строительство
 
             .main-slider__item__sub-title
                 | в Москве и Московской области
@@ -68,10 +91,13 @@
                     br
                     | Autem, cumque cupiditate deleniti dolor, doloremque eveniet illum laborum maxime minima odit quia reiciendis soluta tempore vitae voluptates.
 
-            button.main-slider__btn.main-slider__btn.default-btn.default-btn--orange
-                .main-slider__btn__text Консультация специалиста
-                .main-slider__btn__icon
-                    +icon('btn-arrow')
+            .main-slider__item__btn
+                button.default-btn.default-btn--orange
+                    .default-btn__icon.default-btn__icon--left
+                        +icon('btn-arrow')
+                    .default-btn__text Консультация специалиста
+                    .default-btn__icon.default-btn__icon--right
+                        +icon('btn-arrow')
 
             .main-slider__item__see
                 span Просмотреть

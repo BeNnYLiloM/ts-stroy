@@ -1,8 +1,9 @@
 .main-slider
     display: flex
-    min-height: 1080px
+    height: 1080px
     width: 100%
     position: relative
+    margin-bottom: 150px
 
     &__item
         position: relative
@@ -12,33 +13,68 @@
         width: 177px
         cursor: pointer
 
+        &:not(._active)
+            &:hover
+                .main-slider__item
+                    &__number span
+                        opacity: 1
+
+                    &__see
+                        opacity: 1
+
         &._active
             align-items: center
             width: 100%
             cursor: initial
 
             .main-slider__item
-                &__number
-                    opacity: 1
+                &__content
+                    align-items: flex-start
+                    padding-top: 0
+                    justify-content: center
 
-                    &::after
-                        opacity: .2
+                &__number
+                    margin-bottom: 26px
+
+                    span
+                        opacity: 1
 
                 &__title
-                    transform: rotate(0)
-                    font-size: 80px
-                    line-height: 70px
-                    letter-spacing: 6.4px
+                    opacity: 0
+                    visibility: hidden
+
+                &__title-big
+                    transform: translateY(0)
+                    opacity: 1
+                    visibility: visible
+                    transition: .2s ease-out
+                    transition-delay: .2s
 
                 &__sub-title
                     visibility: visible
                     opacity: 1
                     transform: translateY(0)
+                    transition: .2s ease-out
+                    transition-delay: .35s
 
                 &__text
                     visibility: visible
                     opacity: 1
                     transform: translateY(0)
+                    transition: .2s ease-out
+                    transition-delay: .50s
+                    height: auto
+
+                &__btn
+                    opacity: 1
+                    visibility: visible
+                    transform: translateY(0)
+                    transition: .2s ease-out
+                    transition-delay: .6s
+
+                &__see
+                    opacity: 0
+                    visibility: hidden
 
         &__video-bg
             position: absolute
@@ -60,40 +96,67 @@
             z-index: 5
             display: flex
             flex-direction: column
-            align-items: flex-start
+            align-items: center
             max-width: 980px
             width: 100%
+            height: 100%
             margin: 0 auto
-            padding: 0 30px
+            padding: 160px 30px 0
+            transition: .2s ease-out
 
         &__number
             font-family: $fPN
             font-size: 45px
-            opacity: .2
             font-weight: 300
             position: relative
             color: $cWhite
             transition: .2s ease-out
+            margin-bottom: 20px
 
             &::after
                 content: ""
                 background: $cWhite
-                //opacity: .2
                 position: absolute
                 width: 43px
                 height: 3px
-                bottom: 4px
+                bottom: 1px
                 left: 50%
                 margin-left: -22px
+                opacity: .2
+
+            span
+                transition: .2s ease-out
+                opacity: .2
 
         &__title
             font-family: $fPN
             font-weight: 700
             text-transform: uppercase
             transform-origin: top left
-            transform: rotate(90deg)
+            transform: rotate(90deg) translateY(-100%)
             transition: .2s ease-out
             letter-spacing: 1.28px
+            width: 28px
+            position: relative
+            opacity: 1
+            visibility: visible
+
+        &__title-big
+            font-family: $fPN
+            font-weight: 700
+            text-transform: uppercase
+            transform-origin: top left
+            transform: translateY(20px)
+            //transition: .2s ease-out
+            opacity: 0
+            visibility: hidden
+            margin-bottom: 16px
+            position: relative
+            line-height: 70px
+            letter-spacing: 6.4px
+            left: -5px
+            font-size: 80px
+            transition-delay: 0s
 
         &__sub-title
             font-family: $fPN
@@ -102,19 +165,53 @@
             letter-spacing: 2.4px
             color: $cWhite
             transform: translateY(20px)
-            transition: .2s ease-out
+            //transition: .2s ease-out
             opacity: 0
             visibility: hidden
+            margin-bottom: 40px
+            transition-delay: 0s
 
         &__text
             color: $cWhite
             transform: translateY(20px)
             opacity: 0
             visibility: hidden
-            transition: .2s ease-out
+            //transition: .2s ease-out
             max-width: 666px
+            line-height: 1.5
+            margin-bottom: 100px
+            transition-delay: 0s
+            height: 0
+            overflow: hidden
 
             big
                 font-size: 20px
 
         &__btn
+            transform: translateY(20px)
+            opacity: 0
+            visibility: hidden
+            transition-delay: 0s
+
+        &__see
+            visibility: visible
+            opacity: .4
+            transition: .2s ease-out
+            color: $cWhite
+            font-size: 14px
+            letter-spacing: .56px
+            height: 30px
+            position: absolute
+            bottom: 200px
+            left: 50%
+            margin-left: -20px
+
+            span
+                display: block
+                transform-origin: bottom left
+                transform: rotate(90deg)
+                margin-bottom: 115px
+                margin-left: 4px
+
+            .fa
+                font-size: 30px

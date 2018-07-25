@@ -51,6 +51,20 @@ img
     max-width: 100%
     height: auto
 
+h2
+    font-family: $fPN
+    font-weight: 300
+    font-size: 45px
+    line-height: 1.13
+    letter-spacing: 3.6px
+    color: #fefefe
+    text-transform: uppercase
+    margin: 0 0 60px
+
+    span
+        color: $cRed
+
+
 .main-wrapper
     position: relative
     min-height: 100%
@@ -123,3 +137,98 @@ img
 
 .w-100
     width: 100% !important
+
+
+.default-btn
+    padding: 0
+    border: 0
+    border-radius: 4px
+    font-family: $fPN
+    letter-spacing: 1.28px
+    cursor: pointer
+    outline: none
+    overflow: hidden
+    transition: .3s ease-out
+    position: relative
+    text-decoration: none
+    display: flex
+
+    &:hover
+        .default-btn
+            &__text
+                padding-left: 113px
+                padding-right: 42px
+
+            &__icon
+                &--right
+                    right: -100px
+
+                    &::before
+                        border-left-color: $cRedDark
+
+                &--left
+                    left: 0
+
+    &--orange
+        background: $cRed
+        color: $cWhite
+        box-shadow: 0 22px 40px rgba(242, 91, 65, 0.25), 0 4px 10px rgba(40, 40, 40, 0.3)
+
+        &:hover
+            background: $cRedDark
+
+    &__text
+        padding: 23px 107px 23px 48px
+        position: relative
+        transition: .3s ease-out
+
+    &__icon
+        background: $cDark
+        font-size: 20px
+        position: absolute
+        top: 0
+        transition: .3s ease-out
+        height: 100%
+        display: flex
+        align-items: center
+
+        &--right
+            right: 0
+            //padding: 22px 26px 17px 42px
+            padding: 0 26px 0 42px
+
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                border-left: 22px solid $cRed
+                border-top: 32px solid transparent
+                border-bottom: 33px solid transparent
+                transition: inherit
+
+        &--left
+            left: -105px
+            //padding: 22px 20px 17px 31px
+            padding: 0 20px 0 31px
+
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                right: -22px
+                border-left: 22px solid $cDark
+                border-top: 32px solid transparent
+                border-bottom: 33px solid transparent
+
+
+.page-block
+    margin: 150px 0
+
+
+.block-title
+    position: relative
+    left: -3px
+
+.orange-text
+    color: $cRed

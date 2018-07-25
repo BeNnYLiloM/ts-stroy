@@ -23,12 +23,17 @@ $(document).ready(function () {
         $overlay.removeClass('_show');
     });
 
-    $('.main-slider__item__title').each(function () {
+    $('.main-slider__item__title, .main-slider__item__title-big').each(function () {
         var numbColor = $(this).attr('data-color');
 
         $(this).css({
             'color': numbColor
         });
+    });
+
+    $('.main-slider__item').click(function () {
+        $('.main-slider__item').removeClass('_active');
+        $(this).addClass('_active');
     });
 
 });
