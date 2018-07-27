@@ -1,0 +1,159 @@
+.about-videos
+    position: relative
+
+    &__bg-img
+        position: absolute
+        top: 0
+        right: -60px
+        transform: translateY(-33%)
+        z-index: -1
+
+    &__title
+        position: absolute
+        top: 0
+        right: -20px
+        width: 100%
+        z-index: 5
+        height: 100%
+
+        .container
+            height: 100%
+            position: relative
+
+        .block-title
+            max-width: 520px
+
+    &__slider
+        padding-top: 10px
+
+        .slick-list
+            position: relative
+            z-index: 5
+
+        &-item
+            outline: none
+
+            .container
+                transition: .2s ease-out
+                transform: translateX(-40%) scale(0.9)
+
+            &._prev-slide
+                opacity: 1 !important
+
+                .container
+                    //transform: translateX(-40%) scale(0.9)
+                    opacity: .6
+
+            &.slick-active
+                .container
+                    transform: translateX(0) scale(1)
+
+            &__left-side
+                padding-left: 100px
+                margin-right: 80px
+
+            &__video
+                width: 500px
+                height: 382px
+                border-radius: 6px
+                overflow: hidden
+                box-shadow: 0 20px 142px rgba(1, 1, 1, 0.68)
+                background: #131313
+
+                iframe
+                    width: 100%
+                    height: 100%
+                    opacity: .75
+
+            &__video-desc
+                font-size: 14px
+                color: $cWhite
+                opacity: .5
+                line-height: 1.45
+
+            &__user
+                display: flex
+                align-items: center
+                max-width: 360px
+
+                &-img
+                    overflow: hidden
+                    border-radius: 50%
+                    margin-right: 20px
+                    width: 100px
+
+                &-cont
+                    width: calc(100% - 160px)
+
+                &-text
+                    font-family: $fPN
+                    font-size: 20px
+                    letter-spacing: .8px
+                    color: $cWhite
+                    line-height: 1.28
+
+                &-name
+                    font-weight: 500
+                    letter-spacing: .64px
+                    color: $cRed
+
+                &-post
+                    font-size: 13px
+                    color: #676767
+                    letter-spacing: .26px
+                    line-height: 1.3
+                    position: relative
+                    top: -4px
+
+        &__btn-wrap
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            position: absolute
+
+            .container
+                position: relative
+                height: 100%
+
+            button
+                position: absolute
+                bottom: 20px
+                font-size: 30px
+                color: $cWhite
+                border: none
+                background: none
+                outline: none
+                cursor: pointer
+                height: 30px
+                padding: 0
+                transition: .2s ease-out
+                z-index: 10
+
+                &:hover
+                    color: $cRed
+
+            .slick-prev
+                right: 510px
+
+            .slick-next
+                right: 410px
+
+    &__count-slides
+        position: absolute
+        bottom: 22px
+        right: 46px
+        font-family: $fPN
+        font-size: 30px
+        font-weight: 300
+        line-height: 25px
+        color: $cWhite
+        letter-spacing: 2.4px
+        display: flex
+
+        &__current
+            color: $cRed
+            margin-right: 11px
+
+        span
+            margin-left: 11px
