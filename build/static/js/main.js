@@ -60,17 +60,49 @@ $(document).ready(function () {
 
     var dSeparateX = 0;
     var dSeparateY = 80;
+    var scaleStep = 0.08;
 
     function slideImgs (block) {
-        var slides = block.find('.img-slider__item');
+        var slides = block.find('.services__item__img');
         var countSlides = slides.length;
-        var separate = block.width() - block.find('.services__documents__img').width();
-        var translateX = separate / block.width() * 100 / countSlides;
+        var scale = 1;
+        var translateX = 0;
         var zi = countSlides;
+        var blockHeight = block.height();
 
+        dSeparateX = ((block.width() - 40) - block.find('.services__item__img').width()) / block.width() * 100 / (countSlides - 1);
+
+        for (var i = 0; i <= countSlides - 1; i++) {
+            if (i === 0) {
+                translateX += dSeparateX;
+                $(slides[i])
+                    .addClass('_active')
+                    .css({
+                        'z-index': zi
+                    })
+                    .attr('data-transX', 0)
+                    .attr('data-scale', scale)
+                    .attr('data-zindex', zi);
+                scale -= scaleStep;
+            } else {
+                $(slides[i])
+                    .css({
+                        'transform': 'translateX(' + translateX + '%) scale(' + scale + ')',
+                        'z-index': zi
+                    })
+                    .attr('data-transX', translateX)
+                    .attr('data-scale', scale)
+                    .attr('data-zindex', zi);
+
+                translateX += dSeparateX;
+                scale -= scaleStep;
+            }
+
+            zi--;
+        }
     }
 
-    function documentsImgSlider (block, dataSlide) {
+    function documentsImgSlider (block) {
         var slides = block.find('.services__documents__img');
         var countSlides = slides.length;
         // var separateX = ((block.width() - 60) - block.find('.services__documents__img').width()) / block.width() * 100 / countSlides;
@@ -80,7 +112,7 @@ $(document).ready(function () {
         var zi = countSlides;
         var blockHeight = block.height();
 
-        dSeparateX = ((block.width() - 60) - block.find('.services__documents__img').width()) / block.width() * 100 / countSlides;
+        dSeparateX = ((block.width() - 40) - block.find('.services__documents__img').width()) / block.width() * 100 / (countSlides - 1);
 
         block.css({
             'height': blockHeight + translateY * (countSlides - 1)
@@ -115,28 +147,30 @@ $(document).ready(function () {
         }
     }
 
-    function moveSlide (slides, slideTransX, slideTransY, slideZindex, step) {
-        for (var i = 0; i <= slides.length - 1; i++) {
-            if (Number($(slides[i]).attr('data-zindex')) === slides.length) {
-                $(slides[i])
-                    .css({
-                        'transform': 'translateX(' + slideTransX[slides.length - 1] + '%) translateY(' + slideTransY[slides.length - 1] + 'px)',
-                        'z-index': slideZindex[slides.length - 1]
-                    })
-                    .attr('data-zindex', slideZindex[slides.length - 1])
-                    .attr('data-transX', slideTransX[slides.length - 1])
-                    .attr('data-transY', slideTransY[slides.length - 1]);
-            } else {
-                $(slides[i])
-                    .css({
-                        'transform': 'translateX(' + (slideTransX[i] - step) + '%) translateY(' + (slideTransY[i] - 80) + 'px)',
-                        'z-index': slideZindex[i] + 1
-                    })
-                    .attr('data-zindex', slideZindex[i] + 1)
-                    .attr('data-transX', slideTransX[i] - step)
-                    .attr('data-transY', slideTransY[i] - 80);
-            }
-        }
+    var activeSlideDoc = 0;
+
+    function moveSlide (slides, slideTransX, slideTransY, slideZindex, slideNumber) {
+        var slidePos = $(slides[slideNumber]).attr('data-slide');
+
+        $(slides[activeSlideDoc])
+            .css({
+                'transform': 'translateX(' + slideTransX[slidePos] + '%) translateY(' + slideTransY[slidePos] + 'px)',
+                'z-index': slideZindex[slidePos]
+            })
+            .attr('data-transX', slideTransX[slidePos])
+            .attr('data-transY', slideTransY[slidePos])
+            .attr('data-zindex', slideZindex[slidePos]);
+
+        $(slides[slideNumber])
+            .css({
+                'transform': 'translateX(0) translateY(0)',
+                'z-index': slides.length
+            })
+            .attr('data-transX', 0)
+            .attr('data-transY', 0)
+            .attr('data-zindex', slides.length);
+
+        activeSlideDoc = slideNumber;
     }
 
     function sliderImgsUpdate (dataSlide) {
@@ -144,7 +178,6 @@ $(document).ready(function () {
         var slideTransX = [];
         var slideTransY = [];
         var slideZindex = [];
-        // var step = Number($(slides[slides.length - 1]).attr('data-transX')) / slides.length;
 
         for (var i = 0; i <= slides.length - 1; i++) {
             slideTransX.push(Number($(slides[i]).attr('data-transX')));
@@ -152,26 +185,33 @@ $(document).ready(function () {
             slideZindex.push(Number($(slides[i]).attr('data-zindex')));
         }
 
-        if (dataSlide > 1) {
-            dataSlide -= 1;
-        }
-
-        while (dataSlide > 0) {
-            moveSlide(slides, slideTransX, slideTransY, slideZindex, dSeparateX);
-
-            dataSlide--;
-        }
+        moveSlide(slides, slideTransX, slideTransY, slideZindex, dataSlide);
     }
 
     documentsImgSlider($('.services__documents__img-wrap'));
 
+    $('.services__item').each(function () {
+        slideImgs($(this).find('.services__item__img-wrap'));
+    });
+
     $('.services__documents__item').click(function () {
         if (!$(this).hasClass('_active')) {
-            sliderImgsUpdate($(this).attr('data-slide'));
+            $('.services__documents__item').removeClass('_active');
+            $(this).addClass('_active');
+
+            sliderImgsUpdate($(this).attr('data-slide-number'));
         }
 
-        $('.services__documents__item').removeClass('_active');
-        $(this).addClass('_active');
+        $('.services__documents__img').removeClass('_active _open-popup');
+        $('.services__documents__img[data-slide="' + $(this).attr('data-slide-number') + '"]').addClass('_active');
+    });
+
+    $('.services__documents__img-link').click(function () {
+        $(this).closest('.services__documents__img').addClass('_open-popup');
+    });
+
+    $('.services__item__popup-close').click(function () {
+        $(this).closest('.services__documents__img').removeClass('_open-popup');
     });
 
 });

@@ -1,5 +1,8 @@
 .services
     &__item
+        margin: 120px 0
+        height: 545px
+
         &--imgs-left
             .services
                 &__item
@@ -9,6 +12,12 @@
 
                         &.services__documents__img-wrap
                             width: 660px
+
+                    &__right-side
+                        display: flex
+                        flex-direction: column
+                        justify-content: space-between
+                        width: calc(100% - 600px)
 
                 &__documents
                     &__img
@@ -22,27 +31,223 @@
                         position: relative
 
                         &.services__documents__img-wrap
-                            width: 660px
+                        width: 660px
 
-                &__documents
+                    &__left-side
+                        display: flex
+                        flex-direction: column
+                        justify-content: space-between
+                        width: calc(100% - 600px)
+
+            &__documents
                     &__img
                         right: 0
 
         &__wrap
             display: flex
+            height: calc(100% - 70px)
 
         &__left-side
 
         &__right-side
 
-        &__popup
+        &__img
             position: absolute
             top: 0
+            border-radius: 6px
+            overflow: hidden
+            box-shadow: 6px 12px 40px rgba(1, 1, 1, 0.3)
+            max-width: 442px
+            height: 475px
+            background: $cDark
+            transition: .2s ease-out
+
+            &._active
+                img
+                    opacity: 1
+
+                .services
+                    &__item
+                        &__img
+                            &-more-read
+                                transform: translateY(0)
+
+                    &__documents
+                        &__img-more-read
+                            transform: translateY(0)
+
+            &._open-popup
+                .services
+                    &__documents
+                        &__img-more-read
+                            transform: translateY(100%)
+
+                    &__item
+                        &__popup
+                            top: 0
+
+                            &-wrap
+                                box-shadow: 6px 12px 40px rgba(1, 1, 1, 0.54)
+
+            &-more-read
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 100%
+                padding: 22px 30px 22px 50px
+                background: $cDark
+                z-index: 3
+                transition: .2s ease-out
+                transform: translateY(100%)
+
+            &-title
+                font-family: $fPN
+                font-weight: 700
+                color: $cRed
+                text-transform: uppercase
+                letter-spacing: 1.28px
+                line-height: 1.3
+
+            &-link
+                font-size: 14px
+                color: $cWhite
+                letter-spacing: .28px
+                display: inline-block
+                border-bottom: 1px solid $cWhite
+                cursor: pointer
+                line-height: 1.15
+
+        &__center
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            height: 100%
+            justify-content: space-around
+            padding-top: 35px
+
+        &__line
+            font-family: $fPN
+            font-weight: 700
+            line-height: 1.3
+            color: $cWhite
+            border-bottom: 1px solid rgba(255,255,255,.9)
+            text-transform: uppercase
+            cursor: pointer
+            transition: .2s ease-out
+
+            &:hover
+                color: $cRed
+                border-bottom-color: $cRed
+
+            &._active
+                color: $cRed
+                border-bottom-color: $cRed
+
+        &__popup
+            position: absolute
+            top: -100%
             left: 0
             width: 100%
             height: 100%
             padding: 20px
-            opacity: 0
+            transition: .2s ease-out
+            z-index: 10
+
+            &-wrap
+                background: $cDark
+                opacity: .95
+                border-radius: 6px
+                padding: 60px
+                position: relative
+                height: 100%
+                transition: .2s ease-out
+
+            &-close
+                width: 23px
+                height: 23px
+                cursor: pointer
+                position: absolute
+                top: 20px
+                right: 20px
+
+                &:hover
+                    span
+                        &:nth-child(2)
+                            background: lighten($cRed, 5%)
+
+                            &::before,
+                            &::after
+                                background: $cRedDark
+
+                        &:nth-child(1),
+                        &:nth-child(3)
+                            background: $cRedDark
+
+                            &::before,
+                            &::after
+                                background: lighten($cRed, 5%)
+
+                span
+                    display: block
+                    width: 3px
+                    height: 3px
+                    background: $cRed
+                    position: relative
+                    margin: 0 auto 7px
+                    transition: .2s ease-out
+
+                    &::before,
+                    &::after
+                        content: ""
+                        background: $cRed
+                        width: 100%
+                        height: 100%
+                        position: absolute
+                        top: 0
+                        transition: .2s ease-out
+
+                    &::before
+                        left: -10px
+
+                    &::after
+                        right: -10px
+
+                    &:last-child
+                        margin-bottom: 0
+
+            &-cross
+                position: absolute
+                top: -1px
+                transition: width .2s ease-out
+                background: $cRed
+                height: 3px
+                width: calc(100% + 9px)
+
+                &--left
+                    left: 1px
+                    transform: rotate(45deg)
+                    transform-origin: top left
+                    transition-delay: 0s
+
+                &--right
+                    right: 1px
+                    transform: rotate(-45deg)
+                    transform-origin: top right
+                    transition-delay: 0s
+
+            &-title
+                font-family: $fPN
+                font-weight: 700
+                text-transform: uppercase
+                color: #f6654c
+                letter-spacing: 1.28px
+                line-height: 1.3
+
+            &-text
+                font-size: 13px
+                letter-spacing: .26px
+                color: $cWhite
+                line-height: 1.35
 
         &__number
             font-family: $fPN
@@ -74,6 +279,8 @@
             text-transform: uppercase
 
     &__documents
+        height: auto
+
         &__img
             position: absolute
             top: 0
@@ -91,7 +298,17 @@
 
                 .services__documents
                     &__img-more-read
-                        bottom: 0
+                        transform: translateY(0)
+
+            &._open-popup
+                .services
+                    &__documents
+                        &__img-more-read
+                            transform: translateY(100%)
+
+                    &__item
+                        &__popup
+                            top: 0
 
             img
                 opacity: .6
@@ -103,13 +320,14 @@
 
             &-more-read
                 position: absolute
-                bottom: -100%
+                bottom: 0
                 left: 0
                 width: 100%
                 padding: 22px 30px 22px 100px
                 background: $cDark
                 z-index: 3
                 transition: .2s ease-out
+                transform: translateY(100%)
 
             &-title
                 font-family: $fPN
