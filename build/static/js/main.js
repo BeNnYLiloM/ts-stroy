@@ -58,6 +58,9 @@ $(document).ready(function () {
         $(howWeWorkItems[i]).addClass('_last');
     }
 
+    var dSeparateX = 0;
+    var dSeparateY = 80;
+
     function slideImgs (block) {
         var slides = block.find('.img-slider__item');
         var countSlides = slides.length;
@@ -70,11 +73,14 @@ $(document).ready(function () {
     function documentsImgSlider (block, dataSlide) {
         var slides = block.find('.services__documents__img');
         var countSlides = slides.length;
-        var separate = (block.width() - 80) - block.find('.services__documents__img').width();
-        var translateX = separate / block.width() * 100 / countSlides;
-        var translateY = 80;
+        // var separateX = ((block.width() - 60) - block.find('.services__documents__img').width()) / block.width() * 100 / countSlides;
+        // var separateY = 80;
+        var translateX = 0;
+        var translateY = dSeparateY;
         var zi = countSlides;
         var blockHeight = block.height();
+
+        dSeparateX = ((block.width() - 60) - block.find('.services__documents__img').width()) / block.width() * 100 / countSlides;
 
         block.css({
             'height': blockHeight + translateY * (countSlides - 1)
@@ -82,14 +88,15 @@ $(document).ready(function () {
 
         for (var i = 0; i <= countSlides - 1; i++) {
             if (i === 0) {
-                translateX += translateX;
+                translateX += dSeparateX;
                 $(slides[i])
                     .addClass('_active')
                     .css({
                         'z-index': zi
                     })
                     .attr('data-transX', 0)
-                    .attr('data-transY', 0);
+                    .attr('data-transY', 0)
+                    .attr('data-zindex', zi);
             } else {
                 $(slides[i])
                     .css({
@@ -97,13 +104,38 @@ $(document).ready(function () {
                         'z-index': zi
                     })
                     .attr('data-transX', translateX)
-                    .attr('data-transY', translateY);
+                    .attr('data-transY', translateY)
+                    .attr('data-zindex', zi);
 
-                translateX += translateX;
-                translateY += translateY;
+                translateX += dSeparateX;
+                translateY += dSeparateY;
             }
 
             zi--;
+        }
+    }
+
+    function moveSlide (slides, slideTransX, slideTransY, slideZindex, step) {
+        for (var i = 0; i <= slides.length - 1; i++) {
+            if (Number($(slides[i]).attr('data-zindex')) === slides.length) {
+                $(slides[i])
+                    .css({
+                        'transform': 'translateX(' + slideTransX[slides.length - 1] + '%) translateY(' + slideTransY[slides.length - 1] + 'px)',
+                        'z-index': slideZindex[slides.length - 1]
+                    })
+                    .attr('data-zindex', slideZindex[slides.length - 1])
+                    .attr('data-transX', slideTransX[slides.length - 1])
+                    .attr('data-transY', slideTransY[slides.length - 1]);
+            } else {
+                $(slides[i])
+                    .css({
+                        'transform': 'translateX(' + (slideTransX[i] - step) + '%) translateY(' + (slideTransY[i] - 80) + 'px)',
+                        'z-index': slideZindex[i] + 1
+                    })
+                    .attr('data-zindex', slideZindex[i] + 1)
+                    .attr('data-transX', slideTransX[i] - step)
+                    .attr('data-transY', slideTransY[i] - 80);
+            }
         }
     }
 
@@ -112,34 +144,20 @@ $(document).ready(function () {
         var slideTransX = [];
         var slideTransY = [];
         var slideZindex = [];
-        var step = $(slides[1]).attr('data-transX');
+        // var step = Number($(slides[slides.length - 1]).attr('data-transX')) / slides.length;
 
         for (var i = 0; i <= slides.length - 1; i++) {
             slideTransX.push(Number($(slides[i]).attr('data-transX')));
             slideTransY.push(Number($(slides[i]).attr('data-transY')));
-            slideZindex.push(Number($(slides[i]).css('z-index')));
+            slideZindex.push(Number($(slides[i]).attr('data-zindex')));
         }
 
-        console.log(slideTransX);
-
-        $(slides[0])
-            .css({
-                'transform': 'translateX(' + slideTransX[slides.length - 1] + '%) translateY(' + slideTransY[slides.length - 1] + 'px)',
-                'z-index': slideZindex[slides.length - 1]
-            });
-            // .attr('data-transX', slideTransX[slides.length - 1])
-            // .attr('data-transY', slideTransY[slides.length - 1]);
+        if (dataSlide > 1) {
+            dataSlide -= 1;
+        }
 
         while (dataSlide > 0) {
-            for (var i = 1; i <= slides.length - 1; i++) {
-                $(slides[i])
-                    .css({
-                        'transform': 'translateX(' + (slideTransX[i] - step) + '%) translateY(' + (slideTransY[i] - 80) + 'px)',
-                        'z-index': slideZindex[i] + 1
-                    });
-                    // .attr('data-transX', slideTransX[i] - step)
-                    // .attr('data-transY', slideTransY[i] - 80);
-            }
+            moveSlide(slides, slideTransX, slideTransY, slideZindex, dSeparateX);
 
             dataSlide--;
         }
