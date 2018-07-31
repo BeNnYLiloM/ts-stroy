@@ -1,0 +1,92 @@
+// Begin actions
+
+.actions.page-block
+    .container
+        .services__item.services__item--imgs-right.services__item--no-nav
+            .services__item__wrap
+                .services__item__left-side
+                    .callback-block
+                        .callback-block__title Выезд на замер
+                        .callback-block__form
+                            form
+                                .callback-block__form__item
+                                    .callback-block__form__label Введите ваше имя*:
+                                    input.callback-block__form__input(type='text')
+
+                                .callback-block__form__item
+                                    .callback-block__form__label Ваш телефон*:
+                                    input.callback-block__form__input(type='text')
+
+                                .callback-block__form__item
+                                    .callback-block__form__label Введите ваш e-mail:
+                                    input.callback-block__form__input(type='text' placeholder='example@email.ru')
+
+                                .callback-block__form__submit-wrap
+                                    button.callback-block__form__submit.default-btn.default-btn--orange(type='submit')
+                                        .default-btn__icon.default-btn__icon--left
+                                            +icon('calc')
+                                        .default-btn__text Заказать замер
+                                        .default-btn__icon.default-btn__icon--right
+                                            +icon('calc')
+
+                .services__item__right-side
+                    .actions__title.block-title
+                        h2
+                            | Наши
+                            span  Акции
+
+                    .services__item__img-wrap
+                        .services__item__img._active(data-slide='0')
+                            img(src='static/img/content/actions-img-1.jpg' alt='')
+
+                            .actions__info
+                                .actions__info__title РЕМОНТ И ОТДЕЛКА ПОМЕЩЕНИЙ
+                                .actions__info__count
+                                    .actions__info__count-title со скидкой
+                                    .actions__info__count-numb 20%!
+
+                                a.actions__info__link(href='#')
+                                    span Подробнее
+                                    +icon('btn-arrow')
+
+                        .services__item__img(data-slide='1')
+                            img(src='static/img/content/actions-img-2.jpg' alt='')
+
+                            .actions__info
+                                .actions__info__title РЕМОНТ И ОТДЕЛКА ПОМЕЩЕНИЙ
+                                .actions__info__count
+                                    .actions__info__count-title со скидкой
+                                    .actions__info__count-numb 20%!
+
+                                a.actions__info__link(href='#')
+                                    span Подробнее
+                                    +icon('btn-arrow')
+
+                        .services__item__img(data-slide='2')
+                            img(src='static/img/content/actions-img-3.jpg' alt='')
+
+                            .actions__info
+                                .actions__info__title РЕМОНТ И ОТДЕЛКА ПОМЕЩЕНИЙ
+                                .actions__info__count
+                                    .actions__info__count-title со скидкой
+                                    .actions__info__count-numb 20%!
+
+                                a.actions__info__link(href='#')
+                                    span Подробнее
+                                    +icon('btn-arrow')
+
+                    .services__item__btns
+                        .services__item__btns-prev
+                            +icon('arrow-slider-left')
+
+                        .services__item__btns-next
+                            +icon('arrow-slider-right')
+
+                    .services__item__numbers
+                        .services__item__numbers-current
+                            span 1
+
+                        .services__item__numbers-all
+                            | / 3
+
+// End actions

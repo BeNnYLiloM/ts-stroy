@@ -1,0 +1,70 @@
+.actions
+    .services
+        &__item
+            height: auto
+
+            &__left-side
+                width: 500px
+
+            &__right-side
+                height: 770px
+
+            &__img
+                max-width: 400px
+                height: 585px
+
+    &__info
+        position: absolute
+        height: 100%
+        width: 100%
+        bottom: 0
+        left: 0
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        background: url('../img/icons/actions-hover.png') no-repeat
+        padding: 0 60px 50px
+
+        &__title
+            font-family: $fPN
+            font-size: 30px
+            font-weight: 300
+            line-height: 1.35
+            text-transform: uppercase
+            color: $cWhite
+            letter-spacing: 1.2px
+
+        &__count
+            font-family: $fPN
+            font-weight: 700
+            text-transform: uppercase
+            color: $cWhite
+            margin-top: 20px
+
+            &-title
+                letter-spacing: 1.28px
+                line-height: 1
+
+            &-numb
+                color: $cRed
+                font-size: 45px
+                letter-spacing: 3.6px
+                line-height: 1.3
+
+        &__link
+            position: absolute
+            bottom: 65px
+            right: 52px
+            color: $cWhite
+            font-size: 14px
+            letter-spacing: .56px
+            text-decoration: none
+
+            span
+                border-bottom: 1px solid $cWhite
+
+            .icon
+                font-size: 12px
+                position: relative
+                top: 2px
+                margin-left: 6px

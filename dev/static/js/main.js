@@ -70,8 +70,6 @@ $(document).ready(function () {
         var zi = countSlides;
         var separateX;
 
-        console.log($(block.closest('.services__item')).hasClass('services__item--imgs-left'));
-
         separateX = (100 - (block.width() - block.find('.services__item__img:first-child').width()) / block.width() * 100 / (countSlides - 1)) / (countSlides - 1);
 
         for (var i = 0; i <= countSlides - 1; i++) {
@@ -160,11 +158,18 @@ $(document).ready(function () {
 
     var activeSlideDoc = 0;
 
-    function moveSlide (slides, slideTransX, slideTransY, slideZindex, slideScale, slideNumber) {
+    function moveSlide (slides, slideTransX, slideTransY, slideZindex, slideScale, slideNumber, wrap, btns) {
         var slidePos = $(slides[slideNumber]).attr('data-slide');
+        var activeSlide;
+
+        if (btns) {
+            activeSlide = $(wrap).find('.services__item__img._prev').attr('data-slide');
+        } else {
+            activeSlide = $(wrap).find('.services__item__img._active').attr('data-slide');
+        }
 
         if (slideScale.length !== 0) {
-            $(slides[activeSlideDoc])
+            $(slides[activeSlide])
                 .css({
                     'transform': 'translateX(' + slideTransX[slidePos] + '%) scale(' + slideScale[slidePos] + ')',
                     'z-index': slideZindex[slidePos]
@@ -181,8 +186,6 @@ $(document).ready(function () {
                 .attr('data-transX', 0)
                 .attr('data-scale', 1)
                 .attr('data-zindex', slides.length);
-
-            activeSlideDoc = slideNumber;
         } else {
             $(slides[activeSlideDoc])
                 .css({
@@ -206,7 +209,7 @@ $(document).ready(function () {
         }
     }
 
-    function sliderImgsUpdate (dataSlide, wrap) {
+    function sliderImgsUpdate (dataSlide, wrap, btns) {
         var slides = [];
         var slideTransX = [];
         var slideTransY = [];
@@ -230,7 +233,7 @@ $(document).ready(function () {
             slideZindex.push(Number($(slides[i]).attr('data-zindex')));
         }
 
-        moveSlide(slides, slideTransX, slideTransY, slideZindex, slideScale, dataSlide);
+        moveSlide(slides, slideTransX, slideTransY, slideZindex, slideScale, dataSlide, wrap, btns);
     }
 
     documentsImgSlider($('.services__documents__img-wrap'));
@@ -255,7 +258,7 @@ $(document).ready(function () {
         var parent = $(this).closest('.services__item');
 
         if (!$(this).hasClass('_active')) {
-            $('.services__item__line').removeClass('_active');
+            parent.find('.services__item__line').removeClass('_active');
             $(this).addClass('_active');
 
             sliderImgsUpdate($(this).attr('data-slide-number'), $(this).closest('.services__item'));
@@ -281,13 +284,26 @@ $(document).ready(function () {
     $('.services__item__btns-next').click(function () {
         var parent = $(this).closest('.services__item');
         var lineItems = parent.find('.services__item__line');
-        var currentSlide = Number(parent.find('.services__item__line._active').attr('data-slide-number'))
-        var slideNumber = Number(parent
+        var imgsWrap = parent.find('.services__item__img');
+        var currentSlide;
+        var slideNumber;
+
+        if (parent.hasClass('services__item--no-nav')) {
+            currentSlide = Number(parent.find('.services__item__img._active').attr('data-slide'));
+            if (currentSlide === imgsWrap.length - 1) {
+                slideNumber = Number(parent.find('.services__item__img:first-child').attr('data-slide'));
+            } else {
+                slideNumber = Number(parent.find('.services__item__img._active').next().attr('data-slide'));
+            }
+        } else {
+            currentSlide = Number(parent.find('.services__item__line._active').attr('data-slide-number'));
+            slideNumber = Number(parent
                             .find('.services__item__line._active')
                             .removeClass('_active')
                             .next()
                             .addClass('_active')
                             .attr('data-slide-number'));
+        }
 
         if (currentSlide === (lineItems.length - 1)) {
             parent.find('.services__item__line._active').removeClass('_active');
@@ -298,23 +314,35 @@ $(document).ready(function () {
         }
 
         parent.find('.services__item__numbers-current span').text(slideNumber + 1);
-        parent.find('.services__item__img').removeClass('_active');
+        parent.find('.services__item__img._prev').removeClass('_prev');
+        parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
         parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
-        sliderImgsUpdate(slideNumber, $(this).closest('.services__item'));
+        sliderImgsUpdate(slideNumber, parent, btns = true);
     });
 
     $('.services__item__btns-prev').click(function() {
         var parent = $(this).closest('.services__item');
-        var lineItems = parent.find('.services__item__line');
-        var currentSlide = Number(parent.find('.services__item__line._active').attr('data-slide-number'))
-        var slideNumber = Number(parent
+        var currentSlide;
+        var slideNumber;
+
+        if (parent.hasClass('services__item--no-nav')) {
+            currentSlide = Number(parent.find('.services__item__img._active').attr('data-slide'));
+            if (currentSlide === 0) {
+                slideNumber = Number(parent.find('.services__item__img:last-child').attr('data-slide'));
+            } else {
+                slideNumber = Number(parent.find('.services__item__img._active').prev().attr('data-slide'));
+            }
+        } else {
+            currentSlide = Number(parent.find('.services__item__line._active').attr('data-slide-number'));
+            slideNumber = Number(parent
                             .find('.services__item__line._active')
                             .removeClass('_active')
                             .prev()
                             .addClass('_active')
                             .attr('data-slide-number'));
+        }
 
-        if (currentSlide === 0) {
+        if (currentSlide === 0 && !parent.hasClass('services__item--no-nav')) {
             parent.find('.services__item__line._active').removeClass('_active');
             slideNumber = Number(parent
                             .find('.services__item__line:last-child')
@@ -323,9 +351,10 @@ $(document).ready(function () {
         }
 
         parent.find('.services__item__numbers-current span').text(slideNumber + 1);
-        parent.find('.services__item__img').removeClass('_active');
+        parent.find('.services__item__img._prev').removeClass('_prev');
+        parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
         parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
-        sliderImgsUpdate(slideNumber, $(this).closest('.services__item'));
+        sliderImgsUpdate(slideNumber, parent, btns = true);
     });
 
 });
