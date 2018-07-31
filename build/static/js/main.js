@@ -68,13 +68,20 @@ $(document).ready(function () {
         var scale = 1;
         var translateX = 0;
         var zi = countSlides;
-        var blockHeight = block.height();
+        var separateX;
 
-        dSeparateX = ((block.width() - 40) - block.find('.services__item__img').width()) / block.width() * 100 / (countSlides - 1);
+        console.log($(block.closest('.services__item')).hasClass('services__item--imgs-left'));
+
+        separateX = (100 - (block.width() - block.find('.services__item__img:first-child').width()) / block.width() * 100 / (countSlides - 1)) / (countSlides - 1);
 
         for (var i = 0; i <= countSlides - 1; i++) {
             if (i === 0) {
-                translateX += dSeparateX;
+                if ($(block.closest('.services__item')).hasClass('services__item--imgs-left')) {
+                    translateX -= separateX;
+                } else if ($(block.closest('.services__item')).hasClass('services__item--imgs-right')) {
+                    translateX += separateX;
+                }
+                
                 $(slides[i])
                     .addClass('_active')
                     .css({
@@ -94,7 +101,11 @@ $(document).ready(function () {
                     .attr('data-scale', scale)
                     .attr('data-zindex', zi);
 
-                translateX += dSeparateX;
+                if ($(block.closest('.services__item')).hasClass('services__item--imgs-left')) {
+                    translateX -= separateX;
+                } else if ($(block.closest('.services__item')).hasClass('services__item--imgs-right')) {
+                    translateX += separateX;
+                }
                 scale -= scaleStep;
             }
 
@@ -149,43 +160,77 @@ $(document).ready(function () {
 
     var activeSlideDoc = 0;
 
-    function moveSlide (slides, slideTransX, slideTransY, slideZindex, slideNumber) {
+    function moveSlide (slides, slideTransX, slideTransY, slideZindex, slideScale, slideNumber) {
         var slidePos = $(slides[slideNumber]).attr('data-slide');
 
-        $(slides[activeSlideDoc])
-            .css({
-                'transform': 'translateX(' + slideTransX[slidePos] + '%) translateY(' + slideTransY[slidePos] + 'px)',
-                'z-index': slideZindex[slidePos]
-            })
-            .attr('data-transX', slideTransX[slidePos])
-            .attr('data-transY', slideTransY[slidePos])
-            .attr('data-zindex', slideZindex[slidePos]);
+        if (slideScale.length !== 0) {
+            $(slides[activeSlideDoc])
+                .css({
+                    'transform': 'translateX(' + slideTransX[slidePos] + '%) scale(' + slideScale[slidePos] + ')',
+                    'z-index': slideZindex[slidePos]
+                })
+                .attr('data-transX', slideTransX[slidePos])
+                .attr('data-scale', slideScale[slidePos])
+                .attr('data-zindex', slideZindex[slidePos]);
 
-        $(slides[slideNumber])
-            .css({
-                'transform': 'translateX(0) translateY(0)',
-                'z-index': slides.length
-            })
-            .attr('data-transX', 0)
-            .attr('data-transY', 0)
-            .attr('data-zindex', slides.length);
+            $(slides[slideNumber])
+                .css({
+                    'transform': 'translateX(0) scale(1)',
+                    'z-index': slides.length
+                })
+                .attr('data-transX', 0)
+                .attr('data-scale', 1)
+                .attr('data-zindex', slides.length);
 
-        activeSlideDoc = slideNumber;
+            activeSlideDoc = slideNumber;
+        } else {
+            $(slides[activeSlideDoc])
+                .css({
+                    'transform': 'translateX(' + slideTransX[slidePos] + '%) translateY(' + slideTransY[slidePos] + 'px)',
+                    'z-index': slideZindex[slidePos]
+                })
+                .attr('data-transX', slideTransX[slidePos])
+                .attr('data-transY', slideTransY[slidePos])
+                .attr('data-zindex', slideZindex[slidePos]);
+
+            $(slides[slideNumber])
+                .css({
+                    'transform': 'translateX(0) translateY(0)',
+                    'z-index': slides.length
+                })
+                .attr('data-transX', 0)
+                .attr('data-transY', 0)
+                .attr('data-zindex', slides.length);
+
+            activeSlideDoc = slideNumber;
+        }
     }
 
-    function sliderImgsUpdate (dataSlide) {
-        var slides = $('.services__documents__img');
+    function sliderImgsUpdate (dataSlide, wrap) {
+        var slides = [];
         var slideTransX = [];
         var slideTransY = [];
+        var slideScale = [];
         var slideZindex = [];
+
+        if (wrap !== undefined) {
+            slides = wrap.find('.services__item__img-wrap .services__item__img');
+        } else {
+            slides = $('.services__documents__img');
+        }
 
         for (var i = 0; i <= slides.length - 1; i++) {
             slideTransX.push(Number($(slides[i]).attr('data-transX')));
-            slideTransY.push(Number($(slides[i]).attr('data-transY')));
+            if ($(slides[i]).attr('data-transY')) {
+                slideTransY.push(Number($(slides[i]).attr('data-transY')));
+            }
+            if ($(slides[i]).attr('data-scale')) {
+                slideScale.push(Number($(slides[i]).attr('data-scale')));
+            }
             slideZindex.push(Number($(slides[i]).attr('data-zindex')));
         }
 
-        moveSlide(slides, slideTransX, slideTransY, slideZindex, dataSlide);
+        moveSlide(slides, slideTransX, slideTransY, slideZindex, slideScale, dataSlide);
     }
 
     documentsImgSlider($('.services__documents__img-wrap'));
@@ -206,12 +251,81 @@ $(document).ready(function () {
         $('.services__documents__img[data-slide="' + $(this).attr('data-slide-number') + '"]').addClass('_active');
     });
 
+    $('.services__item__line').click(function () {
+        var parent = $(this).closest('.services__item');
+
+        if (!$(this).hasClass('_active')) {
+            $('.services__item__line').removeClass('_active');
+            $(this).addClass('_active');
+
+            sliderImgsUpdate($(this).attr('data-slide-number'), $(this).closest('.services__item'));
+        }
+
+        parent.find('.services__item__img').removeClass('_active _open-popup');
+        parent.find('.services__item__img[data-slide="' + $(this).attr('data-slide-number') + '"]').addClass('_active');
+        parent.find('.services__item__numbers-current span').text(Number($(this).attr('data-slide-number')) + 1);
+    });
+
     $('.services__documents__img-link').click(function () {
         $(this).closest('.services__documents__img').addClass('_open-popup');
     });
 
+    $('.services__item__img-link').click(function () {
+        $(this).closest('.services__item__img').addClass('_open-popup');
+    });
+
     $('.services__item__popup-close').click(function () {
-        $(this).closest('.services__documents__img').removeClass('_open-popup');
+        $(this).closest('.services__documents__img, .services__item__img').removeClass('_open-popup');
+    });
+
+    $('.services__item__btns-next').click(function () {
+        var parent = $(this).closest('.services__item');
+        var lineItems = parent.find('.services__item__line');
+        var currentSlide = Number(parent.find('.services__item__line._active').attr('data-slide-number'))
+        var slideNumber = Number(parent
+                            .find('.services__item__line._active')
+                            .removeClass('_active')
+                            .next()
+                            .addClass('_active')
+                            .attr('data-slide-number'));
+
+        if (currentSlide === (lineItems.length - 1)) {
+            parent.find('.services__item__line._active').removeClass('_active');
+            slideNumber = Number(parent
+                            .find('.services__item__line:first-child')
+                            .addClass('_active')
+                            .attr('data-slide-number'));
+        }
+
+        parent.find('.services__item__numbers-current span').text(slideNumber + 1);
+        parent.find('.services__item__img').removeClass('_active');
+        parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
+        sliderImgsUpdate(slideNumber, $(this).closest('.services__item'));
+    });
+
+    $('.services__item__btns-prev').click(function() {
+        var parent = $(this).closest('.services__item');
+        var lineItems = parent.find('.services__item__line');
+        var currentSlide = Number(parent.find('.services__item__line._active').attr('data-slide-number'))
+        var slideNumber = Number(parent
+                            .find('.services__item__line._active')
+                            .removeClass('_active')
+                            .prev()
+                            .addClass('_active')
+                            .attr('data-slide-number'));
+
+        if (currentSlide === 0) {
+            parent.find('.services__item__line._active').removeClass('_active');
+            slideNumber = Number(parent
+                            .find('.services__item__line:last-child')
+                            .addClass('_active')
+                            .attr('data-slide-number'));
+        }
+
+        parent.find('.services__item__numbers-current span').text(slideNumber + 1);
+        parent.find('.services__item__img').removeClass('_active');
+        parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
+        sliderImgsUpdate(slideNumber, $(this).closest('.services__item'));
     });
 
 });

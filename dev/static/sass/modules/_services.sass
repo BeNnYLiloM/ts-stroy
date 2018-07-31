@@ -9,15 +9,28 @@
                     &__left-side
                         width: 600px
                         position: relative
+                        height: 100%
 
                         &.services__documents__img-wrap
                             width: 660px
+                            height: 634px
 
                     &__right-side
                         display: flex
                         flex-direction: column
                         justify-content: space-between
-                        width: calc(100% - 600px)
+                        width: calc(100% - 680px)
+                        height: calc(100% - 70px)
+                        
+                    &__img
+                        right: 0
+                        left: auto
+                        
+                    &__btns
+                        right: 0
+                        
+                    &__numbers
+                        right: 39px
 
                 &__documents
                     &__img
@@ -29,23 +42,34 @@
                     &__right-side
                         width: 600px
                         position: relative
+                        height: 100%
 
                         &.services__documents__img-wrap
-                        width: 660px
+                            width: 660px
+                            height: 634px
 
                     &__left-side
                         display: flex
                         flex-direction: column
                         justify-content: space-between
                         width: calc(100% - 600px)
+                        height: calc(100% - 70px)
+                        
+                    &__btns
+                        left: 0
+                        
+                    &__numbers
+                        left: 39px
 
-            &__documents
+                &__documents
                     &__img
                         right: 0
 
         &__wrap
             display: flex
-            height: calc(100% - 70px)
+            align-items: flex-start
+            height: 100%
+            justify-content: space-between
 
         &__left-side
 
@@ -57,7 +81,7 @@
             border-radius: 6px
             overflow: hidden
             box-shadow: 6px 12px 40px rgba(1, 1, 1, 0.3)
-            max-width: 442px
+            max-width: 320px
             height: 475px
             background: $cDark
             transition: .2s ease-out
@@ -83,11 +107,19 @@
                             transform: translateY(100%)
 
                     &__item
+                        &__img-more-read
+                            transform: translateY(100%)
+
                         &__popup
                             top: 0
 
                             &-wrap
                                 box-shadow: 6px 12px 40px rgba(1, 1, 1, 0.54)
+                                
+            &-wrap
+                width: 100%
+                height: 100%
+                position: relative
 
             &-more-read
                 position: absolute
@@ -116,6 +148,44 @@
                 border-bottom: 1px solid $cWhite
                 cursor: pointer
                 line-height: 1.15
+                
+        &__btns
+            position: absolute
+            bottom: 0
+            display: flex
+            font-size: 30px
+            color: $cWhite
+            
+            &-prev,
+            &-next
+                transition: .2s ease-out
+                cursor: pointer
+                height: 30px
+                line-height: 30px
+                
+                &:hover
+                    color: $cRed
+                    
+            &-next
+                margin-left: 120px
+                
+        &__numbers
+            position: absolute
+            bottom: 2px
+            font-family: $fPN
+            font-size: 30px
+            font-weight: 300
+            line-height: 25px
+            color: $cWhite
+            letter-spacing: 2.4px
+            display: flex
+
+            &-current
+                color: $cRed
+                margin-right: 11px
+
+            span
+                margin-left: 11px
 
         &__center
             display: flex
@@ -157,7 +227,7 @@
                 background: $cDark
                 opacity: .95
                 border-radius: 6px
-                padding: 60px
+                padding: 60px 40px 30px
                 position: relative
                 height: 100%
                 transition: .2s ease-out
@@ -280,6 +350,17 @@
 
     &__documents
         height: auto
+        
+        .services__item__wrap
+            align-items: stretch
+            
+        &.services__item--imgs-left
+            .services__item__right-side
+                height: auto
+                
+        &.services__item--imgs-right
+            .services__item__left-side
+                height: auto
 
         &__img
             position: absolute
@@ -345,6 +426,9 @@
                 border-bottom: 1px solid $cWhite
                 cursor: pointer
                 line-height: 1.15
+
+            .services__item__popup-wrap
+                padding: 60px
 
         &__flex
             display: flex
