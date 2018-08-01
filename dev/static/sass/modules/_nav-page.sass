@@ -1,0 +1,117 @@
+.nav-page
+    position: fixed
+    top: 0
+    left: 0
+    min-height: 100vh
+    height: 100vh
+    padding: 80px 0 80px 78px
+    z-index: 20
+
+    &__wrap
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        height: 100%
+
+    &__top
+        height: 80px
+
+    &__dots
+        display: flex
+        flex-direction: column
+
+        &__item
+            border: 1px solid $cWhite
+            width: 16px
+            height: 16px
+            position: relative
+            font-family: $fPN
+            color: $cWhite
+            text-decoration: none
+            border-radius: 50%
+            line-height: 1
+            transition: .2s ease-out
+            margin-bottom: 24px
+
+            &:hover
+                border-color: $cRed
+
+                span
+                    visibility: visible
+                    transform: translateX(0)
+                    opacity: 1
+
+            &:last-child
+                margin-bottom: 0
+
+            &::before
+                content: ""
+                background: $cRed
+                opacity: 0
+                width: 6px
+                height: 6px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                border-radius: 50%
+
+            &._active
+                border-color: $cRed
+
+                &::before
+                    opacity: 1
+
+            span
+                position: absolute
+                left: calc(100% + 15px)
+                white-space: nowrap
+                top: -1px
+                transform: translateX(-15px)
+                opacity: 0
+                visibility: hidden
+                transition: .2s ease-out
+
+    &__social-links
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        &__item
+            position: relative
+            margin-bottom: 31px
+
+            &:last-child
+                margin-bottom: 0
+
+                &::after
+                    display: none
+
+            &::after
+                content: ""
+                background: $cWhite
+                opacity: .4
+                position: absolute
+                left: 50%
+                bottom: -15px
+                height: 1px
+                width: 11px
+                margin-left: -6px
+
+            a
+                color: $cWhite
+                opacity: .4
+                transition: .2s ease-out
+
+                &:hover
+                    opacity: 1
+
+
++max-screen-height(560px)
+    .nav-page
+        display: none
+
+
++max-screen(1580px)
+    .nav-page
+        display: none

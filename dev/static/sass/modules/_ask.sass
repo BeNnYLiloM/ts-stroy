@@ -1,0 +1,83 @@
+.ask
+    background: #d04f39
+    position: relative
+    overflow: hidden
+
+    &__rings
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+        &__item
+            position: absolute
+            border-radius: 50%
+            animation: shadow 3s linear infinite
+            left: 50%
+            top: 50%
+
+            &--one
+                width: 310px
+                height: 310px
+                transform: translate(-150%, -50%)
+
+            &--two
+                width: 540px
+                height: 540px
+                transform: translate(-108%, -50%)
+
+            &--three
+                width: 760px
+                height: 760px
+                transform: translate(-91.9%, -50%)
+
+            &--four
+                width: 1000px
+                height: 1000px
+                transform: translate(-81.7%, -50%)
+
+            &--five
+                width: 1280px
+                height: 1280px
+                transform: translate(-74.3%, -50%)
+
+    &__wrap
+        display: flex
+        justify-content: space-between
+        align-items: center
+        min-height: 240px
+        padding: 20px 0
+
+    &__title
+        font-family: $fPN
+        font-size: 45px
+        letter-spacing: 3.6px
+        font-weight: 300
+        line-height: 50px
+        color: $cWhite
+        text-transform: uppercase
+        margin-bottom: 20px
+
+    &__text
+        font-size: 20px
+        color: $cWhite
+        letter-spacing: .8px
+        line-height: 25px
+
+
+@keyframes shadow
+    0%
+        box-shadow: 15px 0 35px rgba(0,0,0,.3)
+
+    25%
+        box-shadow: 10px 15px 35px rgba(0,0,0,.3)
+
+    50%
+        box-shadow: -10px 0 35px rgba(0,0,0,.3)
+
+    75%
+        box-shadow: 0 -15px 35px rgba(0,0,0,.3)
+
+    100%
+        box-shadow: 15px 0 35px rgba(0,0,0,.3)

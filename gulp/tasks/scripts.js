@@ -4,6 +4,14 @@ module.exports = function() {
         'dev/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
         'dev/libs/slick-carousel/slick/slick.min.js',
         'dev/libs/svg4everybody/dist/svg4everybody.min.js',
+        'dev/libs/jQuery-viewport-checker/dist/jquery.viewportchecker.min.js',
+        'dev/libs/jquery-animateNumber/jquery.animateNumber.min.js',
+        'dev/libs/vanilla-lazyload/dist/lazyload.min.js',
+        'dev/libs/microplugin/src/microplugin.js',
+        'dev/libs/sifter/sifter.min.js',
+        'dev/libs/selectize/dist/js/selectize.min.js',
+        'dev/libs/jquery.maskedinput/dist/jquery.maskedinput.min.js',
+        'dev/libs/ion.rangeSlider/js/ion.rangeSlider.min.js',
     ];
 
     $.gulp.task('libsJS:dev', () => {

@@ -36,6 +36,42 @@ $(document).ready(function () {
         $(this).addClass('_active');
     });
 
+    function counter (el) {
+        var n = Number(el.text());
+
+        el.animateNumber({
+            number: n
+        });
+
+        el.closest('.spincrement').addClass('_spin-done');
+    }
+
+    $('.about__item.viewport-checker').viewportChecker({
+        classToAdd: 'spincrement',
+        offset: 200,
+        callbackFunction: function () {
+            counter($('.spincrement:not(._spin-done) .about__item__numbers-big'));
+        }
+    });
+
+    $('.nav-page__dots__item').click( function() {
+        var scroll_el = $(this).attr('href');
+
+        if ($(scroll_el).length != 0) {
+            $('html, body').animate({ scrollTop: $(scroll_el).offset().top - 100 }, 500);
+        }
+
+        $('.nav-page__dots__item').removeClass('_active');
+        $(this).addClass('_active');
+
+        return false;
+    });
+
+    var myLazyLoad = new LazyLoad({
+        elements_selector: ".lazy",
+        threshold: 0,
+    });
+
     var aboutVideosSlide = $('.about-videos__slider').slick({
         infinite: true,
         fade: true,
@@ -109,6 +145,8 @@ $(document).ready(function () {
 
             zi--;
         }
+
+        $(block).closest('.services__item').removeClass('_go-anim').addClass('_ready-anim');
     }
 
     function documentsImgSlider (block) {
@@ -152,6 +190,8 @@ $(document).ready(function () {
 
             zi--;
         }
+
+        $(block).closest('.services__documents').removeClass('_go-anim').addClass('_ready-anim');
     }
 
     var activeSlideDoc = 0;
@@ -234,10 +274,10 @@ $(document).ready(function () {
         moveSlide(slides, slideTransX, slideTransY, slideZindex, slideScale, dataSlide, wrap, btns);
     }
 
-    documentsImgSlider($('.services__documents__img-wrap'));
+    // documentsImgSlider($('.services__documents__img-wrap'));
 
     $('.services__item').each(function () {
-        slideImgs($(this).find('.services__item__img-wrap'));
+        // slideImgs($(this).find('.services__item__img-wrap'));
     });
 
     $('.services__documents__item').click(function () {
@@ -387,6 +427,85 @@ $(document).ready(function () {
     $('.partners__slider-btns__next').click(function () {
         partnersSlider.slick('slickNext');
         $('.partners__slider-numbers__current span').text(partnersSlider.slick('slickCurrentSlide') + 1);
+    });
+
+    $('.services__item.viewport-checker').viewportChecker({
+        classToAdd: '_go-anim',
+        offset: 400,
+        callbackFunction: function () {
+            if (!$('.services__documents').hasClass('_ready-anim')) {
+                $('.services__documents__item:first-child').addClass('_active');
+                documentsImgSlider($('.services__documents__img-wrap'));
+            }
+
+            slideImgs($('.services__item:not(.services__documents)._go-anim').find('.services__item__img-wrap'));
+        }
+    });
+
+    function activeNav (id) {
+        $('.nav-page__dots__item').removeClass('_active');
+        $('.nav-page__dots__item[href="#' + id + '"]').addClass('_active');
+
+        $('.nav-view-checker').removeClass('_active-nav');
+    }
+
+    $('.nav-view-checker').viewportChecker({
+        classToAdd: '_active-nav',
+        offset: 600,
+        repeat: true,
+        callbackFunction: function () {
+            var navId = $('.nav-view-checker._active-nav').attr('id');
+
+            activeNav(navId);
+        }
+    });
+
+    ymaps.ready(init);
+    function init(){
+        var myMap = new ymaps.Map("map", {
+            center: [55.76, 37.64],
+            zoom: 14,
+            controls: [],
+        });
+
+        var myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+            hintContent: 'Содержимое всплывающей подсказки',
+            balloonContent: 'Содержимое балуна'
+        }, {
+            iconLayout: 'default#image',
+            iconImageHref: 'static/img/icons/map-label.png',
+            iconImageSize: [121, 132],
+            iconImageOffset: [-60, -95]
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+    }
+
+    $('.main-header .search').click(function () {
+        $('.main-header__search').addClass('_show');
+        $body.addClass('_open-menu');
+    });
+
+    $('.main-header__search__close').click(function () {
+        $('.main-header__search').removeClass('_show');
+        $body.removeClass('_open-menu');
+    });
+
+    $('.custom-select').selectize();
+
+    $('#phone-input, #phone-input-popup').mask('+ 7 (999) 999-99-99');
+
+    $('#popupCalc').ionRangeSlider({
+        min: 50,
+        max: 200
+    });
+
+    $('.calculate-popup-btn').click(function () {
+        $('.popup__calculate').addClass('_open');
+    });
+
+    $('.popup__close').click(function () {
+        $('.popup').removeClass('_open');
     });
 
 });

@@ -31,8 +31,112 @@ html(lang="ru-RU")
 
             include ../modules/footer
 
-        .overlay
+        // Popups
 
+        .popup.popup__calculate
+            .popup__wrap
+                form
+                    .popup__close
+                        .popup__close__btn
+                            span
+                            span
+                            span
+                            .popup__close__cross.popup__close__cross--left
+                            .popup__close__cross.popup__close__cross--right
+
+                        .popup__close__text Закрыть
+
+                    .popup__title Рассчитайте стоимость
+
+                    .popup__calculate__range-slider
+                        .popup__calculate__range-slider-text
+                            | м
+                            span 2
+
+                        input#popupCalc(type='text')
+
+                    .callback-block__form__item
+                        .callback-block__form__label Тип жилья:
+                        select.custom-select
+                            option Квартира
+                            option Дом
+                            option Коттедж
+
+                    .callback-block__form__item
+                        .callback-block__form__label Введите ваш e-mail:
+                        input.callback-block__form__input(type='text' placeholder='example@email.ru')
+
+                    .callback-block__form__submit-wrap
+                        button.callback-block__form__submit.default-btn.default-btn--orange(type='submit')
+                            .default-btn__icon.default-btn__icon--left
+                                +icon('calc')
+                            .default-btn__text Рассчитать стоимость
+                            .default-btn__icon.default-btn__icon--right
+                                +icon('calc')
+
+        .popup.popup__callback
+            .popup__wrap
+                form
+                    .popup__close
+                        .popup__close__btn
+                            span
+                            span
+                            span
+                            .popup__close__cross.popup__close__cross--left
+                            .popup__close__cross.popup__close__cross--right
+
+                        .popup__close__text Закрыть
+
+                    .popup__title обратный звонок
+
+                    .callback-block__form__item
+                        .callback-block__form__label Введите ваше имя*:
+                        input.callback-block__form__input(type='text')
+                        .callback-block__form__error Заполните поле
+
+                    .callback-block__form__item
+                        .callback-block__form__label Ваш телефон*:
+                        input.callback-block__form__input#phone-input-popup(type='text')
+
+                    .callback-block__form__item
+                        .default-checkbox
+                            input(type='checkbox' id='pol-conf')
+                            label(for='pol-conf')
+                                span
+                                    i(class="fa fa-check" aria-hidden="true")
+
+                                | Согласен с&nbsp;
+                                a(href='#') политикой конфиденциальности
+
+                    .callback-block__form__submit-wrap
+                        button.callback-block__form__submit.default-btn.default-btn--orange(type='submit')
+                            .default-btn__icon.default-btn__icon--left
+                                +icon('calc')
+                            .default-btn__text Заказать обратный звонок
+                            .default-btn__icon.default-btn__icon--right
+                                +icon('calc')
+
+        .popup.popup__thanks
+            .popup__wrap
+                .popup__close
+                    .popup__close__btn
+                        span
+                        span
+                        span
+                        .popup__close__cross.popup__close__cross--left
+                        .popup__close__cross.popup__close__cross--right
+
+                    .popup__close__text Закрыть
+
+                .popup__title спасибо
+
+                .popup__text В ближайшее время на ваш E-mail придет рассчет стоимости.
+
+                .callback-block__form__submit-wrap
+                    button.default-btn.default-btn--orange.default-btn--no-arrows
+                        .default-btn__text ok
+
+        script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer)
         script(src="static/js/libs.min.js")
         script(src="static/js/main.js")
         block script

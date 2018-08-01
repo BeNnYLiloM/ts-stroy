@@ -1,6 +1,6 @@
 // Begin services
 
-.services
+.services#services.nav-view-checker
     .container
         .services__title.block-title
             h2
@@ -8,11 +8,11 @@
                 span  услуги
                 |  это:
 
-        .services__item.services__item--imgs-left.services__documents
+        .services__item.services__item--imgs-left.services__documents.viewport-checker
             .services__item__wrap
                 .services__item__left-side.services__documents__img-wrap
                     .services__documents__img(data-slide='0')
-                        img(src='static/img/content/services-img-doc-1.jpg' alt='')
+                        img(data-src='static/img/content/services-img-doc-1.jpg' alt='' class='lazy' width='442' height='634')
 
                         .services__documents__img-more-read
                             .services__documents__img-title Замеры объекта
@@ -35,7 +35,7 @@
                                     p Не следует, однако забывать, что сложившаяся структура организации позволяет выполнять важные задания по разработке направлений прогрессивного развития.
 
                     .services__documents__img(data-slide='1')
-                        img(src='static/img/content/services-img-doc-2.jpg' alt='')
+                        img(data-src='static/img/content/services-img-doc-2.jpg' alt='' class='lazy' width='442' height='634')
 
                         .services__documents__img-more-read
                             .services__documents__img-title Технический дизайн
@@ -58,7 +58,7 @@
                                     p Не следует, однако забывать, что сложившаяся структура организации позволяет выполнять важные задания по разработке направлений прогрессивного развития.
 
                     .services__documents__img(data-slide='2')
-                        img(src='static/img/content/services-img-doc-2.jpg' alt='')
+                        img(data-src='static/img/content/services-img-doc-2.jpg' alt='' class='lazy' width='442' height='634')
 
                         .services__documents__img-more-read
                             .services__documents__img-title Сметы
@@ -86,7 +86,7 @@
                         .services__item__title Подготовка документации
 
                     .services__documents__center
-                        .services__documents__item._active(data-slide-number='0')
+                        .services__documents__item(data-slide-number='0')
                             .services__documents__lines
                                 .services__documents__lines-item
                                 .services__documents__lines-item
@@ -125,7 +125,7 @@
                                 +icon('btn-arrow')
 
 
-        .services__item.services__item--imgs-right
+        .services__item.services__item--imgs-right.viewport-checker
             .services__item__wrap
                 .services__item__left-side
                     .services__item__top
@@ -148,7 +148,7 @@
                 .services__item__right-side
                     .services__item__img-wrap
                         .services__item__img._active(data-slide='0')
-                            img(src='static/img/content/services-img-doc-3.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-3.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title электрика
@@ -170,7 +170,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='1')
-                            img(src='static/img/content/services-img-doc-4.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-4.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title сантехника
@@ -192,7 +192,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='2')
-                            img(src='static/img/content/services-img-doc-5.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-5.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title отопление
@@ -214,7 +214,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='3')
-                            img(src='static/img/content/services-img-doc-6.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-6.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title вентеляция
@@ -248,12 +248,12 @@
                         .services__item__numbers-all
                             | / 4
 
-        .services__item.services__item--imgs-left
+        .services__item.services__item--imgs-left.viewport-checker
             .services__item__wrap
                 .services__item__left-side
                     .services__item__img-wrap
                         .services__item__img._active(data-slide='0')
-                            img(src='static/img/content/services-img-doc-3.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-3.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title демонтаж
@@ -275,7 +275,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='1')
-                            img(src='static/img/content/services-img-doc-4.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-4.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title возведение перегородок
@@ -297,7 +297,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития
 
                         .services__item__img(data-slide='2')
-                            img(src='static/img/content/services-img-doc-5.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-5.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title монтаж ГКЛ
@@ -319,7 +319,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='3')
-                            img(src='static/img/content/services-img-doc-6.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-6.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title устройство проемов
@@ -341,7 +341,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='4')
-                            img(src='static/img/content/services-img-doc-7.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-7.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title натяжной потолок
@@ -363,7 +363,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='5')
-                            img(src='static/img/content/services-img-doc-8.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-8.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title подвесной потолок
@@ -385,7 +385,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='6')
-                            img(src='static/img/content/services-img-doc-9.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-9.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title штукатурные работы
@@ -407,7 +407,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='7')
-                            img(src='static/img/content/services-img-doc-10.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-10.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title устройство полов
@@ -429,7 +429,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='8')
-                            img(src='static/img/content/services-img-doc-11.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-11.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title звукоизоляция
@@ -497,7 +497,7 @@
                         .services__item__line(data-slide-number='8')
                             | звукоизоляция
 
-        .services__item.services__item--imgs-right
+        .services__item.services__item--imgs-right.viewport-checker
             .services__item__wrap
                 .services__item__left-side
                     .services__item__top
@@ -526,7 +526,7 @@
                 .services__item__right-side
                     .services__item__img-wrap
                         .services__item__img._active(data-slide='0')
-                            img(src='static/img/content/services-img-doc-3.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-3.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title малярные работы
@@ -548,7 +548,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='1')
-                            img(src='static/img/content/services-img-doc-4.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-4.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title покраска
@@ -570,7 +570,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='2')
-                            img(src='static/img/content/services-img-doc-5.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-5.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title стеновые покрытия
@@ -592,7 +592,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='3')
-                            img(src='static/img/content/services-img-doc-6.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-6.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title потолочные покрытия
@@ -614,7 +614,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='4')
-                            img(src='static/img/content/services-img-doc-7.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-7.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title плиточные работы
@@ -636,7 +636,7 @@
                                         p Не следует, однако забывать, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании модели развития.
 
                         .services__item__img(data-slide='5')
-                            img(src='static/img/content/services-img-doc-8.jpg' alt='')
+                            img(data-src='static/img/content/services-img-doc-8.jpg' alt='' class='lazy' width='320' height='475')
 
                             .services__item__img-more-read
                                 .services__item__img-title установка дверей
@@ -670,7 +670,7 @@
 
                         .services__item__numbers-all
                             | / 6
-        .services__item.services__item--additionally
+        .services__item.services__item--additionally.viewport-checker
             .services__item__wrap
                 .services__item__left-side
                     .services__list
@@ -717,7 +717,7 @@
                                 |  прогрессивного развития.
 
                     .services__documents__bottom
-                        button.default-btn.default-btn--orange
+                        button.default-btn.default-btn--orange.calculate-popup-btn
                             .default-btn__icon.default-btn__icon--left
                                 +icon('calc')
                             .default-btn__text Калькулятор

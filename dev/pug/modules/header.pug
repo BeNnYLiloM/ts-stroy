@@ -85,5 +85,25 @@ header.main-header
                                 a(href='#' target='_blank')
                                     i(class="fa fa-youtube-play" aria-hidden="true")
 
+    .main-header__search
+        .container
+            form
+                .main-header__search__wrap
+                    .main-header__search__left-side
+                        .main-header__search__icon
+                            i(class="fa fa-search" aria-hidden="true")
+
+                        input.main-header__search__input(placeholder='Введите поисковое слово ...')
+
+                        .main-header__search__btn
+                            +icon('btn-arrow')
+
+                    .main-header__search__right-side
+                        .main-header__search__close
+                            span
+                            span
+                            span
+                            .main-header__search__cross.main-header__search__cross--left
+                            .main-header__search__cross.main-header__search__cross--right
 
     .main-header__overlay

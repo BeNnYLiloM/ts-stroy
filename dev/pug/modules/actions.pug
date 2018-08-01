@@ -1,25 +1,33 @@
 // Begin actions
 
-.actions.page-block
+.actions.page-block#actions.nav-view-checker
     .container
-        .services__item.services__item--imgs-right.services__item--no-nav
+        .services__item.services__item--imgs-right.services__item--no-nav.viewport-checker
             .services__item__wrap
                 .services__item__left-side
                     .callback-block
                         .callback-block__title Выезд на замер
                         .callback-block__form
                             form
-                                .callback-block__form__item
+                                .callback-block__form__item._error
                                     .callback-block__form__label Введите ваше имя*:
                                     input.callback-block__form__input(type='text')
+                                    .callback-block__form__error Заполните поле
 
                                 .callback-block__form__item
                                     .callback-block__form__label Ваш телефон*:
-                                    input.callback-block__form__input(type='text')
+                                    input.callback-block__form__input#phone-input(type='text')
 
                                 .callback-block__form__item
                                     .callback-block__form__label Введите ваш e-mail:
                                     input.callback-block__form__input(type='text' placeholder='example@email.ru')
+
+                                //.callback-block__form__item
+                                //    .callback-block__form__label Тип жилья:
+                                //    select.custom-select
+                                //        option Квартира
+                                //        option Дом
+                                //        option Коттедж
 
                                 .callback-block__form__submit-wrap
                                     button.callback-block__form__submit.default-btn.default-btn--orange(type='submit')

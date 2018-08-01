@@ -79,18 +79,56 @@
               </div>
             </div>
           </div>
+          <div class="main-header__search">
+            <div class="container">
+              <form>
+                <div class="main-header__search__wrap">
+                  <div class="main-header__search__left-side">
+                    <div class="main-header__search__icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                    <input class="main-header__search__input" placeholder="Введите поисковое слово ...">
+                    <div class="main-header__search__btn">
+                      <svg class="icon icon-btn-arrow ">
+                        <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="main-header__search__right-side">
+                    <div class="main-header__search__close"><span></span><span></span><span></span>
+                      <div class="main-header__search__cross main-header__search__cross--left"></div>
+                      <div class="main-header__search__cross main-header__search__cross--right"></div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
           <div class="main-header__overlay"></div>
         </header>
         <div class="main-content">
+          <!-- Begin nav-page-->
+          <div class="nav-page">
+            <div class="nav-page__wrap">
+              <div class="nav-page__top"></div>
+              <div class="nav-page__dots"><a class="nav-page__dots__item _active" href="#top"><span>Вверх</span></a><a class="nav-page__dots__item" href="#about"><span>О компании</span></a><a class="nav-page__dots__item" href="#aboutVideos"><span>Видео о компании</span></a><a class="nav-page__dots__item" href="#howWeWork"><span>Как мы работаем</span></a><a class="nav-page__dots__item" href="#services"><span>Наши услуги</span></a><a class="nav-page__dots__item" href="#actions"><span>Акции</span></a><a class="nav-page__dots__item" href="#team"><span>Команда</span></a><a class="nav-page__dots__item" href="#partners"><span>Партнеры</span></a></div>
+              <div class="nav-page__social-links">
+                <div class="nav-page__social-links__item"><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                <div class="nav-page__social-links__item"><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                <div class="nav-page__social-links__item"><a href="#" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></div>
+              </div>
+            </div>
+          </div>
+          <!-- End nav-page-->
           <!-- Begin .main-slider-->
-          <div class="main-slider">
+          <div class="main-slider nav-view-checker" id="top">
+            <div class="wave-bg"></div>
             <div class="main-slider__item _active">
               <div class="main-slider__item__video-bg">
-                <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-1.jpg') no-repeat center top"></div>
+                <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-1.jpg') no-repeat center top;"></div>
                 <div class="main-slider__item__video"></div>
               </div>
               <div class="main-slider__item__content">
                 <div class="main-slider__item__number"><span>01</span></div>
+                <div class="main-slider__item__number-no-active"><span>01</span></div>
                 <div class="main-slider__item__title" data-color="#f25b41">Ремонт</div>
                 <div class="main-slider__item__title-big" data-color="#f25b41">Ремонт</div>
                 <div class="main-slider__item__sub-title">в Москве и Московской области</div>
@@ -119,11 +157,12 @@
             </div>
             <div class="main-slider__item">
               <div class="main-slider__item__video-bg">
-                <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-2.jpg') no-repeat center top"></div>
+                <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-2.jpg') no-repeat center top;"></div>
                 <div class="main-slider__item__video"></div>
               </div>
               <div class="main-slider__item__content">
                 <div class="main-slider__item__number"><span>02</span></div>
+                <div class="main-slider__item__number-no-active"><span>02</span></div>
                 <div class="main-slider__item__title" data-color="#0fbd5d">Проектирование</div>
                 <div class="main-slider__item__title-big" data-color="#0fbd5d">Проектирование</div>
                 <div class="main-slider__item__sub-title">в Москве и Московской области</div>
@@ -152,11 +191,12 @@
             </div>
             <div class="main-slider__item">
               <div class="main-slider__item__video-bg">
-                <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-3.jpg') no-repeat center top"></div>
+                <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-3.jpg') no-repeat center top;"></div>
                 <div class="main-slider__item__video"></div>
               </div>
               <div class="main-slider__item__content">
                 <div class="main-slider__item__number"><span>03</span></div>
+                <div class="main-slider__item__number-no-active"><span>03</span></div>
                 <div class="main-slider__item__title" data-color="#298ae5">Строительство</div>
                 <div class="main-slider__item__title-big" data-color="#298ae5">Строительство</div>
                 <div class="main-slider__item__sub-title">в Москве и Московской области</div>
@@ -186,7 +226,7 @@
           </div>
           <!-- End .main-slider-->
           <!-- Begin about-->
-          <div class="about page-block">
+          <div class="about page-block nav-view-checker" id="about">
             <div class="container">
               <div class="about__wrap flex flex--jcsb">
                 <div class="about__column">
@@ -205,20 +245,20 @@
                   </div>
                 </div>
                 <div class="about__column">
-                  <div class="about__item">
+                  <div class="about__item viewport-checker">
                     <div class="about__item__numbers">
-                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg1.jpg&quot;) no-repeat "></div>
+                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg1.jpg&quot;) no-repeat ;"></div>
                       <div class="about__item__numbers-wrap">
                         <div class="about__item__numbers-left">06</div>
-                        <div class="about__item__numbers-big">07</div>
+                        <div class="about__item__numbers-big">7</div>
                         <div class="about__item__numbers-right">08</div>
                       </div>
                     </div>
                     <div class="about__item__text">лет успешной работы</div>
                   </div>
-                  <div class="about__item">
+                  <div class="about__item viewport-checker">
                     <div class="about__item__numbers">
-                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg2.jpg&quot;) no-repeat "></div>
+                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg2.jpg&quot;) no-repeat ;"></div>
                       <div class="about__item__numbers-wrap">
                         <div class="about__item__numbers-left">69</div>
                         <div class="about__item__numbers-big">70</div>
@@ -227,9 +267,9 @@
                     </div>
                     <div class="about__item__text">Специалистов в штате</div>
                   </div>
-                  <div class="about__item">
+                  <div class="about__item viewport-checker">
                     <div class="about__item__numbers">
-                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg3.jpg&quot;) no-repeat "></div>
+                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg3.jpg&quot;) no-repeat ;"></div>
                       <div class="about__item__numbers-wrap">
                         <div class="about__item__numbers-left">799</div>
                         <div class="about__item__numbers-big">800</div>
@@ -244,7 +284,7 @@
           </div>
           <!-- End about-->
           <!-- Begin about-videos-->
-          <div class="about-videos page-block">
+          <div class="about-videos page-block nav-view-checker" id="aboutVideos">
             <div class="about-videos__bg-img"><img src="static/img/backgrounds/about-videos-bg.jpg" alt=""></div>
             <div class="about-videos__title">
               <div class="container">
@@ -336,8 +376,10 @@
           </div>
           <!-- End about-videos-->
           <!-- Begin how-we-work-->
-          <div class="how-we-work page-block">
-            <div class="wave-bg"></div>
+          <div class="how-we-work page-block nav-view-checker" id="howWeWork">
+            <div class="wave-bg">
+              <div class="wave-bg__inner"></div>
+            </div>
             <div class="container">
               <div class="how-we-work__title block-title">
                 <h2>Как<span> мы<br>работаем</span></h2>
@@ -483,15 +525,15 @@
           </div>
           <!-- End how-we-work-->
           <!-- Begin services-->
-          <div class="services">
+          <div class="services nav-view-checker" id="services">
             <div class="container">
               <div class="services__title block-title">
                 <h2>Наши<span> услуги</span> это:</h2>
               </div>
-              <div class="services__item services__item--imgs-left services__documents">
+              <div class="services__item services__item--imgs-left services__documents viewport-checker">
                 <div class="services__item__wrap">
                   <div class="services__item__left-side services__documents__img-wrap">
-                    <div class="services__documents__img" data-slide="0"><img src="static/img/content/services-img-doc-1.jpg" alt="">
+                    <div class="services__documents__img" data-slide="0"><img class="lazy" data-src="static/img/content/services-img-doc-1.jpg" alt="" width="442" height="634">
                       <div class="services__documents__img-more-read">
                         <div class="services__documents__img-title">Замеры объекта</div>
                         <div class="services__documents__img-link">Читать подробнее</div>
@@ -511,7 +553,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="services__documents__img" data-slide="1"><img src="static/img/content/services-img-doc-2.jpg" alt="">
+                    <div class="services__documents__img" data-slide="1"><img class="lazy" data-src="static/img/content/services-img-doc-2.jpg" alt="" width="442" height="634">
                       <div class="services__documents__img-more-read">
                         <div class="services__documents__img-title">Технический дизайн</div>
                         <div class="services__documents__img-link">Читать подробнее</div>
@@ -531,7 +573,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="services__documents__img" data-slide="2"><img src="static/img/content/services-img-doc-2.jpg" alt="">
+                    <div class="services__documents__img" data-slide="2"><img class="lazy" data-src="static/img/content/services-img-doc-2.jpg" alt="" width="442" height="634">
                       <div class="services__documents__img-more-read">
                         <div class="services__documents__img-title">Сметы</div>
                         <div class="services__documents__img-link">Читать подробнее</div>
@@ -558,7 +600,7 @@
                       <div class="services__item__title">Подготовка документации</div>
                     </div>
                     <div class="services__documents__center">
-                      <div class="services__documents__item _active" data-slide-number="0">
+                      <div class="services__documents__item" data-slide-number="0">
                         <div class="services__documents__lines">
                           <div class="services__documents__lines-item"></div>
                           <div class="services__documents__lines-item"></div>
@@ -607,7 +649,7 @@
                   </div>
                 </div>
               </div>
-              <div class="services__item services__item--imgs-right">
+              <div class="services__item services__item--imgs-right viewport-checker">
                 <div class="services__item__wrap">
                   <div class="services__item__left-side">
                     <div class="services__item__top">
@@ -623,7 +665,7 @@
                   </div>
                   <div class="services__item__right-side">
                     <div class="services__item__img-wrap">
-                      <div class="services__item__img _active" data-slide="0"><img src="static/img/content/services-img-doc-3.jpg" alt="">
+                      <div class="services__item__img _active" data-slide="0"><img class="lazy" data-src="static/img/content/services-img-doc-3.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">электрика</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -642,7 +684,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="1"><img src="static/img/content/services-img-doc-4.jpg" alt="">
+                      <div class="services__item__img" data-slide="1"><img class="lazy" data-src="static/img/content/services-img-doc-4.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">сантехника</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -661,7 +703,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="2"><img src="static/img/content/services-img-doc-5.jpg" alt="">
+                      <div class="services__item__img" data-slide="2"><img class="lazy" data-src="static/img/content/services-img-doc-5.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">отопление</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -680,7 +722,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="3"><img src="static/img/content/services-img-doc-6.jpg" alt="">
+                      <div class="services__item__img" data-slide="3"><img class="lazy" data-src="static/img/content/services-img-doc-6.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">вентеляция</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -719,11 +761,11 @@
                   </div>
                 </div>
               </div>
-              <div class="services__item services__item--imgs-left">
+              <div class="services__item services__item--imgs-left viewport-checker">
                 <div class="services__item__wrap">
                   <div class="services__item__left-side">
                     <div class="services__item__img-wrap">
-                      <div class="services__item__img _active" data-slide="0"><img src="static/img/content/services-img-doc-3.jpg" alt="">
+                      <div class="services__item__img _active" data-slide="0"><img class="lazy" data-src="static/img/content/services-img-doc-3.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">демонтаж</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -742,7 +784,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="1"><img src="static/img/content/services-img-doc-4.jpg" alt="">
+                      <div class="services__item__img" data-slide="1"><img class="lazy" data-src="static/img/content/services-img-doc-4.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">возведение перегородок</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -761,7 +803,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="2"><img src="static/img/content/services-img-doc-5.jpg" alt="">
+                      <div class="services__item__img" data-slide="2"><img class="lazy" data-src="static/img/content/services-img-doc-5.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">монтаж ГКЛ</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -780,7 +822,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="3"><img src="static/img/content/services-img-doc-6.jpg" alt="">
+                      <div class="services__item__img" data-slide="3"><img class="lazy" data-src="static/img/content/services-img-doc-6.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">устройство проемов</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -799,7 +841,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="4"><img src="static/img/content/services-img-doc-7.jpg" alt="">
+                      <div class="services__item__img" data-slide="4"><img class="lazy" data-src="static/img/content/services-img-doc-7.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">натяжной потолок</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -818,7 +860,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="5"><img src="static/img/content/services-img-doc-8.jpg" alt="">
+                      <div class="services__item__img" data-slide="5"><img class="lazy" data-src="static/img/content/services-img-doc-8.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">подвесной потолок</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -837,7 +879,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="6"><img src="static/img/content/services-img-doc-9.jpg" alt="">
+                      <div class="services__item__img" data-slide="6"><img class="lazy" data-src="static/img/content/services-img-doc-9.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">штукатурные работы</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -856,7 +898,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="7"><img src="static/img/content/services-img-doc-10.jpg" alt="">
+                      <div class="services__item__img" data-slide="7"><img class="lazy" data-src="static/img/content/services-img-doc-10.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">устройство полов</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -875,7 +917,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="8"><img src="static/img/content/services-img-doc-11.jpg" alt="">
+                      <div class="services__item__img" data-slide="8"><img class="lazy" data-src="static/img/content/services-img-doc-11.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">звукоизоляция</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -931,7 +973,7 @@
                   </div>
                 </div>
               </div>
-              <div class="services__item services__item--imgs-right">
+              <div class="services__item services__item--imgs-right viewport-checker">
                 <div class="services__item__wrap">
                   <div class="services__item__left-side">
                     <div class="services__item__top">
@@ -949,7 +991,7 @@
                   </div>
                   <div class="services__item__right-side">
                     <div class="services__item__img-wrap">
-                      <div class="services__item__img _active" data-slide="0"><img src="static/img/content/services-img-doc-3.jpg" alt="">
+                      <div class="services__item__img _active" data-slide="0"><img class="lazy" data-src="static/img/content/services-img-doc-3.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">малярные работы</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -968,7 +1010,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="1"><img src="static/img/content/services-img-doc-4.jpg" alt="">
+                      <div class="services__item__img" data-slide="1"><img class="lazy" data-src="static/img/content/services-img-doc-4.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">покраска</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -987,7 +1029,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="2"><img src="static/img/content/services-img-doc-5.jpg" alt="">
+                      <div class="services__item__img" data-slide="2"><img class="lazy" data-src="static/img/content/services-img-doc-5.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">стеновые покрытия</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -1006,7 +1048,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="3"><img src="static/img/content/services-img-doc-6.jpg" alt="">
+                      <div class="services__item__img" data-slide="3"><img class="lazy" data-src="static/img/content/services-img-doc-6.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">потолочные покрытия</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -1025,7 +1067,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="4"><img src="static/img/content/services-img-doc-7.jpg" alt="">
+                      <div class="services__item__img" data-slide="4"><img class="lazy" data-src="static/img/content/services-img-doc-7.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">плиточные работы</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -1044,7 +1086,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="services__item__img" data-slide="5"><img src="static/img/content/services-img-doc-8.jpg" alt="">
+                      <div class="services__item__img" data-slide="5"><img class="lazy" data-src="static/img/content/services-img-doc-8.jpg" alt="" width="320" height="475">
                         <div class="services__item__img-more-read">
                           <div class="services__item__img-title">установка дверей</div>
                           <div class="services__item__img-link">Читать подробнее</div>
@@ -1083,7 +1125,7 @@
                   </div>
                 </div>
               </div>
-              <div class="services__item services__item--additionally">
+              <div class="services__item services__item--additionally viewport-checker">
                 <div class="services__item__wrap">
                   <div class="services__item__left-side">
                     <div class="services__list">
@@ -1120,7 +1162,7 @@
                       </div>
                     </div>
                     <div class="services__documents__bottom">
-                      <button class="default-btn default-btn--orange">
+                      <button class="default-btn default-btn--orange calculate-popup-btn">
                         <div class="default-btn__icon default-btn__icon--left">
                           <svg class="icon icon-calc ">
                             <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
@@ -1141,27 +1183,34 @@
           </div>
           <!-- End services-->
           <!-- Begin actions-->
-          <div class="actions page-block">
+          <div class="actions page-block nav-view-checker" id="actions">
             <div class="container">
-              <div class="services__item services__item--imgs-right services__item--no-nav">
+              <div class="services__item services__item--imgs-right services__item--no-nav viewport-checker">
                 <div class="services__item__wrap">
                   <div class="services__item__left-side">
                     <div class="callback-block">
                       <div class="callback-block__title">Выезд на замер</div>
                       <div class="callback-block__form">
                         <form>
-                          <div class="callback-block__form__item">
+                          <div class="callback-block__form__item _error">
                             <div class="callback-block__form__label">Введите ваше имя*:</div>
                             <input class="callback-block__form__input" type="text">
+                            <div class="callback-block__form__error">Заполните поле</div>
                           </div>
                           <div class="callback-block__form__item">
                             <div class="callback-block__form__label">Ваш телефон*:</div>
-                            <input class="callback-block__form__input" type="text">
+                            <input class="callback-block__form__input" id="phone-input" type="text">
                           </div>
                           <div class="callback-block__form__item">
                             <div class="callback-block__form__label">Введите ваш e-mail:</div>
                             <input class="callback-block__form__input" type="text" placeholder="example@email.ru">
                           </div>
+                          <!--.callback-block__form__item-->
+                          <!--    .callback-block__form__label Тип жилья:-->
+                          <!--    select.custom-select-->
+                          <!--        option Квартира-->
+                          <!--        option Дом-->
+                          <!--        option Коттедж-->
                           <div class="callback-block__form__submit-wrap">
                             <button class="callback-block__form__submit default-btn default-btn--orange" type="submit">
                               <div class="default-btn__icon default-btn__icon--left">
@@ -1246,7 +1295,8 @@
           </div>
           <!-- End actions-->
           <!-- Begin team-->
-          <div class="team page-block">
+          <div class="team page-block nav-view-checker" id="team">
+            <div class="wave-bg"></div>
             <div class="container">
               <div class="team__title block-title">
                 <h2>Наша<span> Команда</span></h2>
@@ -1477,7 +1527,7 @@
           </div>
           <!-- End team-->
           <!-- Begin partners-->
-          <div class="partners page-block mb-0">
+          <div class="partners page-block mb-0 nav-view-checker" id="partners">
             <div class="partners__bg"><img src="static/img/backgrounds/partners-bg.jpg" alt=""></div>
             <div class="container">
               <div class="partners__wrap">
@@ -1546,18 +1596,145 @@
           <!-- End partners-->
           <!-- Begin ask-->
           <div class="ask">
-            <div class="container"></div>
+            <div class="ask__rings">
+              <div class="ask__rings__item ask__rings__item--one"></div>
+              <div class="ask__rings__item ask__rings__item--two"></div>
+              <div class="ask__rings__item ask__rings__item--three"></div>
+              <div class="ask__rings__item ask__rings__item--four"></div>
+              <div class="ask__rings__item ask__rings__item--five"></div>
+            </div>
+            <div class="container">
+              <div class="ask__wrap">
+                <div class="ask__left-side">
+                  <div class="ask__title">У ВАС ВОЗНИКЛИ ВОПРОСЫ?</div>
+                  <div class="ask__text">Задайте их нашему специалисту прямо сейчас</div>
+                </div>
+                <div class="ask__right-side">
+                  <button class="default-btn default-btn--white">
+                    <div class="default-btn__icon default-btn__icon--left"><i class="fa fa-question-circle" aria-hidden="true"></i></div>
+                    <div class="default-btn__text">Задайте вопрос</div>
+                    <div class="default-btn__icon default-btn__icon--right"><i class="fa fa-question-circle" aria-hidden="true"></i></div>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- End ask-->
         </div>
       </div>
       <footer class="main-footer">
-        <div class="container">
-          <p>footer</p>
-        </div>
+        <div class="main-footer__map" id="map"></div>
       </footer>
     </div>
-    <div class="overlay"></div>
+    <!-- Popups-->
+    <div class="popup popup__calculate">
+      <div class="popup__wrap">
+        <form>
+          <div class="popup__close">
+            <div class="popup__close__btn"><span></span><span></span><span></span>
+              <div class="popup__close__cross popup__close__cross--left"></div>
+              <div class="popup__close__cross popup__close__cross--right"></div>
+            </div>
+            <div class="popup__close__text">Закрыть</div>
+          </div>
+          <div class="popup__title">Рассчитайте стоимость</div>
+          <div class="popup__calculate__range-slider">
+            <div class="popup__calculate__range-slider-text">м<span>2</span></div>
+            <input id="popupCalc" type="text">
+          </div>
+          <div class="callback-block__form__item">
+            <div class="callback-block__form__label">Тип жилья:</div>
+            <select class="custom-select">
+              <option>Квартира</option>
+              <option>Дом</option>
+              <option>Коттедж</option>
+            </select>
+          </div>
+          <div class="callback-block__form__item">
+            <div class="callback-block__form__label">Введите ваш e-mail:</div>
+            <input class="callback-block__form__input" type="text" placeholder="example@email.ru">
+          </div>
+          <div class="callback-block__form__submit-wrap">
+            <button class="callback-block__form__submit default-btn default-btn--orange" type="submit">
+              <div class="default-btn__icon default-btn__icon--left">
+                <svg class="icon icon-calc ">
+                  <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
+                </svg>
+              </div>
+              <div class="default-btn__text">Рассчитать стоимость</div>
+              <div class="default-btn__icon default-btn__icon--right">
+                <svg class="icon icon-calc ">
+                  <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup__callback">
+      <div class="popup__wrap">
+        <form>
+          <div class="popup__close">
+            <div class="popup__close__btn"><span></span><span></span><span></span>
+              <div class="popup__close__cross popup__close__cross--left"></div>
+              <div class="popup__close__cross popup__close__cross--right"></div>
+            </div>
+            <div class="popup__close__text">Закрыть</div>
+          </div>
+          <div class="popup__title">обратный звонок</div>
+          <div class="callback-block__form__item">
+            <div class="callback-block__form__label">Введите ваше имя*:</div>
+            <input class="callback-block__form__input" type="text">
+            <div class="callback-block__form__error">Заполните поле</div>
+          </div>
+          <div class="callback-block__form__item">
+            <div class="callback-block__form__label">Ваш телефон*:</div>
+            <input class="callback-block__form__input" id="phone-input-popup" type="text">
+          </div>
+          <div class="callback-block__form__item">
+            <div class="default-checkbox">
+              <input type="checkbox" id="pol-conf">
+              <label for="pol-conf"><span><i class="fa fa-check" aria-hidden="true"></i></span>Согласен с&nbsp;<a href="#">политикой конфиденциальности</a></label>
+            </div>
+          </div>
+          <div class="callback-block__form__submit-wrap">
+            <button class="callback-block__form__submit default-btn default-btn--orange" type="submit">
+              <div class="default-btn__icon default-btn__icon--left">
+                <svg class="icon icon-calc ">
+                  <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
+                </svg>
+              </div>
+              <div class="default-btn__text">Заказать обратный звонок</div>
+              <div class="default-btn__icon default-btn__icon--right">
+                <svg class="icon icon-calc ">
+                  <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup__thanks">
+      <div class="popup__wrap">
+        <div class="popup__close">
+          <div class="popup__close__btn"><span></span><span></span><span></span>
+            <div class="popup__close__cross popup__close__cross--left"></div>
+            <div class="popup__close__cross popup__close__cross--right"></div>
+          </div>
+          <div class="popup__close__text">Закрыть</div>
+        </div>
+        <div class="popup__title">спасибо</div>
+        <div class="popup__text">В ближайшее время на ваш E-mail придет рассчет стоимости.</div>
+        <div class="callback-block__form__submit-wrap">
+          <button class="default-btn default-btn--orange default-btn--no-arrows">
+            <div class="default-btn__text">ok</div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer></script>
     <script src="static/js/libs.min.js"></script>
     <script src="static/js/main.js"></script>
   </body>

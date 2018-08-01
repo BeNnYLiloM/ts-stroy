@@ -27,8 +27,19 @@
 
     &__form
         &__item
-            padding: 0 80px
-            margin-bottom: 10px
+            margin: 0 80px 10px
+            position: relative
+            //perspective: 1000px
+
+            &._error
+                .callback-block__form
+                    &__input
+                        border-color: $cDark
+
+                    &__error
+                        transform: translateX(0)
+                        opacity: 1
+                        visibility: visible
 
         &__label
             font-family: $fPN
@@ -42,7 +53,7 @@
             height: 65px
             padding: 0 40px
             outline: none
-            border: none
+            border: 2px solid $cWhite
             background: $cWhite
             font-family: $fPN
             font-size: 20px
@@ -62,4 +73,29 @@
             &-wrap
                 margin-top: 80px
                 padding: 55px 80px
-                background: $cDark
+                background: $cDark url('../img/backgrounds/btn-bg.png') no-repeat
+
+        &__error
+            position: absolute
+            background: $cRed
+            padding: 9px 28px 10px
+            font-family: $fPN
+            font-size: 13px
+            color: $cWhite
+            border-radius: 4px
+            letter-spacing: .52px
+            bottom: 12px
+            left: 10px
+            transform: translateX(-30px)
+            transition: .2s ease-out
+            opacity: 0
+            visibility: hidden
+
+            &::after
+                content: ""
+                border-right: 5px solid $cRed
+                border-top: 5px solid transparent
+                border-bottom: 5px solid transparent
+                position: absolute
+                top: 15px
+                left: -5px

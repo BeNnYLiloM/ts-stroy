@@ -5,6 +5,13 @@
     position: relative
     margin-bottom: 150px
 
+    .wave-bg
+        background: url('../img/backgrounds/wave-bg-main-slider.png') no-repeat
+        width: 950px
+        height: 1517px
+        left: 0
+        top: 130px
+
     &__item
         position: relative
         min-height: 1080px
@@ -16,7 +23,7 @@
         &:not(._active)
             &:hover
                 .main-slider__item
-                    &__number span
+                    &__number-no-active span
                         opacity: 1
 
                     &__see
@@ -33,11 +40,17 @@
                     padding-top: 0
                     justify-content: center
 
-                &__number
-                    margin-bottom: 26px
+                &__number-no-active
+                    opacity: 0
+                    visibility: hidden
+                    position: absolute
 
-                    span
-                        opacity: 1
+                &__number
+                    opacity: 1
+                    visibility: visible
+                    transform: translateY(0)
+                    transition-delay: .2s
+                    position: static
 
                 &__title
                     opacity: 0
@@ -48,21 +61,21 @@
                     opacity: 1
                     visibility: visible
                     transition: .2s ease-out
-                    transition-delay: .2s
+                    transition-delay: .35s
 
                 &__sub-title
                     visibility: visible
                     opacity: 1
                     transform: translateY(0)
                     transition: .2s ease-out
-                    transition-delay: .35s
+                    transition-delay: .50s
 
                 &__text
                     visibility: visible
                     opacity: 1
                     transform: translateY(0)
                     transition: .2s ease-out
-                    transition-delay: .50s
+                    transition-delay: .65s
                     height: auto
 
                 &__btn
@@ -70,7 +83,7 @@
                     visibility: visible
                     transform: translateY(0)
                     transition: .2s ease-out
-                    transition-delay: .6s
+                    transition-delay: .75s
 
                 &__see
                     opacity: 0
@@ -104,14 +117,14 @@
             padding: 160px 30px 0
             transition: .2s ease-out
 
-        &__number
+        &__number-no-active
             font-family: $fPN
             font-size: 45px
             font-weight: 300
             position: relative
             color: $cWhite
             transition: .2s ease-out
-            margin-bottom: 20px
+            margin-bottom: 46px
 
             &::after
                 content: ""
@@ -127,6 +140,33 @@
             span
                 transition: .2s ease-out
                 opacity: .2
+
+        &__number
+            font-family: $fPN
+            font-size: 45px
+            font-weight: 300
+            color: $cWhite
+            transition: .2s ease-out
+            margin-bottom: 26px
+            opacity: 0
+            transform: translateY(20px)
+            visibility: hidden
+            position: absolute
+
+            &::after
+                content: ""
+                background: $cWhite
+                position: absolute
+                width: 43px
+                height: 3px
+                bottom: 1px
+                left: 50%
+                margin-left: -22px
+                opacity: .2
+
+            span
+                //transition: .2s ease-out
+                //opacity: .2
 
         &__title
             font-family: $fPN
