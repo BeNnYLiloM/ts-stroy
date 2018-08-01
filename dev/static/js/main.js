@@ -114,8 +114,6 @@ $(document).ready(function () {
     function documentsImgSlider (block) {
         var slides = block.find('.services__documents__img');
         var countSlides = slides.length;
-        // var separateX = ((block.width() - 60) - block.find('.services__documents__img').width()) / block.width() * 100 / countSlides;
-        // var separateY = 80;
         var translateX = 0;
         var translateY = dSeparateY;
         var zi = countSlides;
@@ -355,6 +353,40 @@ $(document).ready(function () {
         parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
         parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
         sliderImgsUpdate(slideNumber, parent, btns = true);
+    });
+
+    $('.team__slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.team__slider-nav',
+        variableWidth: true,
+        centerMode: true,
+        prevArrow: '<button type="button" class="slick-prev"><svg class="icon icon-arrow-slider-left"><use xlink:href="/static/img/svg/symbol/sprite.svg#arrow-slider-left"></use></svg></button>',
+        nextArrow: '<button type="button" class="slick-next"><svg class="icon icon-arrow-slider-right"><use xlink:href="/static/img/svg/symbol/sprite.svg#arrow-slider-right"></use></svg></button>',
+    });
+
+    $('.team__slider-nav').slick({
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        asNavFor: '.team__slider',
+        dots: true,
+        arrows: false,
+        focusOnSelect: true,
+        variableWidth: true,
+    });
+
+    var partnersSlider = $('.partners__slider').slick({
+        arrows: false,
+    });
+
+    $('.partners__slider-btns__prev').click(function () {
+        partnersSlider.slick('slickPrev');
+        $('.partners__slider-numbers__current span').text(partnersSlider.slick('slickCurrentSlide') + 1);
+    });
+
+    $('.partners__slider-btns__next').click(function () {
+        partnersSlider.slick('slickNext');
+        $('.partners__slider-numbers__current span').text(partnersSlider.slick('slickCurrentSlide') + 1);
     });
 
 });

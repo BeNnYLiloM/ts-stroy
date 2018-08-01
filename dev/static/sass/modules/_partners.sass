@@ -1,0 +1,88 @@
+.partners
+	position: relative
+	
+	&__bg
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		z-index: -1
+		
+		img
+			position: absolute
+			left: 50%
+			bottom: 0
+			transform: translateX(-50%)
+			
+	&__left-side
+		width: 780px
+		
+	&__right-side
+		width: 300px
+		padding-top: 20px
+		padding-bottom: 20px
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		
+	&__wrap
+		display: flex
+		justify-content: space-between
+			
+	&__slider
+		&__item
+			outline-style: none
+			
+	&__item
+		width: 180px
+		display: flex
+		align-items: center
+		justify-content: center
+		height: 65px
+		margin: 25px 0
+		
+		&__wrap
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+			
+		img
+			margin: 0 auto 
+			
+	&__flex-wrap
+		display: flex
+		justify-content: space-between
+		
+	&__slider
+		&-btns
+			display: flex
+			justify-content: space-between
+			width: 120px
+			
+			&__prev,
+			&__next
+				height: 30px
+				line-height: 30px
+				font-size: 30px
+				color: $cWhite
+				cursor: pointer
+				transition: .2s ease-out
+				
+				&:hover
+					color: $cRed 
+				
+		&-numbers
+			display: flex
+			font-family: $fPN
+			font-size: 30px
+			font-weight: 300
+			line-height: 25px
+			color: $cWhite
+			letter-spacing: 2.4px
+
+			&__current
+				color: $cRed
+				margin-right: 11px
+
+			span
+				margin-left: 11px
