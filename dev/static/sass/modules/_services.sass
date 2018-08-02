@@ -658,3 +658,68 @@
             font-weight: 700
             color: $cWhite
             letter-spacing: 1.28px
+            
+
++max-screen(1180px)
+    .services
+        &__item
+            &--imgs-left
+                .services__item
+                    &__left-side
+                        &.services__documents__img-wrap
+                            width: 580px
+                            
+        &__documents
+            &__img
+                max-width: 400px
+                height: 574px
+                
+                .services__item__popup-wrap
+                    padding: 60px 40px
+                    
+            &.services__item--imgs-left
+                .services__item__right-side
+                    width: calc(100% - 600px)
+                    
+            &__item
+                &._active
+                    .services__documents__lines-item
+                        &:nth-child(3)
+                            width: 135px
+                    
+            &__lines
+                width: 197px
+
++max-screen(1140px)
+    .services
+        &__item
+            &--imgs-left
+                .services__item
+                    &__right-side
+                        padding-left: 20px
+                        
+            &--imgs-right
+                .services__item
+                    &__left-side
+                        padding-right: 20px
+
+            &--additionally
+                .services__item__left-side
+                    width: 440px
+                    
+            &__title
+                font-size: 26px
+                    
+        .default-btn
+            &:hover
+                .default-btn__text
+                    padding-left: 87px
+                    padding-right: 28px
+                    
+            &__icon
+                &--left
+                    padding: 0 15px 0 18px
+
+            &__text
+                padding: 23px 87px 23px 28px
+                font-size: 14px

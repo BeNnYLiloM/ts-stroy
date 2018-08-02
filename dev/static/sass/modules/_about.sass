@@ -111,3 +111,38 @@
             text-transform: uppercase
             color: $cWhite
             padding: 0 75px 0 79px
+            
+
++max-screen(1030px)
+    .about
+        &__column
+            width: 42%
+            
+        &__item
+            &__numbers
+                width: 230px
+                
+            &__text
+                width: calc(100% - 250px)
+                padding: 0 60px 
+                
++max-screen(992px)
+    .about
+        &__wrap
+            -webkit-flex-direction: column
+            -ms-flex-direction: column
+            flex-direction: column
+        
+        &__column
+            width: 100%
+            
+            &:nth-child(2)
+                width: 100%
+                margin-top: 80px
+                
+            p
+                font-size: 18px
+                
+        &__item
+            &__numbers
+                width: 300px

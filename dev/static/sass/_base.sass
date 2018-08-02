@@ -43,9 +43,14 @@ body
     -moz-osx-font-smoothing: grayscale !important
 
     &._open-menu
+        overflow: hidden
+        
         .main-header__overlay
             opacity: .8
             visibility: visible
+            
+    &._of-hidden
+        overflow: hidden
 
 img
     max-width: 100%
@@ -373,7 +378,16 @@ h2
             border-bottom: 1px solid $cWhite
             color: $cWhite
 
++max-screen(1360px)
+    .container
+        padding-left: 80px 
+        
++max-screen(1200px)
+    .default-btn
+        &__text
+            white-space: nowrap
 
 +max-screen(992px)
     .container
-        max-width: 580px
+        max-width: 640px
+        padding-left: 30px

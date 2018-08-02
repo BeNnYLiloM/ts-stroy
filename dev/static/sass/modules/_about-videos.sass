@@ -150,6 +150,9 @@
         color: $cWhite
         letter-spacing: 2.4px
         display: flex
+        
+        &__wrap
+            display: flex
 
         &__current
             color: $cRed
@@ -157,3 +160,46 @@
 
         span
             margin-left: 11px
+            
+
++max-screen(1200px)
+    .about-videos
+        &__title .block-title
+            max-width: 465px
+            
+
++max-screen(1170px)
+    .about-videos
+        &__title
+            .block-title
+                max-width: 400px
+                
+        &__slider
+            &-item
+                &__left-side
+                    padding-left: 0
+                
+            &__btn-wrap
+                .slick-prev
+                    right: 380px
+
+                .slick-next
+                    right: 270px
+                    
+
++max-screen(992px)
+    .about-videos
+        &__title
+            position: relative
+            right: 0
+            
+            .block-title
+                max-width: 100%
+            
+        &__slider
+            &-item
+                &__wrap
+                    flex-direction: column-reverse
+                    
+                &__right-side
+                    margin-bottom: 80px

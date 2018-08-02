@@ -30,7 +30,7 @@
         width: 100%
         height: 203px
         background: $cRed
-        z-index: 20
+        z-index: 200
         transform: translateY(-100%)
         transition: .2s ease-out
 
@@ -207,3 +207,47 @@
 
     &:hover
         color: $cRedDark
+
+
++max-screen(1030px)
+    .main-header
+        padding-left: 30px
+        
+        &__right-side
+            width: 145px
+            
+
++max-screen(992px)
+    .main-header
+        padding-left: 40px
+        
+        &__search
+            .container
+                max-width: 100%
+        
+        .phone
+            position: relative
+            
+            &::before
+                content: "" 
+                background: #34332f
+                width: 1px
+                height: 11px
+                position: absolute
+                top: 11px
+                left: 45px
+
+            &-number
+                display: none
+                
+            &-icon
+                margin-right: 66px
+                
+        .mail
+            display: none
+            
+        .separate
+            display: none
+            
+        .logo
+            width: 130px

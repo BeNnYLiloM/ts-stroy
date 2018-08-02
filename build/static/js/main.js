@@ -502,10 +502,17 @@ $(document).ready(function () {
 
     $('.calculate-popup-btn').click(function () {
         $('.popup__calculate').addClass('_open');
+        $body.addClass('_of-hidden');
     });
 
     $('.popup__close').click(function () {
         $('.popup').removeClass('_open');
+        $body.removeClass('_of-hidden')
+    });
+
+    $('.main-header .phone-icon').click(function () {
+        $body.addClass('_of-hidden');
+        $('.popup__callback').addClass('_open');
     });
 
 });

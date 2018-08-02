@@ -12,16 +12,10 @@
                         span Просмотрите видео
                         |  о компании
 
-            .about-videos__count-slides
-                .about-videos__count-slides__current 1
-                .about-videos__count-slides__all
-                    | /
-                    span
-
     .about-videos__slider
         .about-videos__slider-item
             .container
-                .flex.flex--aic
+                .about-videos__slider-item__wrap.flex.flex--aic
                     .about-videos__slider-item__left-side
                         .about-videos__slider-item__video
                             iframe(src="https://www.youtube.com/embed/2kxkdWwtti4" frameborder="0" allowfullscreen)
@@ -44,7 +38,7 @@
 
         .about-videos__slider-item
             .container
-                .flex.flex--aic
+                .about-videos__slider-item__wrap.flex.flex--aic
                     .about-videos__slider-item__left-side
                         .about-videos__slider-item__video
                             iframe(src="https://www.youtube.com/embed/BOOLbXXbw-M" frameborder="0" allowfullscreen)
@@ -67,7 +61,7 @@
 
         .about-videos__slider-item._prev-slide
             .container
-                .flex.flex--aic
+                .about-videos__slider-item__wrap.flex.flex--aic
                     .about-videos__slider-item__left-side
                         .about-videos__slider-item__video
                             iframe(src="https://www.youtube.com/embed/Qg0JMYq9NLQ" frameborder="0" allowfullscreen)
@@ -87,5 +81,13 @@
                                 .about-videos__slider-item__user-text С нами Вы забудете про "переделки"!
                                 .about-videos__slider-item__user-name Забелин Александр
                                 .about-videos__slider-item__user-post Руководитель компании
+
+    .about-videos__count-slides
+        .coninaer
+            .about-videos__count-slides__wrap
+                .about-videos__count-slides__current 1
+                .about-videos__count-slides__all
+                    | /
+                    span
 
 // End about-videos
