@@ -8,19 +8,21 @@
                     .callback-block
                         .callback-block__title Выезд на замер
                         .callback-block__form
-                            form
-                                .callback-block__form__item._error
+                            form#calculate
+                                .callback-block__form__item
                                     .callback-block__form__label Введите ваше имя*:
                                     input.callback-block__form__input(type='text')
                                     .callback-block__form__error Заполните поле
 
                                 .callback-block__form__item
                                     .callback-block__form__label Ваш телефон*:
-                                    input.callback-block__form__input#phone-input(type='text')
+                                    input.callback-block__form__input#phone-input(type='text' placeholder='+7(___) ___-__-__')
+                                    .callback-block__form__error Заполните поле
 
                                 .callback-block__form__item
                                     .callback-block__form__label Введите ваш e-mail:
                                     input.callback-block__form__input(type='text' placeholder='example@email.ru')
+                                    .callback-block__form__error Заполните поле
 
                                 //.callback-block__form__item
                                 //    .callback-block__form__label Тип жилья:

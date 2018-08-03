@@ -1,10 +1,12 @@
 header.main-header
     .flex.flex--jcsb
         .main-header__left-side.flex.flex--aifs
-            .phone
-                .phone-number +7 (495) 127 06 65
-                .mail
-                    a(href='mailto:remont@tn-ss.ru') remont@tn-ss.ru
+            .logo
+                .logo__top
+                    img(src='static/img/logo.svg' alt='')
+
+                .logo__fixed
+                    img(src='static/img/logo-mini.svg' alt='')
 
             .separate
 
@@ -16,12 +18,10 @@ header.main-header
             .search
                 i(class="fa fa-search" aria-hidden="true")
 
-        .logo
-            .logo__top
-                img(src='static/img/logo.svg' alt='')
-
-            .logo__fixed
-                img(src='static/img/logo-mini.svg' alt='')
+        .phone
+            .phone-number +7 (495) 127 06 65
+            .mail
+                a(href='mailto:remont@tn-ss.ru') remont@tn-ss.ru
 
         .main-header__right-side
             .menu

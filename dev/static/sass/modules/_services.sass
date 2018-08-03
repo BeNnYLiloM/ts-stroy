@@ -99,8 +99,16 @@
             height: 475px
             background: $cDark
             transition: .2s ease-out
+            
+            &:hover
+                box-shadow: 6px 12px 48px rgba(1, 1, 1, 0.7)
+                cursor: pointer
 
             &._active
+                &:hover
+                    cursor: initial
+                    box-shadow: 6px 12px 40px rgba(1, 1, 1, 0.3)
+
                 img
                     opacity: 1
 
@@ -408,8 +416,16 @@
             height: 634px
             background: $cDark
             transition: .2s ease-out
+            
+            &:hover
+                box-shadow: 6px 12px 40px rgba(1, 1, 1, 0.7)
+                cursor: pointer
 
             &._active
+                &:hover
+                    cursor: initial
+                    box-shadow: 6px 12px 40px rgba(1, 1, 1, 0.3)
+
                 img
                     opacity: 1
 

@@ -16,9 +16,21 @@
         opacity: 1
         visibility: visible
 
-        .popup__wrap
-            transform: translateY(0)
-            opacity: 1
+        .popup
+            &__wrap
+                transform: translateY(0)
+                opacity: 1
+            
+            &__close
+                &__cross
+                    width: calc(100% + 9px)
+                    
+                    &--left
+                        transition-delay: .9s
+
+                    &--right
+                        transition-delay: 1s
+
 
     &__wrap
         background: $cRed
@@ -93,7 +105,9 @@
             top: -1px
             background: $cRed
             height: 3px
-            width: calc(100% + 9px)
+            // width: calc(100% + 9px)
+            width: 0
+            transition: width .2s ease-out
 
             &--left
                 left: 1px

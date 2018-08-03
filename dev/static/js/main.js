@@ -4,6 +4,28 @@ $(document).ready(function () {
     var $overlay = $('.overlay');
     var $menu = $('.menu');
 
+    $(".youtube").each(function() {
+        // Зная идентификатор видео на YouTube, легко можно найти его миниатюру
+        $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
+
+        // Добавляем иконку Play поверх миниатюры, чтобы было похоже на видеоплеер
+        $(this).append($('<div/>', {'class': 'play'}));
+
+        $(document).delegate('#'+this.id, 'click', function() {
+            // создаем iframe со включенной опцией autoplay
+            var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
+            if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
+
+            console.log(this.id);
+
+            // Высота и ширина iframe должны быть такими же, как и у родительского блока
+            var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height() })
+
+            // Заменяем миниатюру HTML5 плеером с YouTube
+            $(this).replaceWith(iframe);
+        });
+    });
+
     $('.menu__btn').click(function () {
         if ($menu.hasClass('_open')) {
             $menu.removeClass('_open');
@@ -292,6 +314,14 @@ $(document).ready(function () {
         $('.services__documents__img[data-slide="' + $(this).attr('data-slide-number') + '"]').addClass('_active');
     });
 
+    $('.services__documents__img').click(function () {
+        sliderImgsUpdate($(this).attr('data-slide'));
+        $('.services__documents__img').removeClass('_active _open-popup');
+        $(this).addClass('_active');
+        $('.services__documents__item').removeClass('_active');
+        $('.services__documents__item[data-slide-number="' + $(this).attr('data-slide') + '"]').addClass('_active');
+    });
+
     $('.services__item__line').click(function () {
         var parent = $(this).closest('.services__item');
 
@@ -389,6 +419,20 @@ $(document).ready(function () {
                             .attr('data-slide-number'));
         }
 
+        parent.find('.services__item__numbers-current span').text(slideNumber + 1);
+        parent.find('.services__item__img._prev').removeClass('_prev');
+        parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
+        parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
+
+        sliderImgsUpdate(slideNumber, parent, btns = true);
+    });
+
+    $('.services__item__img').click(function () {
+        var slideNumber = Number($(this).attr('data-slide'));
+        var parent = $(this).closest('.services__item');
+
+        parent.find('.services__item__line._active').removeClass('_active');
+        parent.find('.services__item__line[data-slide-number="' + slideNumber + '"]').addClass('_active');
         parent.find('.services__item__numbers-current span').text(slideNumber + 1);
         parent.find('.services__item__img._prev').removeClass('_prev');
         parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
@@ -546,6 +590,18 @@ $(document).ready(function () {
         } else {
             $('.main-header').removeClass('_fixed _show');
         }
-    })
+    });
+
+    $('form#calculate').submit(function () {
+        $(this).find('.callback-block__form__item').addClass('_error');
+
+        return false;
+    });
+
+    $('.callback-block__form__input').click(function () {
+        if ($(this).closest('.callback-block__form__item').hasClass('_error')) {
+            $(this).closest('.callback-block__form__item').removeClass('_error');
+        }
+    });
 
 });
