@@ -355,6 +355,7 @@ $(document).ready(function () {
         parent.find('.services__item__img._prev').removeClass('_prev');
         parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
         parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
+
         sliderImgsUpdate(slideNumber, parent, btns = true);
     });
 
@@ -392,6 +393,7 @@ $(document).ready(function () {
         parent.find('.services__item__img._prev').removeClass('_prev');
         parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
         parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
+
         sliderImgsUpdate(slideNumber, parent, btns = true);
     });
 
@@ -413,6 +415,15 @@ $(document).ready(function () {
         arrows: false,
         focusOnSelect: true,
         variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                },
+            },
+        ]
     });
 
     var partnersSlider = $('.partners__slider').slick({
@@ -510,9 +521,31 @@ $(document).ready(function () {
         $body.removeClass('_of-hidden')
     });
 
-    $('.main-header .phone-icon').click(function () {
+    $('.main-header .phone-icon, .callback-popup-btn').click(function () {
         $body.addClass('_of-hidden');
         $('.popup__callback').addClass('_open');
     });
+
+    $('.main-footer').click(function () {
+        $(this).addClass('_active');
+    });
+
+    $(document).mouseup(function (e){
+        var div = $('.main-footer');
+        if (!div.is(e.target) && div.has(e.target).length === 0) {
+            div.removeClass('_active');
+        }
+    });
+
+    $(document).scroll(function () {
+        if ($(this).scrollTop() > 170) {
+            $('.main-header').addClass('_fixed');
+            setTimeout(function () {
+                $('.main-header').addClass('_show');
+            }, 200);
+        } else {
+            $('.main-header').removeClass('_fixed _show');
+        }
+    })
 
 });

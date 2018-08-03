@@ -58,6 +58,9 @@
             font-family: $fPN
             font-size: 20px
             color: $cDark
+            -webkit-appearance: none
+            -moz-appearance: none
+            appearance: none
 
         &__submit
             margin: 0 auto
@@ -65,10 +68,10 @@
 
             &:hover
                 .default-btn__text
-                    padding-left: 137px
+                    //padding-left: 137px
 
             .default-btn__text
-                padding-left: 72px
+                //padding-left: 72px
 
             &-wrap
                 margin-top: 80px
@@ -116,3 +119,36 @@
                 &-wrap
                     padding-left: 50px
                     padding-right: 50px
+
+
++max-screen(767px)
+    .callback-block
+        &::before
+            background: url('../img/icons/callback-icon-mob.png') no-repeat
+            width: 114px
+            height: 110px
+
+        &__title
+            font-size: 20px
+            padding: 35px 20px 20px
+            letter-spacing: 1.6px
+            line-height: 30px
+
+        &__form
+            &__item
+                margin: 0 20px 15px
+
+            &__input
+                padding: 0 10px
+                font-size: 14px
+                height: 55px
+
+            &__error
+                bottom: 7px
+
+            &__submit
+                min-width: 0
+
+                &-wrap
+                    margin-top: 20px
+                    padding: 40px 20px

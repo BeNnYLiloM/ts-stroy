@@ -5,6 +5,44 @@
     padding-left: 79px
     z-index: 51
 
+    &._fixed
+        position: fixed
+        top: -150px
+        width: 100%
+        height: 104px
+        background: $cDark
+        z-index: 200
+
+        &._show
+            top: 0
+            transition: .2s ease-out
+
+        .logo
+            margin-top: 31px
+
+            &__top
+                display: none
+
+            &__fixed
+                display: block
+
+        .main-header
+            &__left-side
+                margin-top: 20px
+
+        .menu__btn
+            top: 40px
+
+        .separate
+            margin-top: 28px
+
+        .phone
+            &-icon
+                margin-top: 24px
+
+        .search
+            margin-top: 23px
+
     &__left-side
         color: $cRed
         margin-top: 72px
@@ -192,6 +230,11 @@
     width: 193px
     margin-top: 64px
 
+    &__fixed
+        display: none
+        width: 41px
+        margin: 0 auto
+
 .separate
     background: #34332f
     width: 1px
@@ -220,7 +263,12 @@
 +max-screen(992px)
     .main-header
         padding-left: 40px
-        
+
+        &._fixed
+            .phone
+                &::before
+                    top: 24px
+
         &__search
             .container
                 max-width: 100%
@@ -249,5 +297,75 @@
         .separate
             display: none
             
-        .logo
-            width: 130px
+    .logo
+        width: 130px
+
+
++max-screen(767px)
+    .main-header
+        padding-left: 37px
+
+        &._fixed
+            height: 60px
+
+            .main-header
+                &__left-side
+                    margin-top: 0
+
+            .phone
+                &-icon
+                    margin-top: 22px
+
+            .search
+                margin-top: 22px
+
+            .logo
+                margin-top: 14px
+
+            .menu__btn
+                top: 19px
+
+        &__left-side
+            margin-top: 30px
+
+        &__right-side
+            width: 65px
+
+        .phone
+            &::before
+                left: 28px
+
+            &-icon
+                margin-right: 31px
+
+        &__search
+            .container
+                padding: 0 20px
+
+            &__left-side
+                width: 100%
+
+            &__right-side
+                width: 0
+                position: relative
+
+            &__input
+                padding: 0 30px 0 20px
+
+            &__close
+                position: absolute
+                top: -81px
+                right: 0
+
+            &__icon
+                display: none
+
+            &__btn
+                right: 12px
+
+    .logo
+        width: 89px
+        margin-top: 34px
+
+        &__fixed
+            width: 30px

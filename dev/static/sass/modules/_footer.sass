@@ -1,6 +1,11 @@
 .main-footer
     height: 400px
 
+    &._active
+        [class*="-inner-panes"]
+            &::before
+                opacity: 0
+
     &__map
         height: 100%
         width: 100%
@@ -22,3 +27,4 @@
             height: 1000vh
             transform: translate(-50%, -50%)
             z-index: 1000
+            transition: .2s ease-out

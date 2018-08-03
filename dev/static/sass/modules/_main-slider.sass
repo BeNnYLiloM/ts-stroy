@@ -201,7 +201,7 @@
             visibility: hidden
             margin-bottom: 16px
             position: relative
-            line-height: 70px
+            line-height: .88
             letter-spacing: 6.4px
             left: -5px
             font-size: 80px
@@ -286,3 +286,47 @@
 
             &__title-big
                 font-size: 40px
+
+
++max-screen(767px)
+    .main-slider
+        min-height: 0
+        height: auto
+        margin-bottom: 60px
+
+        &__item
+            display: none
+            min-height: 0
+            padding-top: 90px
+            padding-bottom: 40px
+
+            &._active
+                display: flex
+
+                &:first-child
+                    padding-left: 0
+
+            &__bg
+                background-size: cover !important
+
+            &__number
+                font-size: 30px
+                margin-bottom: 0
+
+                &::after
+                    width: 25px
+                    margin-left: -12px
+
+            &__title-big
+                font-size: 20px
+                left: 0
+
+            &__sub-title
+                line-height: 20px
+
+            &__text
+                font-size: 14px
+                margin-bottom: 40px
+
+                big
+                    font-size: 14px

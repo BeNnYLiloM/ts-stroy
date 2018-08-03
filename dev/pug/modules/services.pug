@@ -124,6 +124,13 @@
                             .default-btn__icon.default-btn__icon--right
                                 +icon('btn-arrow')
 
+            .services__item__btn-mob
+                button.default-btn.default-btn--orange
+                    .default-btn__icon.default-btn__icon--left
+                        +icon('btn-arrow')
+                    .default-btn__text Перейти в базу знаний
+                    .default-btn__icon.default-btn__icon--right
+                        +icon('btn-arrow')
 
         .services__item.services__item--imgs-right.viewport-checker
             .services__item__wrap
@@ -670,7 +677,7 @@
 
                         .services__item__numbers-all
                             | / 6
-        .services__item.services__item--additionally.viewport-checker
+        .services__item.services__item--imgs-left.services__item--additionally.viewport-checker
             .services__item__wrap
                 .services__item__left-side
                     .services__list
@@ -723,5 +730,19 @@
                             .default-btn__text Калькулятор
                             .default-btn__icon.default-btn__icon--right
                                 +icon('calc')
+
+            .services__item__text.services__item__text--mob
+                p
+                    | С другой стороны новая модель организационной деятельности
+                    span  требуют определения и уточнения направлений
+                    |  прогрессивного развития.
+
+            .services__item__btn-mob
+                button.default-btn.default-btn--orange.calculate-popup-btn
+                    .default-btn__icon.default-btn__icon--left
+                        +icon('calc')
+                    .default-btn__text Калькулятор
+                    .default-btn__icon.default-btn__icon--right
+                        +icon('calc')
 
 // End services

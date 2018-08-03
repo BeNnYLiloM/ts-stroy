@@ -28,7 +28,10 @@
               <div class="separate"></div>
               <div class="search"><i class="fa fa-search" aria-hidden="true"></i></div>
             </div>
-            <div class="logo"><img src="static/img/logo.svg" alt=""></div>
+            <div class="logo">
+              <div class="logo__top"><img src="static/img/logo.svg" alt=""></div>
+              <div class="logo__fixed"><img src="static/img/logo-mini.svg" alt=""></div>
+            </div>
             <div class="main-header__right-side">
               <div class="menu">
                 <div class="menu__btn"><span></span><span></span><span></span>
@@ -124,7 +127,7 @@
             <div class="main-slider__wrap">
               <div class="main-slider__item _active">
                 <div class="main-slider__item__video-bg">
-                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-1.jpg') no-repeat center top"></div>
+                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-1.jpg') no-repeat center top;"></div>
                   <div class="main-slider__item__video"></div>
                 </div>
                 <div class="main-slider__item__content">
@@ -158,7 +161,7 @@
               </div>
               <div class="main-slider__item">
                 <div class="main-slider__item__video-bg">
-                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-2.jpg') no-repeat center top"></div>
+                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-2.jpg') no-repeat center top;"></div>
                   <div class="main-slider__item__video"></div>
                 </div>
                 <div class="main-slider__item__content">
@@ -192,7 +195,7 @@
               </div>
               <div class="main-slider__item">
                 <div class="main-slider__item__video-bg">
-                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-3.jpg') no-repeat center top"></div>
+                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-3.jpg') no-repeat center top;"></div>
                   <div class="main-slider__item__video"></div>
                 </div>
                 <div class="main-slider__item__content">
@@ -239,9 +242,16 @@
                   <p>Залог успеха компании «ТС-Строй» – ее<span class="orange-text"> многолетний опыт, высокая квалификация мастеров и более 800 сданных объектов.</span></p>
                   <p>Все работы выполняются по договору. Гарантия составляет 3 года.</p>
                   <div class="about__btn-wrap">
-                    <button class="default-btn default-btn--orange">
+                    <button class="default-btn default-btn--orange callback-popup-btn">
                       <div class="default-btn__icon default-btn__icon--left"><i class="fa fa-phone" aria-hidden="true"></i></div>
                       <div class="default-btn__text">Заказать обратный звонок</div>
+                      <div class="default-btn__icon default-btn__icon--right"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                    </button>
+                  </div>
+                  <div class="about__btn-wrap about__btn-wrap--mob">
+                    <button class="default-btn default-btn--orange callback-popup-btn">
+                      <div class="default-btn__icon default-btn__icon--left"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                      <div class="default-btn__text">Обратный звонок</div>
                       <div class="default-btn__icon default-btn__icon--right"><i class="fa fa-phone" aria-hidden="true"></i></div>
                     </button>
                   </div>
@@ -249,7 +259,7 @@
                 <div class="about__column">
                   <div class="about__item viewport-checker">
                     <div class="about__item__numbers">
-                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg1.jpg&quot;) no-repeat "></div>
+                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg1.jpg&quot;) no-repeat ;"></div>
                       <div class="about__item__numbers-wrap">
                         <div class="about__item__numbers-left">06</div>
                         <div class="about__item__numbers-big">7</div>
@@ -260,7 +270,7 @@
                   </div>
                   <div class="about__item viewport-checker">
                     <div class="about__item__numbers">
-                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg2.jpg&quot;) no-repeat "></div>
+                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg2.jpg&quot;) no-repeat ;"></div>
                       <div class="about__item__numbers-wrap">
                         <div class="about__item__numbers-left">69</div>
                         <div class="about__item__numbers-big">70</div>
@@ -271,7 +281,7 @@
                   </div>
                   <div class="about__item viewport-checker">
                     <div class="about__item__numbers">
-                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg3.jpg&quot;) no-repeat "></div>
+                      <div class="about__item__bg" style="background: url(&quot;static/img/content/about-item-bg3.jpg&quot;) no-repeat ;"></div>
                       <div class="about__item__numbers-wrap">
                         <div class="about__item__numbers-left">799</div>
                         <div class="about__item__numbers-big">800</div>
@@ -372,7 +382,7 @@
               </div>
             </div>
             <div class="about-videos__count-slides">
-              <div class="coninaer">
+              <div class="container">
                 <div class="about-videos__count-slides__wrap">
                   <div class="about-videos__count-slides__current">1</div>
                   <div class="about-videos__count-slides__all">/<span></span></div>
@@ -653,6 +663,21 @@
                       </button>
                     </div>
                   </div>
+                </div>
+                <div class="services__item__btn-mob">
+                  <button class="default-btn default-btn--orange">
+                    <div class="default-btn__icon default-btn__icon--left">
+                      <svg class="icon icon-btn-arrow ">
+                        <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                      </svg>
+                    </div>
+                    <div class="default-btn__text">Перейти в базу знаний</div>
+                    <div class="default-btn__icon default-btn__icon--right">
+                      <svg class="icon icon-btn-arrow ">
+                        <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                      </svg>
+                    </div>
+                  </button>
                 </div>
               </div>
               <div class="services__item services__item--imgs-right viewport-checker">
@@ -1131,7 +1156,7 @@
                   </div>
                 </div>
               </div>
-              <div class="services__item services__item--additionally viewport-checker">
+              <div class="services__item services__item--imgs-left services__item--additionally viewport-checker">
                 <div class="services__item__wrap">
                   <div class="services__item__left-side">
                     <div class="services__list">
@@ -1183,6 +1208,24 @@
                       </button>
                     </div>
                   </div>
+                </div>
+                <div class="services__item__text services__item__text--mob">
+                  <p>С другой стороны новая модель организационной деятельности<span> требуют определения и уточнения направлений</span> прогрессивного развития.</p>
+                </div>
+                <div class="services__item__btn-mob">
+                  <button class="default-btn default-btn--orange calculate-popup-btn">
+                    <div class="default-btn__icon default-btn__icon--left">
+                      <svg class="icon icon-calc ">
+                        <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
+                      </svg>
+                    </div>
+                    <div class="default-btn__text">Калькулятор</div>
+                    <div class="default-btn__icon default-btn__icon--right">
+                      <svg class="icon icon-calc ">
+                        <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
+                      </svg>
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1706,17 +1749,9 @@
           </div>
           <div class="callback-block__form__submit-wrap">
             <button class="callback-block__form__submit default-btn default-btn--orange" type="submit">
-              <div class="default-btn__icon default-btn__icon--left">
-                <svg class="icon icon-calc ">
-                  <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
-                </svg>
-              </div>
+              <div class="default-btn__icon default-btn__icon--left"><i class="fa fa-phone" aria-hidden="true"></i></div>
               <div class="default-btn__text">Заказать обратный звонок</div>
-              <div class="default-btn__icon default-btn__icon--right">
-                <svg class="icon icon-calc ">
-                  <use xlink:href="/static/img/svg/symbol/sprite.svg#calc"></use>
-                </svg>
-              </div>
+              <div class="default-btn__icon default-btn__icon--right"><i class="fa fa-phone" aria-hidden="true"></i></div>
             </button>
           </div>
         </form>

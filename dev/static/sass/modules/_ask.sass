@@ -3,6 +3,9 @@
     position: relative
     overflow: hidden
 
+    .container
+        position: relative
+
     &__rings
         position: absolute
         top: 0
@@ -47,7 +50,7 @@
         justify-content: space-between
         align-items: center
         min-height: 240px
-        padding: 20px 0
+        padding: 60px 0 76px
 
     &__title
         font-family: $fPN
@@ -87,4 +90,27 @@
 +max-screen(1140px)
     .ask
         &__left-side
-            width: 65% 
+            width: 65%
+
++max-screen(992px)
+    .ask
+        &__wrap
+            flex-direction: column
+
+        &__left-side
+            width: 100%
+            margin-bottom: 56px
+
+        &__right-side
+            width: 100%
+
+
++max-screen(767px)
+    .ask
+        &__title
+            font-size: 25px
+            line-height: 30px
+
+        &__text
+            font-size: 16px
+            line-height: 20px

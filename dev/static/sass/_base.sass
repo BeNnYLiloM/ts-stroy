@@ -73,6 +73,7 @@ h2
 .main-wrapper
     position: relative
     min-height: 100%
+    overflow-x: hidden
 
 .container
     max-width: $screenLG
@@ -160,6 +161,7 @@ h2
     position: relative
     text-decoration: none
     display: flex
+    min-width: 360px
 
     &:hover
         .default-btn
@@ -172,8 +174,9 @@ h2
                     border-left-color: $cGray
 
             &__text
-                padding-left: 113px
-                padding-right: 42px
+                //padding-left: 113px
+                //padding-right: 42px
+                margin-left: 88px
 
             &__icon
                 &--right
@@ -220,7 +223,9 @@ h2
                 padding: 23px 100px
 
     &__text
-        padding: 23px 107px 23px 48px
+        //padding: 23px 107px 23px 48px
+        padding: 23px 0
+        width: calc(100% - 88px)
         position: relative
         transition: .2s ease-out
 
@@ -391,3 +396,61 @@ h2
     .container
         max-width: 640px
         padding-left: 30px
+
++max-screen(767px)
+    body
+        font-size: 14px
+
+    h2
+        font-size: 20px
+        margin-bottom: 35px
+
+    .container
+        max-width: 320px
+        padding: 0 37px
+
+    .default-btn
+        font-size: 14px
+        min-width: 246px
+
+        &:hover
+            .default-btn
+                &__text
+                    margin-left: 40px
+
+        &__text
+            padding: 20px 13px 21px
+            width: calc(100% - 60px)
+            letter-spacing: .28px
+
+        &__icon
+            &--right
+                padding: 0 15px 0 24px
+
+                &::before
+                    border-top-width: 28px
+                    border-bottom-width: 29px
+                    border-left-width: 16px
+
+            &--left
+                padding: 0 8px 0 15px
+
+                &::before
+                    border-top-width: 28px
+                    border-bottom-width: 29px
+                    border-left-width: 16px
+                    right: -16px
+
+    .page-block
+        margin: 60px 0
+
+    .custom-select
+        .selectize-input
+            height: 55px
+            font-size: 14px
+            padding: 18px 50px 18px 10px
+
+        .selectize-dropdown
+            .option
+                padding: 18px 50px 18px 10px
+                font-size: 14px

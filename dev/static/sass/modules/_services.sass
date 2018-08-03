@@ -362,7 +362,7 @@
             font-size: 30px
             font-weight: 300
             color: $cWhite
-            line-height: 40px
+            line-height: 1.35
             letter-spacing: 1.2px
             text-transform: uppercase
 
@@ -372,11 +372,17 @@
             letter-spacing: .8px
             font-size: 20px
 
+            &--mob
+                display: none
+
             p
                 margin-top: 0
 
             span
                 color: $cRed
+
+        &__btn-mob
+            display: none
 
     &__documents
         height: auto
@@ -424,6 +430,7 @@
             img
                 opacity: .6
                 transition: .2s ease-out
+                display: block
 
             &-wrap
                 height: 634px
@@ -680,6 +687,7 @@
             &.services__item--imgs-left
                 .services__item__right-side
                     width: calc(100% - 600px)
+                    padding-left: 0
                     
             &__item
                 &._active
@@ -689,6 +697,9 @@
                     
             &__lines
                 width: 197px
+
+            .default-btn
+                min-width: 320px
 
 +max-screen(1140px)
     .services
@@ -709,17 +720,228 @@
                     
             &__title
                 font-size: 26px
-                    
-        .default-btn
-            &:hover
-                .default-btn__text
-                    padding-left: 87px
-                    padding-right: 28px
-                    
-            &__icon
-                &--left
-                    padding: 0 15px 0 18px
+
+
++max-screen(992px)
+    .services
+        &__item
+            &--imgs-left
+                .services__item
+                    &__left-side
+                        width: 380px
+
+                        &.services__documents__img-wrap
+                            width: 350px
+                            height: 560px !important
+
+                    &__right-side
+                        width: calc(100% - 380px)
+
+            &--imgs-right
+                .services__item
+                    &__right-side
+                        width: 380px
+
+                    &__left-side
+                        width: calc(100% - 380px)
+
+            &__popup
+                padding: 20px
+
+                &-wrap
+                    padding: 60px 20px 20px
+                    overflow-y: auto
+
+            &__title
+                font-size: 18px
+
+            &__btn-mob
+                display: block
+                margin-top: 60px
+
+                .default-btn
+                    margin: 0 auto
+
+            &__line
+                font-size: 14px
+                border-bottom: none
+                text-decoration: underline
+
+            &--additionally
+                .services__item
+                    &__left-side
+                        width: 300px
+
+                    &__right-side
+                        width: 200px
+
+        &__documents
+            &__img
+                max-width: 280px
+                height: auto
+
+                &-more-read
+                    padding: 22px 30px 22px 40px
+
+            &.services__item--imgs-left
+                .services__item__right-side
+                    width: calc(100% - 360px)
+
+            .services__item__popup
+                padding: 15px
+
+                &-wrap
+                    padding: 60px 20px 20px
+                    overflow-y: auto
+
+            &__item
+                font-size: 14px
+                white-space: nowrap
+
+                &._active
+                    &:nth-child(1)
+                        .services__documents__lines
+                            height: 160px
+
+                    &:nth-child(2)
+                        .services__documents__lines
+                            height: 240px
+
+                    &:nth-child(3)
+                        .services__documents__lines
+                            height: 320px
+
+                    .services__documents__lines-item
+                            &:nth-child(1)
+                                width: 30px
+
+                            &:nth-child(3)
+                                width: 65px
+
+            &__lines
+                width: 95px
+
+                &-item
+                    &:nth-child(2)
+                        right: 30px
+
+                    &:nth-child(3)
+                        right: 30px
+
+            &__bottom
+                .default-btn
+                    display: none
+
+
++max-screen(767px)
+    .services
+        &__item
+            margin: 60px 0
+            position: relative
+            height: auto
+
+            &--imgs-left
+                .services
+                    &__item
+                        &__wrap
+                            flex-direction: column-reverse
+
+                        &__left-side
+                            height: 535px
+
+                            &.services__documents__img-wrap
+                                height: 355px !important
+
+                        &__right-side
+                            padding-left: 0
+                            margin-bottom: 35px
+                            display: block
+                            height: auto
+
+            &--imgs-right
+                .services
+                    &__item
+                        &__wrap
+                            flex-direction: column
+
+                        &__left-side
+                            padding-right: 0
+                            margin-bottom: 35px
+                            display: block
+                            height: auto
+
+                        &__right-side
+                            height: 535px
+
+            &__wrap
+                justify-content: flex-start
+
+            &__left-side
+                width: 100% !important
+
+            &__right-side
+                width: 100% !important
+
+            &__img
+                transform: none !important
+                box-shadow: none
+
+                &._active
+                    box-shadow: 6px 12px 40px rgba(1,1,1,.3)
+
+                &-wrap
+                    height: 475px
+
+            &__center
+                display: none
+
+            &__btns
+                width: 100%
+                justify-content: space-between
+                z-index: 5
+
+            &__numbers
+                width: 100%
+                left: 0 !important
+                right: auto !important
+                justify-content: center
 
             &__text
-                padding: 23px 87px 23px 28px
+                font-size: 14px
+                line-height: 20px
+
+                &--mob
+                    display: block
+
+            &--additionally
+                .services__item__wrap
+                    height: auto
+
+        &__documents
+            &__img
+                transform: none !important
+                box-shadow: none
+
+                &._active
+                    box-shadow: 6px 12px 40px rgba(1,1,1,.3)
+
+            &__center
+                padding-bottom: 0
+                margin-top: 20px
+
+            &__lines
+                display: none
+
+            &__item
+                margin: 15px 0
+
+            .default-btn
+                min-width: 246px
+
+        &__list
+            &__icon
+                margin-right: 24px
+
+            &__text
+                width: calc(100% - 58px)
                 font-size: 14px

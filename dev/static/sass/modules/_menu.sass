@@ -40,9 +40,9 @@
         width: 23px
         height: 23px
         cursor: pointer
-        margin: 93px 80px 0 0
+        //margin: 93px 80px 0 0
         position: absolute
-        top: 0
+        top: 93px
         left: -103px
 
         &:hover
@@ -181,3 +181,31 @@
 
     .callback-btn
         margin-bottom: 70px
+
+
++max-screen(767px)
+    .menu
+        &._open
+            .menu
+                &__btn
+                    left: auto
+                    right: 40px
+
+                    span
+                        background: $cWhite
+
+                        &::before,
+                        &::after
+                            background: $cWhite
+
+                &__cross
+                    background: $cWhite
+
+        &__btn
+            top: 40px
+            left: -128px
+
+        &__content
+            width: 320px
+            padding-left: 30px
+            padding-right: 30px
