@@ -12,6 +12,7 @@ module.exports = function() {
         'dev/libs/selectize/dist/js/selectize.min.js',
         'dev/libs/jquery.maskedinput/dist/jquery.maskedinput.min.js',
         'dev/libs/ion.rangeSlider/js/ion.rangeSlider.min.js',
+        'dev/libs/spritely-0.6.8/src/jquery.spritely.js',
     ];
 
     $.gulp.task('libsJS:dev', () => {
