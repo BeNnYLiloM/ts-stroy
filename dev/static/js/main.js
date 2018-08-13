@@ -604,4 +604,12 @@ $(document).ready(function () {
         }
     });
 
+    $('.how-we-work .wave-bg, .team .wave-bg').sprite({fps: 12, no_of_frames: 63});
+
+    $('.callback-block__form__submit-inner').sprite({
+        fps: 12,
+        no_of_frames: 62,
+        width: 500,
+    })
+
 });
