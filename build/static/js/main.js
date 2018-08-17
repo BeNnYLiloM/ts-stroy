@@ -315,11 +315,13 @@ $(document).ready(function () {
     });
 
     $('.services__documents__img').click(function () {
-        sliderImgsUpdate($(this).attr('data-slide'));
-        $('.services__documents__img').removeClass('_active _open-popup');
-        $(this).addClass('_active');
-        $('.services__documents__item').removeClass('_active');
-        $('.services__documents__item[data-slide-number="' + $(this).attr('data-slide') + '"]').addClass('_active');
+        if (!$(this).hasClass('_active')) {
+            sliderImgsUpdate($(this).attr('data-slide'));
+            $('.services__documents__img').removeClass('_active _open-popup');
+            $(this).addClass('_active');
+            $('.services__documents__item').removeClass('_active');
+            $('.services__documents__item[data-slide-number="' + $(this).attr('data-slide') + '"]').addClass('_active');
+        }
     });
 
     $('.services__item__line').click(function () {
@@ -428,17 +430,19 @@ $(document).ready(function () {
     });
 
     $('.services__item__img').click(function () {
-        var slideNumber = Number($(this).attr('data-slide'));
-        var parent = $(this).closest('.services__item');
+        if (!$(this).hasClass('_active')) {
+            var slideNumber = Number($(this).attr('data-slide'));
+            var parent = $(this).closest('.services__item');
 
-        parent.find('.services__item__line._active').removeClass('_active');
-        parent.find('.services__item__line[data-slide-number="' + slideNumber + '"]').addClass('_active');
-        parent.find('.services__item__numbers-current span').text(slideNumber + 1);
-        parent.find('.services__item__img._prev').removeClass('_prev');
-        parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
-        parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
+            parent.find('.services__item__line._active').removeClass('_active');
+            parent.find('.services__item__line[data-slide-number="' + slideNumber + '"]').addClass('_active');
+            parent.find('.services__item__numbers-current span').text(slideNumber + 1);
+            parent.find('.services__item__img._prev').removeClass('_prev');
+            parent.find('.services__item__img._active').removeClass('_active _open-popup').addClass('_prev');
+            parent.find('.services__item__img[data-slide="' + slideNumber + '"]').addClass('_active');
 
-        sliderImgsUpdate(slideNumber, parent, btns = true);
+            sliderImgsUpdate(slideNumber, parent, btns = true);
+        }
     });
 
     $('.team__slider').slick({
@@ -604,12 +608,23 @@ $(document).ready(function () {
         }
     });
 
-    $('.how-we-work .wave-bg, .team .wave-bg').sprite({fps: 12, no_of_frames: 63});
+    window.addEventListener('load', function () {
+        $('.how-we-work .wave-bg').addClass('_ready').find('.wave-bg__inner').sprite({fps: 12, no_of_frames: 124});
+        // $('.team .wave-bg').addClass('_ready').find('.wave-bg__inner').sprite({fps: 12, no_of_frames: 124});
+    });
+
+
 
     $('.callback-block__form__submit-inner').sprite({
         fps: 12,
         no_of_frames: 62,
         width: 500,
-    })
+    });
+
+    // $('.popup__callback .callback-block__form__submit-inner').sprite({
+    //     fps: 12,
+    //     no_of_frames: 62,
+    //     width: 500,
+    // });
 
 });

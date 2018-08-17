@@ -36,11 +36,21 @@
         background: $cRed
         border-radius: 6px
         position: relative
-        max-width: 580px
+        //max-width: 580px
+        max-width: 500px
         margin: 0 auto
         transform: translateY(-90px)
         opacity: 0
         transition: .2s ease-out .5s
+
+        .callback-block__form
+            &__item
+                margin-left: 50px
+                margin-right: 50px
+
+            &__submit-wrap
+                padding-left: 50px
+                padding-right: 50px
 
     &__close
         position: absolute
@@ -147,7 +157,8 @@
     &__calculate__range-slider
         background: $cDark
         position: relative
-        padding: 0 87px 0 140px
+        //padding: 0 87px 0 140px
+        padding: 0 50px 0 96px
         margin-bottom: 60px
 
         &-text
@@ -157,7 +168,8 @@
             color: $cWhite
             text-transform: uppercase
             top: 40px
-            left: 80px
+            //left: 80px
+            left: 50px
 
             span
                 position: absolute
@@ -246,11 +258,28 @@
         border-radius: 0 0 6px 6px
 
     &__callback
-        .callback-block__form__submit-wrap
-            margin-top: 60px
+        .callback-block__form__submit
+            &-wrap
+                margin-top: 60px
+
+            &-inner
+                //background-size: auto 181px
 
         .default-checkbox
             margin-top: 40px
+
+
++max-screen(767px)
+    .popup
+        &__wrap
+            .callback-block__form
+                &__item
+                    margin-left: 20px
+                    margin-right: 20px
+
+                &__submit-wrap
+                    padding-left: 20px
+                    padding-right: 20px
 
 
 +max-screen(700px)
