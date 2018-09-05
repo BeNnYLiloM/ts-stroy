@@ -1,0 +1,46 @@
+.breadcrumbs
+    margin-bottom: 60px
+
+    &__wrap
+        display: flex
+        align-items: flex-end
+
+    &__item
+        color: $cWhite
+        font-size: 13px
+        letter-spacing: .26px
+        margin-right: 40px
+        position: relative
+
+        &:last-child::after
+            display: none
+
+        &::after
+            content: "/"
+            position: absolute
+            color: #676767
+            bottom: 0
+            right: -23px
+            font-size: 13px
+
+        &--home
+            font-size: 20px
+            height: 20px
+            line-height: 20px
+            position: relative
+            top: -3px
+
+            &::after
+                bottom: -1px
+
+        a
+            color: $cRed
+            transition: .2s ease-out
+
+            &:hover
+                color: $cRedDark
+
+
++max-screen(767px)
+    .breadcrumbs
+        margin-bottom: 30px

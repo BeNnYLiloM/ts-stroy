@@ -1,0 +1,437 @@
+.portfolio
+    &__wrap
+        display: flex
+        flex-wrap: wrap
+        max-width: 1602px
+        margin: 0 auto
+        padding: 0 15px
+        justify-content: space-between
+        position: relative
+
+    &__item
+        width: 24%
+        margin-bottom: 20px
+        transition: margin .2s ease-out
+
+        &._active
+            margin-bottom: 660px
+
+            .portfolio__item
+                &-img
+                    cursor: default
+
+                    &:hover
+                        img
+                            transform: scale(1.1)
+
+                    &::after
+                        opacity: 1
+                        visibility: visible
+
+                    img
+                        transform: scale(1.1)
+
+                &__popup
+                    height: 580px
+
+                    &-close
+                        &-cross
+                            width: calc(100% + 9px)
+
+                            &--left
+                                transition-delay: .9s
+
+                            &--right
+                                transition-delay: 1s
+
+        &-img
+            cursor: pointer
+            position: relative
+
+            &:hover
+                img
+                    transform: scale(1.03)
+
+            &::after
+                content: ""
+                border-bottom: 24px solid $cDark
+                border-left: 25px solid transparent
+                border-right: 25px solid transparent
+                position: absolute
+                left: 50%
+                bottom: -15px
+                transform: translateX(-50%)
+                opacity: 0
+                visibility: hidden
+                transition: .2s ease-out
+
+            img
+                border-radius: 6px
+                transition: .2s ease-out
+
+        &__popup
+            width: calc(100vw - 38px)
+            height: 0
+            max-width: 1573px
+            position: absolute
+            z-index: 40
+            margin-top: 40px
+            transition: height .2s ease-out
+            overflow: hidden
+            left: 15px
+
+            &._no-overflow
+                overflow: initial
+
+            .container
+                height: 100%
+
+            &-wrap
+                position: relative
+                display: flex
+                height: 580px
+                box-shadow: 40px 20px 125px rgba(0,0,0,.8)
+                border-radius: 6px
+
+            &-close
+                position: absolute
+                width: 24px
+                right: -44px
+                cursor: pointer
+                height: 110px
+
+                &-btn
+                    width: 23px
+                    height: 23px
+                    cursor: pointer
+                    position: relative
+
+                    &:hover
+                        span
+                            &:nth-child(2)
+                                background: lighten($cRed, 5%)
+
+                                &::before,
+                                &::after
+                                    background: $cRedDark
+
+                            &:nth-child(1),
+                            &:nth-child(3)
+                                background: $cRedDark
+
+                                &::before,
+                                &::after
+                                    background: lighten($cRed, 5%)
+
+                    span
+                        display: block
+                        width: 3px
+                        height: 3px
+                        background: $cRed
+                        position: relative
+                        margin: 0 auto 7px
+                        transition: .2s ease-out
+
+                        &::before,
+                        &::after
+                            content: ""
+                            background: $cRed
+                            width: 100%
+                            height: 100%
+                            position: absolute
+                            top: 0
+                            transition: .2s ease-out
+
+                        &::before
+                            left: -10px
+
+                        &::after
+                            right: -10px
+
+                        &:last-child
+                            margin-bottom: 0
+
+                &-cross
+                    position: absolute
+                    top: -1px
+                    background: $cRed
+                    height: 3px
+                    // width: calc(100% + 9px)
+                    width: 0
+                    transition: width .2s ease-out
+
+                    &--left
+                        left: 1px
+                        transform: rotate(45deg)
+                        transform-origin: top left
+                        transition-delay: 0s
+
+                    &--right
+                        right: 1px
+                        transform: rotate(-45deg)
+                        transform-origin: top right
+                        transition-delay: 0s
+
+                &-text
+                    transform-origin: left top
+                    transform: rotate(90deg)
+                    font-family: $fPN
+                    letter-spacing: .64px
+                    color: $cWhite
+                    width: 65px
+                    position: absolute
+                    left: 25px
+                    top: 40px
+
+
+            &-left-side
+                background: $cRed
+                border-radius: 6px 0 0 6px
+                width: 62.711%
+                padding: 40px
+                display: flex
+                flex-direction: row-reverse
+                justify-content: space-between
+                overflow: hidden
+
+            &-right-side
+                width: 37.288%
+                background: $cDark
+                border-radius: 0 6px 6px 0
+                padding: 40px
+                overflow-y: auto
+
+            &-slider
+                width: 500px
+
+                img
+                    border-radius: 6px
+
+                &-nav
+                    width: 120px
+
+                    &-item
+                        width: 120px
+                        margin: 10px 0
+                        outline: none
+                        background: $cDark
+                        border-radius: 6px
+                        border: none !important
+                        cursor: pointer
+
+                        &.slick-current
+                            cursor: default
+
+                            img
+                                opacity: .4
+
+                    img
+                        border-radius: 6px
+
+                    .slick-list
+                        padding: 0 !important
+                        margin: 47px 0 !important
+                        height: 405px !important
+
+                    .slick-arrow
+                        position: absolute
+                        border: none
+                        background: none
+                        padding: 0
+                        font-size: 30px
+                        color: $cDark
+                        transition: .2s ease-out
+                        height: 30px
+                        line-height: 20px
+                        outline: none
+                        cursor: pointer
+
+                        &:hover
+                            color: $cWhite
+
+                    .slick-prev
+                        transform: rotate(90deg)
+                        left: 50px
+                        top: 0
+
+                    .slick-next
+                        transform: rotate(90deg)
+                        left: 50px
+                        bottom: 0
+
+            &-title
+                color: $cWhite
+                font-size: 20px
+                line-height: 1.5
+                margin-bottom: 45px
+
+            &-sub-title
+                color: $cRed
+                font-family: $fPN
+                font-weight: 700
+                text-transform: uppercase
+                letter-spacing: 1px
+
+                & ~ p
+                    margin-top: 0
+
+
++max-screen(1330px)
+    .portfolio
+        &__item
+            width: 32%
+
+            &-img
+                text-align: center
+
+            &__popup
+                .container
+                    padding-left: 0
+                    padding-right: 50px
+
+
++max-screen(1240px)
+    .portfolio
+        &__item
+            &._active
+                margin-bottom: 1063px
+
+                .portfolio__item__popup
+                    height: 983px
+
+            &__popup
+                .container
+                    max-width: 790px
+
+                &-wrap
+                    flex-wrap: wrap
+                    height: 983px
+
+                &-left-side
+                    width: 100%
+                    border-radius: 6px 6px 0 0
+
+                &-right-side
+                    width: 100%
+                    border-radius: 0 0 6px 6px
+                    max-height: 370px
+
+
++max-screen(992px)
+    .portfolio
+        &__item
+            &._active
+                margin-bottom: 984px
+
+                .portfolio__item__popup
+                    height: 904px
+
+            &__popup
+                &-wrap
+                    height: 904px
+
+                &-left-side
+                    padding: 20px
+                    height: 540px
+
+                &-right-side
+                    padding: 20px
+
+
++max-screen(767px)
+    .portfolio
+        &__wrap
+            max-width: 320px
+
+        &__item
+            width: 100%
+
+            &._active
+                margin-bottom: 800px
+
+                .portfolio__item
+                    &-img
+                        &:hover
+                            img
+                                transform: scale(1)
+
+                        img
+                            transform: scale(1)
+
+                    &__popup
+                        height: 700px
+
+            &-img
+                &:hover
+                    img
+                        transform: scale(1)
+
+                &::after
+                    bottom: 0
+
+            &__popup
+                margin-top: 60px
+                width: 290px
+
+                .container
+                    padding-right: 0
+
+                &-wrap
+                    height: 700px
+
+                &-close
+                    display: flex
+                    top: -40px
+                    right: 50%
+                    margin-right: -70px
+                    height: auto
+                    width: auto
+
+                    &-btn
+                        margin-right: 15px
+
+                    &-text
+                        transform: none
+                        width: auto
+                        position: static
+
+                &-left-side
+                    flex-direction: column
+                    height: 245px
+
+                &-right-side
+                    max-height: 455px
+
+                &-slider
+                    width: 205px
+                    margin-left: 22px
+
+                    img
+                        width: 205px
+
+                    &-nav
+                        width: 100%
+
+                        &-item
+                            margin: 0 10px
+                            background: none
+
+                            img
+                                margin: 0 auto
+                                opacity: 1 !important
+
+                        .slick-list
+                            height: auto !important
+                            margin: 0 !important
+                            display: none
+
+                        .slick-prev
+                            transform: none
+                            left: -11px
+                            top: -115px
+
+                        .slick-next
+                            transform: none
+                            right: -11px
+                            left: auto
+                            top: -115px

@@ -52,11 +52,30 @@ body
     &._of-hidden
         overflow: hidden
 
+/* width */
+::-webkit-scrollbar
+    width: 8px
+
+div.drag-scroll-content
+    height: 49px !important
+
+/* Track */
+::-webkit-scrollbar-track
+    background: $cDark
+
+/* Handle */
+::-webkit-scrollbar-thumb
+    background: $cRed
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover
+    background: $cRedDark
+
 img
     max-width: 100%
     height: auto
 
-h2
+h1, h2
     font-family: $fPN
     font-weight: 300
     font-size: 45px
@@ -69,16 +88,96 @@ h2
     span
         color: $cRed
 
+h3
+    font-family: $fPN
+    font-size: 30px
+    font-weight: 300
+    line-height: 1.35
+    margin: 65px 0
+    letter-spacing: 1.2px
+    text-transform: uppercase
+    color: $cWhite
+
+    span
+        color: $cRed
+
+p
+    color: $cWhite
+    letter-spacing: .32px
+    line-height: 1.5
+    margin: 1.5rem 0
+
+ul.content-ul
+    margin: 65px 0
+    padding-left: 0
+
+    li
+        list-style: none
+        position: relative
+        padding-left: 28px
+        font-family: $fPN
+        font-weight: 700
+        text-transform: uppercase
+        color: $cWhite
+        letter-spacing: 1.28px
+        margin-bottom: 23px
+
+        &:last-child
+            margin-bottom: 0
+
+        &::before
+            content: ""
+            background: $cRed
+            position: absolute
+            width: 6px
+            height: 6px
+            border-radius: 50%
+            top: 10px
+            left: 0
+
+
+.content-img
+    border-radius: 6px
+    overflow: hidden
+    margin: 60px 0
 
 .main-wrapper
     position: relative
     min-height: 100%
     overflow-x: hidden
 
+    &.no-home
+        .wrapper
+            margin-top: 104px
+
+    &.about-page
+        .main-content
+            background: $cDark url('../img/backgrounds/about-bg.jpg') no-repeat center top
+
+    &.contacts-page
+        .main-content
+            background: $cDark url('../img/backgrounds/contacts-page-bg.jpg') no-repeat center top
+
+    &.portfolio-page
+        .main-content
+            background: $cDark url('../img/backgrounds/contacts-page-bg.jpg') no-repeat center top
+
+.wrapper
+    padding-bottom: 400px
+    position: relative
+    z-index: 2
+
+.main-content
+    //background: $cDark
+
 .container
     max-width: $screenLG
     margin: 0 auto
     padding: 0 30px
+
+.page-wrap
+    padding-bottom: 60px
+    padding-top: 60px
 
 .flex
     display: flex
@@ -290,7 +389,7 @@ h2
 .wave-bg
     position: absolute
 
-.custom-select
+.select-custom
     .selectize-input
         border: none
         border-radius: 0
@@ -410,7 +509,11 @@ h2
 
 +max-screen(1360px)
     .container
-        padding-left: 80px 
+        padding-left: 80px
+
+    .no-home
+        .container
+            padding-left: 30px
         
 +max-screen(1200px)
     .default-btn
@@ -422,17 +525,26 @@ h2
         max-width: 640px
         padding-left: 30px
 
+    .default-btn
+        min-width: 340px
+
 +max-screen(767px)
     body
         font-size: 14px
 
-    h2
+    h1, h2
         font-size: 20px
         margin-bottom: 35px
+
+    h3
+        font-size: 18px
 
     .container
         max-width: 320px
         padding: 0 37px
+
+    .page-wrap
+        padding-top: 30px
 
     .default-btn
         font-size: 14px

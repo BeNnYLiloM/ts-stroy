@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/regular.css" integrity="sha384-QNorH84/Id/CMkUkiFb5yTU3E/qqapnCVt6k5xh1PFIJ9hJ8VfovwwH/eMLQTjGS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/brands.css" integrity="sha384-SYNjKRRe+vDW0KSn/LrkhG++hqCLJg9ev1jIh8CHKuEA132pgAz+WofmKAhPpTR7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/fontawesome.css" integrity="sha384-0b7ERybvrT5RZyD80ojw6KNKz6nIAlgOKXIcJ0CV7A6Iia8yt2y1bBfLBOwoc9fQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="static/css/styles.min.css">
   </head>
   <body>
     <div class="main-wrapper ">
       <div class="wrapper">
+        <!-- Begin main-header-->
         <header class="main-header">
           <div class="flex flex--jcsb">
             <div class="main-header__left-side flex flex--aifs">
@@ -28,8 +30,7 @@
               <div class="separate"></div>
               <div class="search"><i class="fa fa-search" aria-hidden="true"></i></div>
             </div>
-            <div class="phone">
-              <div class="phone-number">+7 (495) 127 06 65</div>
+            <div class="phone"><a class="phone-number" href="tel:+74951270665">+7 (495) 127 06 65</a>
               <div class="mail"><a href="mailto:remont@tn-ss.ru">remont@tn-ss.ru</a></div>
             </div>
             <div class="main-header__right-side">
@@ -40,10 +41,11 @@
                 </div>
                 <div class="menu__content flex flex--fdc flex--jcsb">
                   <nav class="menu__nav nav">
-                    <div class="nav__item"><a href="#">О нас</a></div>
-                    <div class="nav__item"><a href="#">Портфолио</a></div>
-                    <div class="nav__item"><a href="#">База знаний</a></div>
-                    <div class="nav__item"><a href="#">Контакты</a></div>
+                    <div class="nav__item"><a href="about.html">О нас</a></div>
+                    <div class="nav__item"><a href="portfolio.html">Портфолио</a></div>
+                    <!--.nav__item-->
+                    <!--    a(href='#') База знаний-->
+                    <div class="nav__item"><a href="contacts.html">Контакты</a></div>
                   </nav>
                   <div class="menu__contacts">
                     <button class="callback-btn w-100">Обратный звонок</button>
@@ -107,6 +109,7 @@
           </div>
           <div class="main-header__overlay"></div>
         </header>
+        <!-- End .main-header-->
         <div class="main-content">
           <!-- Begin nav-page-->
           <div class="nav-page">
@@ -127,8 +130,13 @@
             <div class="main-slider__wrap">
               <div class="main-slider__item _active">
                 <div class="main-slider__item__video-bg">
-                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-1.jpg') no-repeat center top;"></div>
-                  <div class="main-slider__item__video"></div>
+                  <div class="main-slider__item__bg" style="background: url('static/img/backgrounds/сomp-2.jpg') no-repeat center top;"></div>
+                  <div class="main-slider__item__video">
+                    <video autoplay="autoplay" loop="loop" preload="auto">
+                      <source src="static/img/videos/comp-2.mp4">
+                      <!--source(src="book.webm" type="video/webm")-->
+                    </video>
+                  </div>
                 </div>
                 <div class="main-slider__item__content">
                   <div class="main-slider__item__number"><span>01</span></div>
@@ -142,7 +150,7 @@
                     </p>
                   </div>
                   <div class="main-slider__item__btn">
-                    <button class="default-btn default-btn--orange">
+                    <button class="default-btn default-btn--orange callback-popup-btn">
                       <div class="default-btn__icon default-btn__icon--left">
                         <svg class="icon icon-btn-arrow ">
                           <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
@@ -176,7 +184,7 @@
                     </p>
                   </div>
                   <div class="main-slider__item__btn">
-                    <button class="default-btn default-btn--orange">
+                    <button class="default-btn default-btn--orange callback-popup-btn">
                       <div class="default-btn__icon default-btn__icon--left">
                         <svg class="icon icon-btn-arrow ">
                           <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
@@ -210,7 +218,109 @@
                     </p>
                   </div>
                   <div class="main-slider__item__btn">
-                    <button class="default-btn default-btn--orange">
+                    <button class="default-btn default-btn--orange callback-popup-btn">
+                      <div class="default-btn__icon default-btn__icon--left">
+                        <svg class="icon icon-btn-arrow ">
+                          <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                        </svg>
+                      </div>
+                      <div class="default-btn__text">Консультация специалиста</div>
+                      <div class="default-btn__icon default-btn__icon--right">
+                        <svg class="icon icon-btn-arrow ">
+                          <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="main-slider__item__see"><span>Просмотреть</span><i class="fa fa-eye" aria-hidden="true"></i></div>
+                </div>
+              </div>
+              <div class="main-slider__item">
+                <div class="main-slider__item__video-bg">
+                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-1.jpg') no-repeat center top;"></div>
+                  <div class="main-slider__item__video"></div>
+                </div>
+                <div class="main-slider__item__content">
+                  <div class="main-slider__item__number"><span>04</span></div>
+                  <div class="main-slider__item__number-no-active"><span>04</span></div>
+                  <div class="main-slider__item__title" data-color="#298ae5">Строительство</div>
+                  <div class="main-slider__item__title-big" data-color="#298ae5">Строительство</div>
+                  <div class="main-slider__item__sub-title">в Москве и Московской области</div>
+                  <div class="main-slider__item__text">
+                    <p>
+                      <big>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</big><br>Autem, cumque cupiditate deleniti dolor, doloremque eveniet illum laborum maxime minima odit quia reiciendis soluta tempore vitae voluptates.
+                    </p>
+                  </div>
+                  <div class="main-slider__item__btn">
+                    <button class="default-btn default-btn--orange callback-popup-btn">
+                      <div class="default-btn__icon default-btn__icon--left">
+                        <svg class="icon icon-btn-arrow ">
+                          <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                        </svg>
+                      </div>
+                      <div class="default-btn__text">Консультация специалиста</div>
+                      <div class="default-btn__icon default-btn__icon--right">
+                        <svg class="icon icon-btn-arrow ">
+                          <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="main-slider__item__see"><span>Просмотреть</span><i class="fa fa-eye" aria-hidden="true"></i></div>
+                </div>
+              </div>
+              <div class="main-slider__item">
+                <div class="main-slider__item__video-bg">
+                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-2.jpg') no-repeat center top;"></div>
+                  <div class="main-slider__item__video"></div>
+                </div>
+                <div class="main-slider__item__content">
+                  <div class="main-slider__item__number"><span>05</span></div>
+                  <div class="main-slider__item__number-no-active"><span>05</span></div>
+                  <div class="main-slider__item__title" data-color="#298ae5">Строительство</div>
+                  <div class="main-slider__item__title-big" data-color="#298ae5">Строительство</div>
+                  <div class="main-slider__item__sub-title">в Москве и Московской области</div>
+                  <div class="main-slider__item__text">
+                    <p>
+                      <big>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</big><br>Autem, cumque cupiditate deleniti dolor, doloremque eveniet illum laborum maxime minima odit quia reiciendis soluta tempore vitae voluptates.
+                    </p>
+                  </div>
+                  <div class="main-slider__item__btn">
+                    <button class="default-btn default-btn--orange callback-popup-btn">
+                      <div class="default-btn__icon default-btn__icon--left">
+                        <svg class="icon icon-btn-arrow ">
+                          <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                        </svg>
+                      </div>
+                      <div class="default-btn__text">Консультация специалиста</div>
+                      <div class="default-btn__icon default-btn__icon--right">
+                        <svg class="icon icon-btn-arrow ">
+                          <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="main-slider__item__see"><span>Просмотреть</span><i class="fa fa-eye" aria-hidden="true"></i></div>
+                </div>
+              </div>
+              <div class="main-slider__item">
+                <div class="main-slider__item__video-bg">
+                  <div class="main-slider__item__bg" style="background: url('static/img/content/main-slider-img-3.jpg') no-repeat center top;"></div>
+                  <div class="main-slider__item__video"></div>
+                </div>
+                <div class="main-slider__item__content">
+                  <div class="main-slider__item__number"><span>06</span></div>
+                  <div class="main-slider__item__number-no-active"><span>06</span></div>
+                  <div class="main-slider__item__title" data-color="#298ae5">Строительство</div>
+                  <div class="main-slider__item__title-big" data-color="#298ae5">Строительство</div>
+                  <div class="main-slider__item__sub-title">в Москве и Московской области</div>
+                  <div class="main-slider__item__text">
+                    <p>
+                      <big>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</big><br>Autem, cumque cupiditate deleniti dolor, doloremque eveniet illum laborum maxime minima odit quia reiciendis soluta tempore vitae voluptates.
+                    </p>
+                  </div>
+                  <div class="main-slider__item__btn">
+                    <button class="default-btn default-btn--orange callback-popup-btn">
                       <div class="default-btn__icon default-btn__icon--left">
                         <svg class="icon icon-btn-arrow ">
                           <use xlink:href="/static/img/svg/symbol/sprite.svg#btn-arrow"></use>
@@ -297,7 +407,13 @@
           <!-- End about-->
           <!-- Begin about-videos-->
           <div class="about-videos page-block nav-view-checker" id="aboutVideos">
-            <div class="about-videos__bg-img"><img src="static/img/backgrounds/about-videos-bg.jpg" alt=""></div>
+            <div class="about-videos__bg-img"><img src="static/img/backgrounds/comp-1.jpg" alt="">
+              <div class="about-videos__bg-img-video">
+                <video autoplay="autoplay" loop="loop" preload="auto">
+                  <source src="static/img/videos/comp-1.mp4">
+                </video>
+              </div>
+            </div>
             <div class="about-videos__title">
               <div class="container">
                 <div class="flex flex--jcfe">
@@ -405,16 +521,15 @@
                   <div class="how-we-work__item__hidden-content">
                     <div class="how-we-work__item__top flex flex--aic">
                       <div class="how-we-work__item__number">01</div>
-                      <div class="how-we-work__item__title">Обследование и замер объекта</div>
+                      <div class="how-we-work__item__title">Обследование и замер</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>Специалист бесплатно выезжает на объект, производит осмотр, замеры, определяет список необходимых работ (в том числе по инженерным коммуникациям, звукоизоляции, черновой и финишной отделке), а также консультирует по техническим и стилистическим решениям, называет примерную стоимость в рамках поставленных задач.</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">01</div>
                   <div class="how-we-work__item__icon"><img src="static/img/icons/how-we-work-ico-1.svg" alt="" width="104"></div>
-                  <div class="how-we-work__item__text">Обследование и замер объекта</div>
+                  <div class="how-we-work__item__text">Обследование и замер</div>
                 </div>
                 <div class="how-we-work__item">
                   <div class="how-we-work__item__hidden-content">
@@ -423,8 +538,7 @@
                       <div class="how-we-work__item__title">Составление необходимой документации</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>Бесплатное составление сметы на работы и строительно-отделочные материалы. Выполнение технического дизайна, который включает в себя планировку, расположение коммуникаций, мебели и т.д.</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">02</div>
@@ -438,8 +552,7 @@
                       <div class="how-we-work__item__title">Заключение договора</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>Заключение официального договора с указанием сроков и гарантийных обязательств. К договору также прилагается ППР (план проведения работ), который информирует заказчика об очередности работ, позволяет организовать своевременную закупку финишных материалов и отслеживать ход ремонта по графику. Клиент получает ясное представление о ремонте на всех его этапах.</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">03</div>
@@ -453,8 +566,7 @@
                       <div class="how-we-work__item__title">Завоз материала (доставка)</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>Заказчику не нужно обременять себя заботами по закупке и доставке материалов. Мы знаем, где купить качественные материалы, не переплачивая, а также можем организовать подвоз в точно заданное время. При необходимости мы самостоятельно решим вопрос разгрузки и подъема на этаж, включая специфические требования бизнес-центров и жилых комплексов (например, подъем материалов через паркинг, разгрузка после 20:00 и т.д.).</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">04</div>
@@ -465,16 +577,16 @@
                   <div class="how-we-work__item__hidden-content">
                     <div class="how-we-work__item__top flex flex--aic">
                       <div class="how-we-work__item__number">05</div>
-                      <div class="how-we-work__item__title">Выполнение работ (черновых, инженерных, финишных)</div>
+                      <div class="how-we-work__item__title">Выполнение работ</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>Все работы на объекте выполняют наши постоянные сотрудники – квалифицированные специалисты, которые используют хороший инструмент и качественные материалы. Процесс контролирует опытный бригадир, по скрытым работам предоставляется фотоотчет.</p>
+                      <p>Чтобы узнать о ходе работ или задать вопрос, клиенту необязательно лично заезжать на объект: у нас налажена система чата с мастерами, при необходимости вы можете оперативно получить ответ, обсудить изменения в проекте или запросить фотографии со стройплощадки.</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">05</div>
                   <div class="how-we-work__item__icon"><img src="static/img/icons/how-we-work-ico-5.svg" alt="" width="85"></div>
-                  <div class="how-we-work__item__text">Выполнение работ (черновых, инженерных, финишных)</div>
+                  <div class="how-we-work__item__text">Выполнение работ</div>
                 </div>
                 <div class="how-we-work__item">
                   <div class="how-we-work__item__hidden-content">
@@ -483,8 +595,7 @@
                       <div class="how-we-work__item__title">Уборка объекта</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>После завершения строительных и отделочных работ выполняется полная уборка помещений. Мы вынесем крупный строительный мусор, вымоем окна, сантехнику, очистим все поверхности от пыли. Клиент получает полностью готовый к проживанию или иному использованию интерьер!</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">06</div>
@@ -498,8 +609,7 @@
                       <div class="how-we-work__item__title">Установка мемебли</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>При ремонте под ключ наши сотрудники соберут и установят выбранную вами мебель. Мы также можем взять на себя переговоры с поставщиками, чтобы сэкономить время клиенту.</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">07</div>
@@ -513,8 +623,7 @@
                       <div class="how-we-work__item__title">Подключение оборудования</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>Мы выполняем установку и подключение всех электроприборов.</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">08</div>
@@ -528,8 +637,7 @@
                       <div class="how-we-work__item__title">Передача ключей</div>
                     </div>
                     <div class="how-we-work__item__content-text">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, perferendis.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam architecto autem eaque eligendi facilis maiores odio pariatur vero voluptates.</p>
+                      <p>Вручая клиенту ключи от отремонтированного помещения, мы передаем его в идеальном состоянии, свободном от мусора, чистом и готовом к использованию. Ваш ремонт - это наша забота!</p>
                     </div>
                   </div>
                   <div class="how-we-work__item__number">09</div>
@@ -1349,7 +1457,7 @@
           <!-- Begin team-->
           <div class="team page-block nav-view-checker" id="team">
             <div class="wave-bg">
-              <!--.wave-bg__inner-->
+              <div class="wave-bg__inner"></div>
             </div>
             <div class="container">
               <div class="team__title block-title">
@@ -1698,7 +1806,7 @@
           </div>
           <div class="callback-block__form__item">
             <div class="callback-block__form__label">Тип жилья:</div>
-            <select class="custom-select">
+            <select class="select-custom">
               <option>Квартира</option>
               <option>Дом</option>
               <option>Коттедж</option>

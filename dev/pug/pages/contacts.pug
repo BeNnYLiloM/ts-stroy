@@ -1,0 +1,57 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Контакты'
+    - var modPage = 'no-home contacts-page'
+    - var breadcrumbsActive = 'Контакты'
+
+block content
+    .contacts-page__wrap.page-wrap
+        include ../modules/breadcrumbs
+
+        .container
+            h1 #{title}
+
+            .row
+                .col-lg-6.mb-5.mb-lg-0
+                    h3.mt-0
+                        span РЕКВИЗИТЫ
+                        |  ООО «ТС-СТРОЙ»
+
+                    ul.content-ul
+                        li ОГРН 1167746735045
+                        li ИНН 9729019447
+                        li КПП 772901001
+                        li ОКПО 03825623
+
+                    .contacts-page__item
+                        .contacts-page__item__title Юридический адрес:
+                        .contacts-page__item__text 119361, г. Москва, ул. Очаковская Б., д.47А, стр. 1, пом.4
+
+                    .contacts-page__item
+                        .contacts-page__item__title Почтовый адрес:
+                        .contacts-page__item__text 119361, г. Москва, ул. Очаковская Б., д.47А, стр. 1, пом.4
+
+                    .contacts-page__item
+                        .contacts-page__item__title Телефон/Факс:
+                        .contacts-page__item__text +7 495 787-56-10
+
+                .col-lg-6
+                    h3.mt-0
+                        span.d-block Платежные реквизиты
+                        | АО «АЛЬФА-БАНК», г. Москва
+
+                    ul.content-ul
+                        li Р/с 407 0281 080 282 000 0894
+                        li К/с 301 0181 020 000 000 0593
+                        li БИК 044525593
+                        li
+                            .contacts-page__item__title Генеральный директор:
+                            | Забелин Александр Сергеевич, действующий на основании Устава
+
+            p
+                | Клиент получает полный спектр услуг, от разработки технической документации до финишной отделки, из одних рук, что экономит силы, время и деньги. К тому же он имеет дело только с одним исполнителем, отвечающим за результат вплоть до передачи ключей заказчику.
+                br
+                | Залог успеха компании «ТС-Строй» – ее многолетний опыт, высокая квалификация мастеров и более 800 сданных объектов. Все работы выполняются по договору. Гарантия составляет 3 года.
+
+    include ../modules/ask

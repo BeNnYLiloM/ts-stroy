@@ -7,6 +7,18 @@
         right: -60px
         transform: translateY(-33%)
         z-index: -1
+        opacity: .3
+
+        &-video
+            position: absolute
+            top: 0
+            right: 0
+            width: 100%
+            height: 100%
+
+            video
+                height: 100%
+                width: 100%
 
     &__title
         position: absolute
@@ -166,6 +178,28 @@
 
         span
             margin-left: 11px
+
+
+@media (min-aspect-ratio: 16/9)
+    .about-videos__bg-img-video > video
+        height: 300%
+        top: -100%
+
+
+@media (max-aspect-ratio: 16/9)
+    .about-videos__bg-img-video > video
+        width: 300%
+        left: -100%
+
+/* Если есть поддержка object-fit (Chrome/Chrome для Android, Safari в iOS 8 и Opera), используем его: */
+@supports (object-fit: cover)
+    .about-videos__bg-img-video > video
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+
             
 
 +max-screen(1200px)
@@ -196,6 +230,10 @@
 +max-screen(992px)
     .about-videos
         padding-bottom: 50px
+
+        &__bg-img
+            &-video
+                display: none
 
         &__title
             position: relative

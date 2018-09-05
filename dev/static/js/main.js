@@ -4,6 +4,8 @@ $(document).ready(function () {
     var $overlay = $('.overlay');
     var $menu = $('.menu');
 
+    var videoNumber = 0;
+
     $(".youtube").each(function() {
         // Зная идентификатор видео на YouTube, легко можно найти его миниатюру
         $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
@@ -13,16 +15,18 @@ $(document).ready(function () {
 
         $(document).delegate('#'+this.id, 'click', function() {
             // создаем iframe со включенной опцией autoplay
-            var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
+            var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1&enablejsapi=1&version=3&playerapiid=ytplayer";
             if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
 
-            console.log(this.id);
-
             // Высота и ширина iframe должны быть такими же, как и у родительского блока
-            var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height() })
+            var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height(), 'id': 'video-' + videoNumber });
 
             // Заменяем миниатюру HTML5 плеером с YouTube
             $(this).replaceWith(iframe);
+
+
+
+            videoNumber++;
         });
     });
 
@@ -39,6 +43,7 @@ $(document).ready(function () {
     $('.main-header__overlay').click(function () {
         $menu.removeClass('_open');
         $body.removeClass('_open-menu');
+        $('.main-header__search').removeClass('_show');
     });
 
     $overlay.click(function () {
@@ -106,6 +111,9 @@ $(document).ready(function () {
         $('.about-videos__slider-item._prev-slide').removeClass('_prev-slide');
         $(slick.$slides[currentSlide]).addClass('_prev-slide');
         $('.about-videos__count-slides__current').text(nextSlide + 1);
+        if ($(slick.$slides[currentSlide]).find('.about-videos__slider-item__video iframe').length) {
+            $(slick.$slides[currentSlide]).find('.about-videos__slider-item__video iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+        }
     });
 
     $('.about-videos__count-slides__all span').text($('.about-videos__slider-item').length);
@@ -538,6 +546,19 @@ $(document).ready(function () {
         });
 
         myMap.geoObjects.add(myPlacemark);
+
+        myMap.behaviors.disable('scrollZoom');
+
+        $('.main-footer').click(function () {
+            myMap.behaviors.enable('scrollZoom');
+        });
+
+        $(document).mouseup(function (e){
+            var div = $('.main-footer');
+            if (!div.is(e.target) && div.has(e.target).length === 0) {
+                myMap.behaviors.disable('scrollZoom');
+            }
+        });
     }
 
     $('.main-header .search').click(function () {
@@ -550,7 +571,7 @@ $(document).ready(function () {
         $body.removeClass('_open-menu');
     });
 
-    $('.custom-select').selectize();
+    $('.select-custom').selectize();
 
     $('#phone-input, #phone-input-popup').mask('+ 7 (999) 999-99-99');
 
@@ -609,8 +630,8 @@ $(document).ready(function () {
     });
 
     window.addEventListener('load', function () {
-        $('.how-we-work .wave-bg').addClass('_ready').find('.wave-bg__inner').sprite({fps: 12, no_of_frames: 124});
-        // $('.team .wave-bg').addClass('_ready').find('.wave-bg__inner').sprite({fps: 12, no_of_frames: 124});
+        $('.how-we-work .wave-bg').addClass('_ready');
+        $('.team .wave-bg').addClass('_ready');
     });
 
 
@@ -621,10 +642,67 @@ $(document).ready(function () {
         width: 500,
     });
 
-    // $('.popup__callback .callback-block__form__submit-inner').sprite({
-    //     fps: 12,
-    //     no_of_frames: 62,
-    //     width: 500,
-    // });
+    $('.portfolio__item__popup-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.portfolio__item__popup-slider-nav',
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    fade: false,
+                }
+            },
+        ]
+    });
+    $('.portfolio__item__popup-slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.portfolio__item__popup-slider',
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true,
+        vertical: true,
+        prevArrow: '<button type="button" class="slick-prev"><svg class="icon icon-arrow-slider-left"><use xlink:href="/static/img/svg/symbol/sprite.svg#arrow-slider-left"></use></svg></button>',
+        nextArrow: '<button type="button" class="slick-next"><svg class="icon icon-arrow-slider-right"><use xlink:href="/static/img/svg/symbol/sprite.svg#arrow-slider-right"></use></svg></button>',
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    vertical: false,
+                }
+            },
+        ]
+    });
+
+    $('.portfolio__item-img').click(function () {
+        var par = $(this).closest('.portfolio__item');
+
+        $('.portfolio__item').removeClass('_active').find('.portfolio__item__popup').removeClass('_no-overflow');
+        par.addClass('_active');
+
+        setTimeout(function () {
+            par.find('.portfolio__item__popup').addClass('_no-overflow');
+        }, 200);
+    });
+
+    $('.portfolio__item__popup-close').click(function () {
+        $(this).closest('.portfolio__item__popup').removeClass('_no-overflow').closest('.portfolio__item').removeClass('_active');
+    });
+
+    $('.popup').click(function (e) {
+        if ($(e.target).closest('.popup__wrap').length === 0) {
+            $(this).removeClass('_open');
+        }
+    });
+
+    $( document ).on( 'keydown', function ( e ) {
+        if ( e.keyCode === 27 ) { // ESC
+            $('.popup').removeClass('_open');
+        }
+    });
 
 });

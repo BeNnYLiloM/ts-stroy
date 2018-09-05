@@ -35,7 +35,7 @@
             top: 40px
 
         .separate
-            margin-top: 28px
+            margin-top: 25px
 
         .phone
             margin-top: 24px
@@ -215,6 +215,11 @@
         line-height: 30px
         font-weight: 700
         color: $cRed
+        transition: color .2s ease-out
+
+        &:hover
+            text-decoration: none
+            color: darken($cRed, 10%)
 
     &-icon
         font-size: 17px
@@ -259,6 +264,52 @@
         color: $cRedDark
 
 
+
+.no-home
+    .main-header
+        position: fixed
+        top: 0
+        width: 100%
+        height: 104px
+        background: #161719
+        z-index: 200
+
+        &._show
+            top: 0
+            transition: .2s ease-out
+
+        .logo
+            margin-top: 8px
+            width: 130px
+
+            &__top
+                display: block
+
+            &__fixed
+                display: none
+
+        .main-header
+            &__left-side
+                margin-top: 20px
+
+        .menu__btn
+            top: 40px
+
+        .separate
+            margin-top: 28px
+
+        .phone
+            margin-top: 24px
+
+            &-icon
+                margin-top: 24px
+
+        .search
+            margin-top: 23px
+
+
+
+
 +max-screen(1030px)
     .main-header
         padding-left: 30px
@@ -283,8 +334,8 @@
         .phone
             position: relative
             
-            &::before
-                content: "" 
+            //&::before
+                content: ""
                 background: #34332f
                 width: 1px
                 height: 11px
@@ -297,16 +348,35 @@
                 
             &-icon
                 margin-right: 66px
+                position: relative
+
+                //&::before
+                    content: ""
+                    background: #34332f
+                    width: 1px
+                    height: 11px
+                    position: absolute
+                    top: 2px
+                    left: 45px
                 
         .mail
             display: none
             
         .separate
-            display: none
+            position: relative
+            margin: 12px 0 0
+            left: -31px
             
     .logo
         width: 130px
         margin-right: 60px
+
+    .no-home
+        .main-header
+            .separate
+                position: relative
+                margin: 27px 0 0
+                left: -31px
 
 
 +max-screen(767px)
@@ -346,6 +416,9 @@
             &-icon
                 margin-right: 31px
 
+        .separate
+            left: -15px
+
         &__search
             .container
                 padding: 0 20px
@@ -377,3 +450,12 @@
 
         &__fixed
             width: 30px
+
+    .no-home
+        .main-header
+            .logo
+                width: 80px
+                margin-top: 16px
+
+            .separate
+                left: -15px

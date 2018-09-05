@@ -1,6 +1,6 @@
 module.exports = function() {
     $.gulp.task('img:dev', () => {
-        return $.gulp.src(['./dev/static/img/**/*', '!./dev/static/img/svg/**/*'])
+        return $.gulp.src(['./dev/static/img/**/*', '!./dev/static/img/svg/**/*', '!./dev/static/img/icons/wave-btn/*'])
             .pipe($.gulp.dest('./build/static/img/'));
     });
 

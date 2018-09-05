@@ -344,6 +344,13 @@
                 letter-spacing: .26px
                 color: $cWhite
                 line-height: 1.35
+                height: calc(100% - 20px)
+                overflow-y: auto
+                margin-top: 1.5rem
+                padding-right: 10px
+
+                p:first-child
+                    margin-top: 0
 
         &__number
             font-family: $fPN
@@ -638,8 +645,10 @@
                         position: absolute
                         top: 0
                         left: 0
-                        width: calc(100% - 10px)
-                        height: calc(100% - 10px)
+                        //width: calc(100% - 10px)
+                        //height: calc(100% - 10px)
+                        width: 100%
+                        height: 100%
                         border: 5px solid $cRed
                         border-radius: 50%
 

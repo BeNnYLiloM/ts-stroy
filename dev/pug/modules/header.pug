@@ -1,3 +1,5 @@
+// Begin main-header
+
 header.main-header
     .flex.flex--jcsb
         .main-header__left-side.flex.flex--aifs
@@ -19,7 +21,7 @@ header.main-header
                 i(class="fa fa-search" aria-hidden="true")
 
         .phone
-            .phone-number +7 (495) 127 06 65
+            a.phone-number(href="tel:+74951270665") +7 (495) 127 06 65
             .mail
                 a(href='mailto:remont@tn-ss.ru') remont@tn-ss.ru
 
@@ -35,13 +37,13 @@ header.main-header
                 .menu__content.flex.flex--fdc.flex--jcsb
                     nav.menu__nav.nav
                         .nav__item
-                            a(href='#') О нас
+                            a(href='about.html') О нас
                         .nav__item
-                            a(href='#') Портфолио
+                            a(href='portfolio.html') Портфолио
+                        //.nav__item
+                        //    a(href='#') База знаний
                         .nav__item
-                            a(href='#') База знаний
-                        .nav__item
-                            a(href='#') Контакты
+                            a(href='contacts.html') Контакты
 
                     .menu__contacts
                         button.callback-btn.w-100 Обратный звонок
@@ -111,3 +113,5 @@ header.main-header
                             .main-header__search__cross.main-header__search__cross--right
 
     .main-header__overlay
+
+// End .main-header
