@@ -18,14 +18,15 @@
             transition: .2s ease-out
 
         .logo
-            margin-top: 10px
+            margin-top: 6px
             width: auto
 
             &__top
-                display: none
+                //display: none
+                width: 130px
 
             &__fixed
-                display: block
+                //display: block
 
         .main-header
             &__left-side
@@ -38,13 +39,16 @@
             margin-top: 25px
 
         .phone
-            margin-top: 24px
+            margin-top: 34px
             
             &-icon
-                margin-top: 24px
+                margin-top: 18px
 
         .search
             margin-top: 23px
+
+        .mail
+            margin-top: 11px
 
     &__left-side
         color: $cRed
@@ -210,7 +214,7 @@
 
 .phone
     &-number
-        font-size: 20px
+        font-size: 30px
         letter-spacing: .8px
         line-height: 30px
         font-weight: 700
@@ -222,7 +226,7 @@
             color: darken($cRed, 10%)
 
     &-icon
-        font-size: 17px
+        font-size: 24px
         cursor: pointer
         margin-top: 9px
         height: 17px
@@ -230,9 +234,10 @@
 
 .mail
     letter-spacing: .8px
+    font-size: 20px
 
     a
-        color: #fff
+        color: $cRed
         text-decoration: none
 
         &:hover
@@ -284,6 +289,7 @@
 
             &__top
                 display: block
+                width: 130px
 
             &__fixed
                 display: none
@@ -299,13 +305,16 @@
             margin-top: 28px
 
         .phone
-            margin-top: 24px
+            margin-top: 34px
 
             &-icon
                 margin-top: 24px
 
         .search
             margin-top: 23px
+
+        .mail
+            margin-top: 13px
 
 
 
@@ -360,7 +369,7 @@
                     left: 45px
                 
         .mail
-            display: none
+            //display: none
             
         .separate
             position: relative
@@ -400,8 +409,14 @@
             .logo
                 margin-top: 14px
 
+                &__top
+                    width: 80px
+
             .menu__btn
                 top: 19px
+
+            .mail
+                margin-top: 13px
 
         &__left-side
             margin-top: 30px
@@ -415,6 +430,7 @@
 
             &-icon
                 margin-right: 31px
+                font-size: 20px
 
         .separate
             left: -15px
@@ -443,6 +459,9 @@
 
             &__btn
                 right: 12px
+
+    .mail
+        font-size: 19px
 
     .logo
         width: 89px

@@ -59,8 +59,18 @@ $(document).ready(function () {
     });
 
     $('.main-slider__item').click(function () {
+        var vid = $('.main-slider__item._active .main-slider__item__video video');
+
+        if (vid.length !== 0) {
+            vid[0].pause();
+        }
+
         $('.main-slider__item').removeClass('_active');
         $(this).addClass('_active');
+
+        if ($(this).find('.main-slider__item__video video').length !== 0) {
+            $(this).find('.main-slider__item__video video')[0].play();
+        }
     });
 
     function counter (el) {
@@ -618,7 +628,14 @@ $(document).ready(function () {
     });
 
     $('form#calculate').submit(function () {
-        $(this).find('.callback-block__form__item').addClass('_error');
+        var th = $(this);
+
+        th.find('input').each(function () {
+            if ($(this).val() === '') {
+                console.log(222);
+                $(this).closest('.callback-block__form__item').addClass('_error');
+            }
+        });
 
         return false;
     });
